@@ -4,8 +4,10 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { CategoriesComponent } from './homepage/categories/categories.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProductcategoryComponent } from './homepage/productcategory/productcategory.component';
+// import { WelcomepageComponent } from './WelcomePage/welcomepage.component';
 
 const routes: Routes = [
+  // {path:"",component:WelcomepageComponent}
   {path:"",component:HomepageComponent,
 children:[
   {path:"",component:CategoriesComponent},

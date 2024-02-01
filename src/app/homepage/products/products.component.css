@@ -4,3 +4,19 @@
   font-size: 1rem;
 
 }
+.product{
+  background-color: white;
+
+}
+.radiobutton{
+display: flex;
+gap: 2px;
+
+align-items: center;
+
+}
+.radiobutton input, .radiobutton label {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
