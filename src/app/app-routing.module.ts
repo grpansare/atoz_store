@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { SigninComponent } from './SignIn/signin.component';
 import { LoginComponent } from './Login/login.component';
 import { WelcomepageComponent } from './WelcomePage/welcomepage.component';
@@ -23,10 +24,6 @@ const routes: Routes = [
   
   ]
   },
-  
-  
-
-
 ];
 
 @NgModule({

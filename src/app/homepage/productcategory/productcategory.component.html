@@ -1,0 +1,57 @@
+<!-- <div style="height: 100vh;" class="main-nav">
+  <mat-toolbar class="nvb">
+    <mat-toolbar-row fxLayout="row"  class="h-100 " >
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <i class="fa-solid fa-filter"></i>
+      </button>
+
+
+
+        <div fxShow="true" fxHide.lt-md fxLayout="row" fxLayoutAlign="end center" class=" mr-5">
+        <app-filters></app-filters>
+
+
+
+
+
+
+
+
+
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill class="main-nav" >
+    <mat-sidenav #sidenav >
+      <mat-nav-list>
+      <app-filters></app-filters>
+
+
+
+
+
+
+
+
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content  >
+<app-products ></app-products>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div> -->
+ <div class="productandfilters">
+
+   <button class="icons"  (click)="handleClick()" >
+  <i
+
+   class="fas fa-2xl fa-filter"
+    ></i>
+    </button>
+  <div [class]=" showfilters ?'filter active'   :'filter'">
+ <app-filters></app-filters>
+ </div>
+ <app-products ></app-products>
+ </div>

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { WelcomepageComponent } from './WelcomePage/welcomepage.component';
 import { SigninComponent } from './SignIn/signin.component';
 import { LoginComponent } from './Login/login.component';
@@ -12,19 +13,13 @@ import { LoginComponent } from './Login/login.component';
 import {MatFormFieldModule, MatLabel} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
-import {MatSelectModule} from '@angular/material/select';
+import {MatOption, MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
-import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FlexLayoutModule } from "@angular/flex-layout";
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
 import { NavbarComponent } from './Navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CategoriesComponent } from './homepage/categories/categories.component';
@@ -33,6 +28,8 @@ import { ProductcategoryComponent } from './homepage/productcategory/productcate
 import { ProductsComponent } from './homepage/products/products.component';
 import { UpdateprofileComponent } from './homepage/updateprofile/updateprofile.component';
 import { ProfileComponent } from './profile/profile.component';
+
+
 
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
@@ -50,6 +47,18 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import { MAT_NAV_LIST, MatListModule, MatNavList } from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
+import { FlexLayoutModule } from "@angular/flex-layout";
+
+
+import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
+import { ThemeService } from './theme.service';
+
+
 
 @NgModule({
   declarations: [
@@ -65,7 +74,16 @@ import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
     ProductcategoryComponent,
     ProductsComponent,
     UpdateprofileComponent,
-    ProfileComponent
+    ProfileComponent,
+
+    HomepageComponent,
+   CategoriesComponent,
+   ProductsComponent,
+   ProfileComponent,
+   ProductcategoryComponent,
+   FiltersComponent,
+   UpdateprofileComponent,
+   ThemeToggleComponent
   ],
   imports: [
     BrowserModule,
@@ -95,6 +113,25 @@ import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 
 
     MdbAccordionModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatSelectModule,
+    MatLabel,
+    MatFormFieldModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    FlexLayoutModule,
+
+
+
+
+MatOption,
+MdbAccordionModule,
 MdbCarouselModule,
 MdbCheckboxModule,
 MdbCollapseModule,
@@ -108,10 +145,18 @@ MdbRippleModule,
 MdbScrollspyModule,
 MdbTabsModule,
 MdbTooltipModule,
-MdbValidationModule
+
+MdbValidationModule,
+MdbValidationModule,
+HttpClientModule,
+FormsModule,
+
+
+
+
 
   ],
-  providers: [],
+  providers: [ThemeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
