@@ -1,0 +1,196 @@
+.menu-spacer {
+    flex: 1 1 auto;
+  }
+  .navbar {
+    width: 100%;
+  }
+
+  
+
+
+
+.w-100{
+    height: 600px;
+    width: 100%;
+}
+.slide{
+  color: white;
+}
+
+
+
+
+
+
+#about{
+  background-image: url('/assets/imgabout.webp');
+}
+  .content{
+    padding: 2%;
+    font-size: 50px;
+    font-family: "papyrus", fantasy;
+    text-align: center;
+    color: black;
+  }
+  #content{
+    padding: 2%;
+    font-size: 50px;
+    font-family: "papyrus", fantasy;
+    text-align: center;
+    color: black;
+  }
+  .info{
+    font-family: "papyrus", fantasy;
+    text-align: center;
+    color: black;
+  }
+  .info1{
+    font-family: "copperplate", fantasy;
+    color: black;
+    font-size: 30px;
+  }
+
+
+
+
+
+.backgroundimg {
+  background-image: url('/assets/bgimg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 400px;
+  width: 100%;
+
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .btn{
+    background-color: black;
+    color: white;
+    border: 1px black solid;
+  }
+
+
+#main{
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+#footer{
+  margin: 5%;
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+}
+.footer{
+  text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h2{
+    color: yellow;
+}
+h4:hover{
+    cursor: pointer;
+    color: cyan;
+}
+
+
+#logo{
+    text-align: center;
+}
+.logo{
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+hr{
+    width: 100%;
+}
+#logo1{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 5%;
+
+}
+@media only screen and (max-width: 768px) {
+  #img{
+    height: 100vh;
+    width: 100%;
+  }
+  .content, #content {
+    font-size: 5vw; /* Adjust font size for smaller screens */
+  }
+
+  .info {
+    font-size: 4vw; /* Adjust font size for smaller screens */
+  }
+
+  .info1 {
+    font-size: 3vw; /* Adjust font size for smaller screens */
+  }
+}
+
+/* Media Query for large screens */
+@media only screen and (min-width: 1200px) {
+  #img{
+    height: 100vh;
+    width: 100%;
+  }
+  .content, #content {
+    font-size: 2rem; /* Adjust font size for larger screens */
+  }
+
+  .info {
+    font-size: 1.8rem; /* Adjust font size for larger screens */
+  }
+
+  .info1 {
+    font-size: 1.5rem; /* Adjust font size for larger screens */
+  }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+  /* Adjustments for smaller screens */
+  #submain {
+    flex-direction: column;
+  }
+  #footer {
+    margin-left: 5%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  /* Further adjustments for even smaller screens */
+  .footer {
+    flex-direction: column;
+
+       width: 20%;    
+  }
+}
+
+
+@media only screen and (max-width: 1200px) {
+  /* Further adjustments for even smaller screens */
+  #footer {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+
