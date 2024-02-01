@@ -53,9 +53,9 @@ import {MatIconModule} from '@angular/material/icon';
 import { MAT_NAV_LIST, MatListModule, MatNavList } from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import { FlexLayoutModule } from "@angular/flex-layout";
-
-
 import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
+import { ChangePasswordComponent } from './ForgotPassword/change-password.component';
+import { NotfoundComponent } from './NotfoundPage/notfound.component';
 
 
 
@@ -83,7 +83,9 @@ import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
    ProductcategoryComponent,
    FiltersComponent,
    UpdateprofileComponent,
-   ThemeToggleComponent
+   ThemeToggleComponent,
+   ChangePasswordComponent,
+   NotfoundComponent
 
   ],
   imports: [
@@ -151,7 +153,6 @@ MdbValidationModule,
 MdbValidationModule,
 HttpClientModule,
 FormsModule,
-
 
 
 
