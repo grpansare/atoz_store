@@ -3,7 +3,7 @@
 
 }
 .content{
-  background-color: #89c3f2;
+  background-color: #f4f4f4;
 }
 
 .btn{
@@ -91,7 +91,7 @@ padding: 0.3rem 0.9rem;
   z-index: 999;
 }
 .navbar{
-  background-color: #68b7f7;
+  background-color: #8ecae6;
 
   display: flex;
   align-items: center;

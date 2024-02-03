@@ -12,6 +12,8 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent {
 
+  private baseUrl:any = "http://localhost:8081/user"; 
+  loginimg:string="https://i.pinimg.com/1200x/f5/6b/6f/f56b6fa94babecfbe8dd467e8df0af96.jpg";
 
   constructor(private http: HttpClient,private router: Router) { 
 
@@ -39,12 +41,11 @@ export class LoginComponent {
 
   console.log(this.data)
   
+  console.log(this.login.value);
   
-this.http.post("http://localhost:8081/user/loginuser",this.login.value).subscribe(
+this.http.post(this.baseUrl+"/loginuser",this.login.value).subscribe(
   response =>{
     if(response!=null){
-
-    alert("ram ram bhai sarane")
     Swal.fire({
       icon: 'success',
       title: 'Login Successful!',

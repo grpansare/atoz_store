@@ -15,8 +15,6 @@ export class SigninComponent {
 
   isSubmited:boolean=false;
   
-  
-
   constructor(private http: HttpClient,private router: Router,private formBuilder:FormBuilder) { 
 
   }
@@ -120,10 +118,10 @@ export class SigninComponent {
 
       console.log(registeringData);
 
-      this.http.post(this.baseUrl + "/adduser", registeringData).subscribe(
+      this.http.post(this.baseUrl + "/newuser", registeringData).subscribe(
         (response: any) => {
           // Handle success response
-          // alert("Registered successfully!");
+          alert("Registered successfully!");
           console.log(response);
 
           Swal.fire({
