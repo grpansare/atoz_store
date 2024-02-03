@@ -43,7 +43,8 @@ export class LoginComponent {
 this.http.post("http://localhost:8081/user/loginuser",this.login.value).subscribe(
   response =>{
     if(response!=null){
-
+    var user = JSON.stringify(response);
+      localStorage.setItem("username",user)
     alert("ram ram bhai sarane")
     Swal.fire({
       icon: 'success',
@@ -72,7 +73,7 @@ error => {
     icon: 'error',
     title: 'Login Failed',
     text: 'Invalid username or password. Please try again.',
-  });
+  });
 
 }
 );
