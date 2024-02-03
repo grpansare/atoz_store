@@ -13,17 +13,17 @@ import Swal from 'sweetalert2';
 export class LoginComponent {
 
 
-  constructor(private http: HttpClient,private router: Router) { 
+  constructor(private http: HttpClient,private router: Router) {
 
   }
 
   login=new FormGroup({
     username:new FormControl("",[Validators.required,Validators.pattern(/^\S*$/)]),
     password:new FormControl("",[Validators.required ]),
-    
+
   });
-  
-  
+
+
 
   get username():any{
     return this.login.get('username');
@@ -38,19 +38,19 @@ export class LoginComponent {
  handleSubmit(){
 
   console.log(this.data)
-  
-  
-this.http.post("http://localhost:8081/user/loginuser",this.login.value).subscribe(
-  response =>{
-    if(response!=null){
 
-    alert("ram ram bhai sarane")
+
+this.http.post("http://localhost:8081/user/loginuser",this.login.value).subscribe(
+  (response:any) =>{
+    if(response!=null){
+    localStorage.setItem('username',response.username)
+
     Swal.fire({
       icon: 'success',
       title: 'Login Successful!',
       text: 'Welcome back!',
     });
-    
+
     this.router.navigateByUrl("/home");
   }
   else{
@@ -62,7 +62,7 @@ this.http.post("http://localhost:8081/user/loginuser",this.login.value).subscrib
       title: 'Wrong Credentials',
       text: 'Please check your username and password.',
     });
-  }       
+  }
 },
 error => {
 

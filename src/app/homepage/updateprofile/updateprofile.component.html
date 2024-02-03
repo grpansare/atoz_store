@@ -7,11 +7,38 @@
 		<form>
 			<div class="mb-3">
 				<div class="input-group">
-          <mat-form-field appearance="fill">
-            <mat-label>Fill form field</mat-label>
-            <input matInput placeholder="Placeholder">
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            <mat-hint>Hint</mat-hint>
+
+          <mat-form-field class="w-1/2 p-2" appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input matInput [(ngModel)]="user.firstname" name="firstname">
+            <mat-icon matSuffix>name</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="w-1/2 p-2" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput [(ngModel)]="user.lastname" name="lastname">
+            <mat-icon matSuffix>name</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="w-full p-2" appearance="fill">
+            <mat-label>Phone number</mat-label>
+            <input matInput [(ngModel)]="user.contactno" name="phoneno">
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="w-full p-2" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="user.email" name="email">
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+          <mat-form-field class="w-full" >
+            <mat-label>Gender</mat-label>
+            <div>
+            <mat-select formControlName="gender">
+              <mat-option value="Male">Male</mat-option>
+              <mat-option value="Female">Female</mat-option>
+            </mat-select>
+          </div>
+            <mat-icon matSuffix>gender</mat-icon>
+
           </mat-form-field>
 				</div>
 			</div>

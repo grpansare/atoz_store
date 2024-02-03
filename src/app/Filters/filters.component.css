@@ -233,10 +233,9 @@
 .filters {
   background-color: #f7f7f7;
   padding: 1rem;
-
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
+
   /* Styling for Filter Categories */
   div.my-2 {
     font-size: 1.2rem;
@@ -327,9 +326,6 @@ button[type="submit"]:hover {
   .products {
     margin-left: 0; /* Remove the margin for product display on small screens */
   }
-  .filters{
-
-  }
 }
 
 /* Bootstrap Container Classes */
@@ -339,7 +335,6 @@ button[type="submit"]:hover {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-
 }
 
 /* Bootstrap Flex Classes */
@@ -363,9 +358,9 @@ button[type="submit"]:hover {
 
 
 
-/* Custom Styles for Product Display
+/* Custom Styles for Product Display 
 .products {
-  margin-left: 1.5rem;
+  margin-left: 1.5rem; 
 }
 
 .prodbox {
@@ -380,7 +375,7 @@ button[type="submit"]:hover {
   width: 300px;
   padding: 20px;
   margin: 20px;
-  background-color: beige;
+  background-color: beige; 
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

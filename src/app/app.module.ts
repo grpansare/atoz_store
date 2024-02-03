@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ThemeService } from './theme.service';
 
 import { WelcomepageComponent } from './WelcomePage/welcomepage.component';
 import { SigninComponent } from './SignIn/signin.component';
@@ -26,7 +26,6 @@ import { CategoriesComponent } from './homepage/categories/categories.component'
 import { FiltersComponent } from './homepage/filters/filters.component';
 import { ProductcategoryComponent } from './homepage/productcategory/productcategory.component';
 import { ProductsComponent } from './homepage/products/products.component';
-import { UpdateprofileComponent } from './homepage/updateprofile/updateprofile.component';
 import { ProfileComponent } from './profile/profile.component';
 
 
@@ -53,17 +52,18 @@ import {MatIconModule} from '@angular/material/icon';
 import { MAT_NAV_LIST, MatListModule, MatNavList } from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import { FlexLayoutModule } from "@angular/flex-layout";
-
-
 import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
-import { ThemeService } from './theme.service';
+import { ChangePasswordComponent } from './ForgotPassword/change-password.component';
+import { NotfoundComponent } from './NotfoundPage/notfound.component';
+import { UpdateprofileComponent } from './homepage/updateprofile/updateprofile.component';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-   
+
     WelcomepageComponent,
     SigninComponent,
     LoginComponent,
@@ -73,9 +73,9 @@ import { ThemeService } from './theme.service';
     FiltersComponent,
     ProductcategoryComponent,
     ProductsComponent,
-    UpdateprofileComponent,
-    ProfileComponent,
 
+    ProfileComponent,
+    UpdateprofileComponent,
     HomepageComponent,
    CategoriesComponent,
    ProductsComponent,
@@ -83,13 +83,16 @@ import { ThemeService } from './theme.service';
    ProductcategoryComponent,
    FiltersComponent,
    UpdateprofileComponent,
-   ThemeToggleComponent
+   ThemeToggleComponent,
+   ChangePasswordComponent,
+   NotfoundComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
@@ -150,7 +153,6 @@ MdbValidationModule,
 MdbValidationModule,
 HttpClientModule,
 FormsModule,
-
 
 
 
