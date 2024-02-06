@@ -9,6 +9,9 @@
 
           <div class="form-fields">
             <div class="input-group">
+
+              <div class="row">
+                <div class="col">
           <mat-form-field class="full-width">
             <mat-label>First Name</mat-label>
             <div class="full-width" [ngClass]="{ 'has-danger': firstname.invalid && (firstname.dirty || firstname.touched),
@@ -23,7 +26,8 @@
           <p *ngIf="firstname.errors.required">Firstname is required</p>
           <p *ngIf="firstname.errors?.pattern">Firstname Must be Capitalize without Space</p>
       </div>
-
+</div>
+<div class="col">
         <mat-form-field class="full-width" >
           <mat-label>Last Name</mat-label>
           <div class="form-group" [ngClass]="{ 'has-danger': lastname.invalid && (lastname.dirty || lastname.touched),
@@ -36,7 +40,8 @@
           <p *ngIf="lastname.errors.required">Lastname is required</p>
           <p *ngIf="lastname.errors?.pattern">Lastname Must be Capitalize without Space</p>
       </div>
-
+              </div>
+</div>
 
       <mat-form-field class="full-width" >
         <mat-label>Gender</mat-label>

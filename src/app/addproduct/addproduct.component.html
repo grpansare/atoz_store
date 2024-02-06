@@ -1,0 +1,104 @@
+<div class="bootstrap-wrapper">
+  <div class="container formbox text-center">
+    <div class="row register-container">
+      <div class="col-md-8 ml-3 col-sm-4">
+        <h2 class="mb-5">Sign In</h2>
+        <form id="signin" (ngSubmit)="handleSubmit()"  [formGroup]="addproduct">
+
+          <div class="form-fields">
+            <div class="input-group">
+
+              <div class="row">
+                <div class="col">
+                  <mat-form-field class="full-width">
+                    <mat-label>Category</mat-label>
+                    <input matInput placeholder="" formControlName="category" id="category" type="text">
+                    <mat-icon matSuffix>person</mat-icon>
+                  </mat-form-field>
+                </div>
+                <div class="col">
+                  <mat-form-field class="full-width">
+                    <mat-label>Color1</mat-label>
+                    <input matInput placeholder="" formControlName="color1" type="text">
+                    <mat-icon matSuffix>person</mat-icon>
+                  </mat-form-field>
+
+                  <mat-form-field class="full-width">
+                    <mat-label>Color2</mat-label>
+                    <input matInput placeholder="" formControlName="color2" type="text">
+                    <mat-icon matSuffix>person</mat-icon>
+                  </mat-form-field>
+
+                  <mat-form-field class="full-width">
+                    <mat-label>Color3</mat-label>
+                    <input matInput placeholder="" formControlName="color3" type="text">
+                    <mat-icon matSuffix>person</mat-icon>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <mat-form-field class="full-width">
+                <mat-label>Description</mat-label>
+                <input matInput placeholder="" formControlName="description" type="text">
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+
+              <div class="input-group">
+
+                <label for="">Image</label>  <input placeholder="" id="image" accept="image/*" type="file" (change)="getImage($event)">
+
+
+                <div *ngIf="imagepreview">
+                  <img [src]="imagepreview" alt="" style="width: 400px; height: 400px;"  class="img-thumbnail mb-3">
+
+                </div>
+
+                <mat-form-field class="full-width">
+                  <mat-label>Offer</mat-label>
+                  <input matInput placeholder="" formControlName="offer" type="text">
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                  <mat-label>Price</mat-label>
+                  <input matInput placeholder="" formControlName="price" type="number">
+                </mat-form-field>
+              </div>
+
+              <mat-form-field class="full-width">
+                <mat-label>Product Name</mat-label>
+                <input matInput placeholder="" formControlName="productname" type="text">
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Quantity</mat-label>
+                <input matInput placeholder="" formControlName="quantity" type="number">
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Size1</mat-label>
+                <input matInput placeholder="" formControlName="size1" type="text">
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Size2</mat-label>
+                <input matInput placeholder="" formControlName="size2" type="text">
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field class="full-width">
+                <mat-label>Size3</mat-label>
+                <input matInput placeholder="" formControlName="size3" type="text">
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button mat-raised-button [disabled]="!addproduct.valid" class="full-width btn-primary" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

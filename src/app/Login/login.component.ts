@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-
+   user:any={};
 
   constructor(private http: HttpClient,private router: Router) {
 
@@ -43,8 +43,11 @@ export class LoginComponent {
 this.http.post("http://localhost:8081/user/loginuser",this.login.value).subscribe(
   (response:any) =>{
     if(response!=null){
-    localStorage.setItem('username',response.username)
-
+      localStorage.setItem('username',response.username)
+      const user=JSON.stringify(response);
+      localStorage.setItem('user',user);
+      console.log(  localStorage.getItem('user'))
+          alert("ram ram bhai sarane")
     Swal.fire({
       icon: 'success',
       title: 'Login Successful!',
@@ -72,7 +75,7 @@ error => {
     icon: 'error',
     title: 'Login Failed',
     text: 'Invalid username or password. Please try again.',
-  });
+  });
 
 }
 );

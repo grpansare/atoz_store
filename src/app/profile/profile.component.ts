@@ -15,6 +15,8 @@ constructor(private http:HttpClient){
   this.userid=localStorage.getItem('username');
   console.log(this.userid)
   this.getUser();
+  console.log(this.userinfo)
+
 }
 getUser(){
 

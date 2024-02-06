@@ -12,7 +12,6 @@ export class UpdateprofileComponent {
   @Input() user:any={};
 
   constructor(private http:HttpClient){
-
   }
 
   private modalService = inject(NgbModal);

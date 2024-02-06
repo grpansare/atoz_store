@@ -55,7 +55,14 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
 import { ChangePasswordComponent } from './ForgotPassword/change-password.component';
 import { NotfoundComponent } from './NotfoundPage/notfound.component';
+import { CartpageComponent } from './CartPage/cartpage.component';
+import { LogoutComponent } from './Logout/logout.component';
+import { ProductsummaryComponent } from './Productsummary/productsummary.component';
 import { UpdateprofileComponent } from './homepage/updateprofile/updateprofile.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { PaginatorComponent } from './paginator/paginator.component';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddproductComponent } from './addproduct/addproduct.component';
 
 
 
@@ -75,17 +82,23 @@ import { UpdateprofileComponent } from './homepage/updateprofile/updateprofile.c
     ProductsComponent,
 
     ProfileComponent,
-    UpdateprofileComponent,
+
     HomepageComponent,
    CategoriesComponent,
    ProductsComponent,
    ProfileComponent,
    ProductcategoryComponent,
    FiltersComponent,
-   UpdateprofileComponent,
+
    ThemeToggleComponent,
    ChangePasswordComponent,
-   NotfoundComponent
+   NotfoundComponent,
+   CartpageComponent,
+   LogoutComponent,
+   ProductsummaryComponent,
+   UpdateprofileComponent,
+   PaginatorComponent,
+   AddproductComponent
 
   ],
   imports: [
@@ -98,6 +111,7 @@ import { UpdateprofileComponent } from './homepage/updateprofile/updateprofile.c
     MatRadioModule,
     MatSelectModule,
     MatDatepickerModule,
+    MatPaginatorModule,
     MatIconModule,
     MatButtonModule,
     MatCardModule,
@@ -113,7 +127,7 @@ import { UpdateprofileComponent } from './homepage/updateprofile/updateprofile.c
     MatIconModule,
     MatButtonModule,
     FlexLayoutModule,
-
+    NgbPaginationModule,
 
     MdbAccordionModule,
     BrowserAnimationsModule,

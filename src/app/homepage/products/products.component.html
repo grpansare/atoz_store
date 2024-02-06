@@ -6,7 +6,7 @@
 
 
 
-  <div class="rounded-lg product pt-3 px-5  mr-3" *ngFor="let product of products">
+  <div class="rounded-lg product pt-3 px-5  mr-3" *ngFor="let product of displayedProducts">
     <img
       [src]="product.image"
       alt="Laptop"
@@ -55,6 +55,13 @@
       </button>
     </div>
   </div>
+
   </div>
+  <app-paginator
+  [currentPage]="currentPage"
+  [pageSize]="pageSize"
+  [collectionSize]="products.length"
+  (pageChange)="onPageChange($event)">
+</app-paginator>
 
 

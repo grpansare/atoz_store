@@ -3,6 +3,7 @@
 }
 .navbar {
   width: 100%;
+
 }
 .logo{
   display: flex;
@@ -20,6 +21,7 @@ background-color:rgb(6, 143, 174);
 
 .colornav{
   background-color: #232F3E;
+
 }
 
 

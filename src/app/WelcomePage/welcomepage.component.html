@@ -1,4 +1,4 @@
-<div style="height: 100vh;">
+<div style="height: 100vh; " >
   <mat-toolbar color="primary"         class="colornav"
   >
     <mat-toolbar-row>
@@ -40,7 +40,7 @@
     <mat-sidenav-content fxFlexFill>
 <!--carousel-->
 
-<div id="carouselexample" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-keyboard="true">
+<div id="carouselexample" class="carousel slide carousel-fade mt-0" data-bs-ride="carousel" data-bs-keyboard="true">
   <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="2000">
           <img src="assets/beauty.jpeg" class="w-100">
@@ -105,7 +105,7 @@
 
 
 <!--about us-->
-<div id="aboutus">
+<div id="aboutus"  [@scrollAnimation]="animationState">
 <div id="about">
 <div id="content">
   <h1 class="content"><b> A to Z</b></h1>
