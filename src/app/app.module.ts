@@ -56,6 +56,9 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
 import { ChangePasswordComponent } from './ForgotPassword/change-password.component';
 import { NotfoundComponent } from './NotfoundPage/notfound.component';
+import { CartpageComponent } from './CartPage/cartpage.component';
+import { LogoutComponent } from './Logout/logout.component';
+import { ProductsummaryComponent } from './Productsummary/productsummary.component';
 
 
 
@@ -85,7 +88,10 @@ import { NotfoundComponent } from './NotfoundPage/notfound.component';
    UpdateprofileComponent,
    ThemeToggleComponent,
    ChangePasswordComponent,
-   NotfoundComponent
+   NotfoundComponent,
+   CartpageComponent,
+   LogoutComponent,
+   ProductsummaryComponent
 
   ],
   imports: [

@@ -10,6 +10,9 @@ import { ProductcategoryComponent } from './homepage/productcategory/productcate
 import { ProfileComponent } from './profile/profile.component';
 import { NotfoundComponent } from './NotfoundPage/notfound.component';
 import { ChangePasswordComponent } from './ForgotPassword/change-password.component';
+import { CartpageComponent } from './CartPage/cartpage.component';
+import { LogoutComponent } from './Logout/logout.component';
+import { ProductsummaryComponent } from './Productsummary/productsummary.component';
 
 const routes: Routes = [
   { path: '', component: WelcomepageComponent },
@@ -22,8 +25,11 @@ const routes: Routes = [
   children:[
     {path:"",component:CategoriesComponent},
     {path:"profile",component:ProfileComponent},
-    { path: 'products/:category', component: ProductcategoryComponent }
-    
+    {path:"logout",component:LogoutComponent},
+
+    { path: 'products/:category', component: ProductcategoryComponent },
+    {path:'cart',component:CartpageComponent},
+    {path:"cart/checkout",component:ProductsummaryComponent}   
   ]
   },
   { path: '**', component: NotfoundComponent}

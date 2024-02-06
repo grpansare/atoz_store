@@ -5,6 +5,17 @@
   width: 100%;
 }
 
+a.navlink{
+  transition: all 0.5s;
+}
+a.navlink:hover{
+background-color:rgb(8, 170, 192);
+}
+
+.colornav{
+  background-color: #232F3E;
+}
+
 
 
 
@@ -12,6 +23,8 @@
 img{
   height: 600px;
   width: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 
@@ -328,4 +341,3 @@ hr{
   flex-direction: row;
   padding: 5%;
 }
-

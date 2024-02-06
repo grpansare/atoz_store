@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   styleUrl: './change-password.component.css'
 })
 export class ChangePasswordComponent {
-  private baseUrl:any = 'http://localhost:8182/user'; 
+  private baseUrl:any = 'http://localhost:8081/user'; 
 
   isSubmited:boolean=false;
   generatedOTP:number=0;
@@ -107,9 +107,10 @@ export class ChangePasswordComponent {
     forgotpassData.append('username', this.username.value);
     forgotpassData.append('email', this.email.value);
   
-    console.log(forgotpassData);
+    console.log("username&email"+this.forgotPasswordForm.value);
+    console.log("username"+forgotpassData);
   
-    this.http.post(this.baseUrl + "/forgotpass", forgotpassData).subscribe(
+    this.http.post(this.baseUrl + "/forgotpass", this.forgotPasswordForm.value).subscribe(
       (response: any) => {
         // Handle success response
         console.log(response);
