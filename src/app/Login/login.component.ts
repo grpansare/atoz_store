@@ -12,20 +12,20 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent {
 
-  private baseUrl:any = "http://localhost:8081/user"; 
-  loginimg:string="https://i.pinimg.com/1200x/f5/6b/6f/f56b6fa94babecfbe8dd467e8df0af96.jpg";
+  user:any={};
 
-  constructor(private http: HttpClient,private router: Router) { 
+
+  constructor(private http: HttpClient,private router: Router) {
 
   }
 
   login=new FormGroup({
     username:new FormControl("",[Validators.required,Validators.pattern(/^\S*$/)]),
     password:new FormControl("",[Validators.required ]),
-    
+
   });
-  
-  
+
+
 
   get username():any{
     return this.login.get('username');
@@ -41,19 +41,22 @@ export class LoginComponent {
 
   console.log(this.data)
   
-  console.log(this.login.value);
   
-this.http.post(this.baseUrl+"/loginuser",this.login.value).subscribe(
-  response =>{
+this.http.post("http://localhost:8081/user/loginuser",this.login.value).subscribe(
+  (response:any) =>{
     if(response!=null){
+      localStorage.setItem('username',response.username)
+      const user=JSON.stringify(response);
+      localStorage.setItem('user',user);
+      console.log(  localStorage.getItem('user'))
 
-    alert("ram ram bhai sarane")
+    
     Swal.fire({
       icon: 'success',
       title: 'Login Successful!',
       text: 'Welcome back!',
     });
-    
+
     this.router.navigateByUrl("/home");
   }
   else{
@@ -65,7 +68,7 @@ this.http.post(this.baseUrl+"/loginuser",this.login.value).subscribe(
       title: 'Wrong Credentials',
       text: 'Please check your username and password.',
     });
-  }       
+  }
 },
 error => {
 

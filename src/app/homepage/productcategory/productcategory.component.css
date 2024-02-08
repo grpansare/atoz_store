@@ -34,6 +34,9 @@ width: 100%;
   .icons{
     display: block;
     z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   .nvb{

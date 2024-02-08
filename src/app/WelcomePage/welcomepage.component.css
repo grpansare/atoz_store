@@ -3,17 +3,25 @@
 }
 .navbar {
   width: 100%;
+
+}
+.logo{
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  letter-spacing: 2px;
 }
 
 a.navlink{
   transition: all 0.5s;
 }
 a.navlink:hover{
-background-color:rgb(8, 170, 192);
+background-color:rgb(6, 143, 174);
 }
 
 .colornav{
   background-color: #232F3E;
+
 }
 
 
@@ -26,7 +34,9 @@ img{
   margin: 0px;
   padding: 0px;
 }
-
+#main{
+  background-color: #242423;
+}
 
 
 
@@ -81,7 +91,7 @@ img{
 
 
 
-  
+
 
 
 
@@ -144,7 +154,7 @@ img{
     margin: auto;
     padding: 20px;
   }
-  
+
   .form-group {
     margin-bottom: 20px;
   }
@@ -268,7 +278,7 @@ width: 100%;
 
 #main{
   width: 100%;
-  background-color: #242423;
+  background-color: black;
   color: white;
 }
 #submain{
@@ -304,7 +314,7 @@ width: 100%;
   .footer {
     flex-direction: column;
 
-       width: 20%;    
+       width: 20%;
   }
 }
 

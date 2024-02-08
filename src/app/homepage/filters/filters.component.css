@@ -233,7 +233,7 @@
 .filters {
   background-color: #f7f7f7;
   padding: 1rem;
- 
+
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -327,6 +327,9 @@ button[type="submit"]:hover {
   .products {
     margin-left: 0; /* Remove the margin for product display on small screens */
   }
+  .filters{
+
+  }
 }
 
 /* Bootstrap Container Classes */
@@ -336,6 +339,7 @@ button[type="submit"]:hover {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+
 }
 
 /* Bootstrap Flex Classes */

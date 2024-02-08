@@ -4,6 +4,7 @@
 }
 .content{
   background-color: #f4f4f4;
+  /* background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%); */
 }
 
 .btn{
@@ -91,7 +92,7 @@ padding: 0.3rem 0.9rem;
   z-index: 999;
 }
 .navbar{
-  background-color: #8ecae6;
+  background-color:#8ecae6;
 
   display: flex;
   align-items: center;

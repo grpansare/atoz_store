@@ -16,7 +16,7 @@ export class ProductsummaryComponent implements OnInit {
   constructor(private http:HttpClient){
     //  this.getProducts()
    /* this.userinfo=localStorage.getItem('user')
-    
+
       this.products=[
 {name:"phone",price:"Rs 47,130",quantity:"1",
  colors:["red","blue","White"],
@@ -41,7 +41,7 @@ export class ProductsummaryComponent implements OnInit {
   ngOnInit(): void {
     this.userinfo=localStorage.getItem('user');
    this.userinfo=JSON.parse(this.userinfo)
-    console.log(this.userinfo)
+    // console.log(this.userinfo)
     this.products=[
 {name:"phone",price:47130,quantity:"1",
 colors:["red","blue","White"],
@@ -62,7 +62,7 @@ colors:["red","blue","White"],
       this.sum=this.sum+element.price
       console.log("total :"+this.sum)
     });
-    
+
   }
   // getProducts(){
   //  this.http.get(baseurl/getproducts/${this.category}).subscribe(

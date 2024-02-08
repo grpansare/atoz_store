@@ -8,11 +8,16 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { CategoriesComponent } from './homepage/categories/categories.component';
 import { ProductcategoryComponent } from './homepage/productcategory/productcategory.component';
 import { ProfileComponent } from './profile/profile.component';
+
+// import { WelcomepageComponent } from './WelcomePage/welcomepage.component';
+
 import { NotfoundComponent } from './NotfoundPage/notfound.component';
 import { ChangePasswordComponent } from './ForgotPassword/change-password.component';
 import { CartpageComponent } from './CartPage/cartpage.component';
 import { LogoutComponent } from './Logout/logout.component';
 import { ProductsummaryComponent } from './Productsummary/productsummary.component';
+import { AddproductComponent } from './addproduct/addproduct.component';
+import { AddimageComponent } from './addimage/addimage.component';
 
 const routes: Routes = [
   { path: '', component: WelcomepageComponent },
@@ -20,16 +25,17 @@ const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'forgotpassword', component: ChangePasswordComponent},
   { path: 'login', component: LoginComponent },
+  { path: 'addproduct', component: AddproductComponent},
+  { path: 'addimage', component: AddimageComponent},
 
   {path:"home",component:HomepageComponent,
   children:[
     {path:"",component:CategoriesComponent},
     {path:"profile",component:ProfileComponent},
-    {path:"logout",component:LogoutComponent},
-
     { path: 'products/:category', component: ProductcategoryComponent },
-    {path:'cart',component:CartpageComponent},
-    {path:"cart/checkout",component:ProductsummaryComponent}   
+    { path: 'cart', component: CartpageComponent },
+    { path: 'cart/checkout', component: ProductsummaryComponent},
+    {path:'logout',component:LogoutComponent}
   ]
   },
   { path: '**', component: NotfoundComponent}

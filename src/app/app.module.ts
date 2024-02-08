@@ -26,7 +26,6 @@ import { CategoriesComponent } from './homepage/categories/categories.component'
 import { FiltersComponent } from './homepage/filters/filters.component';
 import { ProductcategoryComponent } from './homepage/productcategory/productcategory.component';
 import { ProductsComponent } from './homepage/products/products.component';
-import { UpdateprofileComponent } from './homepage/updateprofile/updateprofile.component';
 import { ProfileComponent } from './profile/profile.component';
 
 
@@ -59,6 +58,12 @@ import { NotfoundComponent } from './NotfoundPage/notfound.component';
 import { CartpageComponent } from './CartPage/cartpage.component';
 import { LogoutComponent } from './Logout/logout.component';
 import { ProductsummaryComponent } from './Productsummary/productsummary.component';
+import { UpdateprofileComponent } from './homepage/updateprofile/updateprofile.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { PaginatorComponent } from './paginator/paginator.component';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddproductComponent } from './addproduct/addproduct.component';
+import { AddimageComponent } from './addimage/addimage.component';
 
 
 
@@ -66,7 +71,7 @@ import { ProductsummaryComponent } from './Productsummary/productsummary.compone
 @NgModule({
   declarations: [
     AppComponent,
-   
+
     WelcomepageComponent,
     SigninComponent,
     LoginComponent,
@@ -76,7 +81,7 @@ import { ProductsummaryComponent } from './Productsummary/productsummary.compone
     FiltersComponent,
     ProductcategoryComponent,
     ProductsComponent,
-    UpdateprofileComponent,
+
     ProfileComponent,
 
     HomepageComponent,
@@ -85,25 +90,30 @@ import { ProductsummaryComponent } from './Productsummary/productsummary.compone
    ProfileComponent,
    ProductcategoryComponent,
    FiltersComponent,
-   UpdateprofileComponent,
+
    ThemeToggleComponent,
    ChangePasswordComponent,
    NotfoundComponent,
    CartpageComponent,
    LogoutComponent,
-   ProductsummaryComponent
+   ProductsummaryComponent,
+   UpdateprofileComponent,
+   PaginatorComponent,
+   AddproductComponent,
+   AddimageComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
     MatSelectModule,
     MatDatepickerModule,
+    MatPaginatorModule,
     MatIconModule,
     MatButtonModule,
     MatCardModule,
@@ -119,7 +129,7 @@ import { ProductsummaryComponent } from './Productsummary/productsummary.compone
     MatIconModule,
     MatButtonModule,
     FlexLayoutModule,
-
+    NgbPaginationModule,
 
     MdbAccordionModule,
     BrowserAnimationsModule,

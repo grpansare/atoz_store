@@ -1,12 +1,4 @@
-
-
-
-
-
-
-
-
-  <div style="height: 100vh;"  >
+<div  >
   <mat-toolbar class="navbar py-3">
     <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center " >
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
@@ -30,7 +22,6 @@
 
         <a routerLink="cart" >  <div class="cart ">
           <i class="fa-solid fa-cart-shopping"></i>
-
         </div></a>
 
 
@@ -50,7 +41,9 @@
             <button ngbDropdownItem  class=" btn-outline-info" (click)="changeDropDown()">
               <a routerLink="profile" class="text-decoration-none">View Profile <i class="fa-solid fa-eye ml-2"></i></a>
             </button>
-            <a routerLink="logout" ngbDropdownItem class=" btn-outline-info" >Logout <i class="fa-solid fa-sign-out"></i></a>
+            <a routerLink="logout">
+            <button ngbDropdownItem class=" btn-outline-info" (click)="changeDropDown()">Logout <i class="fa-solid fa-sign-out"></i></button>
+            </a>
           </div>
         </div>
 
@@ -117,7 +110,3 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-
-
-
-

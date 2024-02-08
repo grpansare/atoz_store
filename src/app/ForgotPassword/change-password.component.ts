@@ -10,12 +10,12 @@ import Swal from 'sweetalert2';
   styleUrl: './change-password.component.css'
 })
 export class ChangePasswordComponent {
-  private baseUrl:any = 'http://localhost:8081/user'; 
+  private baseUrl:any = 'http://localhost:8182/user';
 
   isSubmited:boolean=false;
   generatedOTP:number=0;
 
-  constructor(private http: HttpClient, private router: Router) { 
+  constructor(private http: HttpClient, private router: Router) {
 
   }
 
@@ -30,11 +30,11 @@ export class ChangePasswordComponent {
     password:new FormControl("",[Validators.required,Validators.minLength(8),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&]).{4,20}$/)]),
     confirmpass:new FormControl("",[Validators.required, this.matchPassword.bind(this)])
   });
-  
+
   matchPassword(control: AbstractControl): { [key: string]: boolean } | null {
     if (!this.forgotPasswordForm || !this.forgotPasswordForm.get('password')) {
       console.error('Form or password control not initialized.');
-      return { 'passwordMismatch': true }; 
+      return { 'passwordMismatch': true };
     }
 
     const password = this.forgotPasswordForm.get('password')?.value;
@@ -76,7 +76,7 @@ export class ChangePasswordComponent {
   //   this.http.post(this.baseUrl + "/forgotpass", forgotpassData).subscribe(
   //     (response: any) => {
   //       // Handle success response
-        
+
   //       console.log(response);
 
   //       if(response!=0)
@@ -84,12 +84,12 @@ export class ChangePasswordComponent {
   //             alert("User Found successfully!");
   //             this.showOtp = true;
   //             this.generatedOTP=response;
-             
+
   //           }
   //           else{
   //             alert("Wrong User")
   //             console.log('Wrong User', response);
-  //           }     
+  //           }
   //     },
   //     (error: any) => {
   //       // Handle error response
@@ -97,7 +97,7 @@ export class ChangePasswordComponent {
   //       console.error('Error Register:', error);
   //     }
   //   );
-    
+
   // }
 
   /* <------------------------------------------------> */
@@ -106,16 +106,15 @@ export class ChangePasswordComponent {
     const forgotpassData = new FormData();
     forgotpassData.append('username', this.username.value);
     forgotpassData.append('email', this.email.value);
-  
-    console.log("username&email"+this.forgotPasswordForm.value);
-    console.log("username"+forgotpassData);
-  
-    this.http.post(this.baseUrl + "/forgotpass", this.forgotPasswordForm.value).subscribe(
+
+    console.log(forgotpassData);
+
+    this.http.post(this.baseUrl + "/forgotpass", forgotpassData).subscribe(
       (response: any) => {
         // Handle success response
         console.log(response);
-  
-        if (response !== 0) {
+
+        if (response !== null) {
           this.showUserFoundAlert();
           this.showOtp = true;
           this.generatedOTP = response;
@@ -131,7 +130,7 @@ export class ChangePasswordComponent {
       }
     );
   }
-  
+
   private showUserFoundAlert() {
     Swal.fire({
       icon: 'success',
@@ -139,7 +138,7 @@ export class ChangePasswordComponent {
       text: 'The user has been found successfully.',
     });
   }
-  
+
   private showWrongUserAlert() {
     Swal.fire({
       icon: 'error',
@@ -147,7 +146,7 @@ export class ChangePasswordComponent {
       text: 'The provided username or email is incorrect.',
     });
   }
-  
+
   private showForgotPasswordErrorAlert(errorMessage: string) {
     Swal.fire({
       icon: 'error',
@@ -167,7 +166,7 @@ export class ChangePasswordComponent {
   //     this.showNewPassword = false;
   //     alert("Entered Otp doesn't match with Generated Otp.....Please Check your email and try again.");
   //   }
-    
+
   // }
 
    /* <------------------------------------------------> */
@@ -181,7 +180,7 @@ export class ChangePasswordComponent {
       this.showOtpMismatchAlert();
     }
   }
-  
+
   private showOtpVerifiedAlert() {
     Swal.fire({
       icon: 'success',
@@ -189,7 +188,7 @@ export class ChangePasswordComponent {
       text: 'The OTP has been successfully verified.',
     });
   }
-  
+
   private showOtpMismatchAlert() {
     Swal.fire({
       icon: 'error',
@@ -197,12 +196,12 @@ export class ChangePasswordComponent {
       text: 'Entered OTP does not match with the generated OTP. Please check your email and try again.',
     });
   }
-  
+
 
   /* <------------------------------------------------> */
 
   // updatePassword() {
-    
+
   //   const changepass = new FormData();
   //   changepass.append('username', this.username.value);
   //   changepass.append('password', this.password.value);
@@ -211,20 +210,20 @@ export class ChangePasswordComponent {
 
   //   this.http.post(this.baseUrl + "/changepass", changepass).subscribe(
   //     (response: any) => {
-        
+
   //       console.log(response);
 
   //         if(response==true)
   //           {
   //             alert("Password has been successfully Updated!");
-              
+
   //             console.log("Password Change successful"+ response);
   //             this.router.navigateByUrl('/login');
   //           }
   //           else{
   //             alert("Not Updated Password")
   //             console.log("Not Updated Password"+ response);
-  //           }     
+  //           }
   //     },
   //     (error: any) => {
   //       // Handle error response

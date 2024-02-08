@@ -1,6 +1,4 @@
-<h2 align="center" id="bycategory">
-  Categorized Products
-</h2>
+
 
 <main>
   <div class="container-fluid mt-4">
@@ -14,7 +12,7 @@
 
             <div>
               <div class="my-2">FILTERS</div>
-              <div class="gender-options">
+              <div class="gender-options ml-3">
                 <input type="radio" class="form-check-input" id="radio-men" name="gender" value="men" />
                 <label class="form-check-label" for="radio-men">Men</label>
                 <br>
@@ -38,7 +36,7 @@
 
           <div class="mx-3 my-1 py-1">
             <div>
-              <div class="my-2">PRICE RANGE</div>
+              <div class="my-2 ">PRICE RANGE</div>
               <form class="price-filter-form" (ngSubmit)="handlePriceFilterSubmit()">
                 <div class="flex items-center mb-2">
                   <input name="minprice" id="minprice" type="number" placeholder="Enter minimum price" [(ngModel)]="minPrice" />
@@ -58,7 +56,7 @@
           <div class="mx-3 my-1 py-1">
             <div>
               <div class="my-2">Size</div>
-              <div *ngFor="let val of sizeFinal">
+              <div  class="ml-3" *ngFor="let val of sizeFinal">
                 <input type="checkbox" class="form-check-input" id="{{'checkbox-' + val}}" [value]="val"
                   (change)="handleChange($event)" />
                 <label class="form-check-label" for="{{'checkbox-' + val}}">{{val}}</label>
@@ -69,7 +67,7 @@
           <div class="mx-3 my-1 py-1">
             <div>
               <div class="my-2">CATEGORIES</div>
-              <div *ngFor="let val of catFinal">
+              <div class="ml-3" *ngFor="let val of catFinal">
                 <input type="radio" class="form-check-input" id="{{'radio-' + val}}" name="radioGroup" [value]="val"
                   (change)="handleChange($event)" />
                 <label class="form-check-label" for="{{'radio-' + val}}">{{val}}</label>
@@ -80,7 +78,7 @@
           <div class="mx-3 my-1 py-1">
             <div>
               <div class="my-2">COLOURS</div>
-              <div *ngFor="let val of colours">
+              <div class="ml-3" *ngFor="let val of colours">
                 <input type="checkbox" class="form-check-input" id="{{'checkbox-' + val}}" [value]="val"
                   (change)="handleChange($event)" />
                 <label class="form-check-label" for="{{'checkbox-' + val}}">{{val}}</label>
