@@ -22,6 +22,10 @@ export class LogoutComponent {
           localStorage.removeItem("username");
             this.router.navigateByUrl('/');
         }
+        else{
+          this.router.navigateByUrl('/home');
+
+        }
       });
     }
     openLogoutConfirmation(): Promise<boolean> {
@@ -36,5 +40,5 @@ export class LogoutComponent {
         return result.isConfirmed;
       });
     }
-    
+
 }

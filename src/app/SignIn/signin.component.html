@@ -1,4 +1,4 @@
-<div class="bootstrap-wrapper">
+ <div class="bootstrap-wrapper">
   <div class="container formbox text-center">
 
     <div class="row register-container">
@@ -28,9 +28,9 @@
       </div>
 </div>
 <div class="col">
-        <mat-form-field class="full-width" >
+        <mat-form-field class="full-width"  >
           <mat-label>Last Name</mat-label>
-          <div class="form-group" [ngClass]="{ 'has-danger': lastname.invalid && (lastname.dirty || lastname.touched),
+          <div class="" [ngClass]="{ 'has-danger': lastname.invalid && (lastname.dirty || lastname.touched),
           'has-success': lastname.valid && (lastname.dirty || lastname.touched)  }">
           <input matInput placeholder="" formControlName="lastname" type="text">
         </div>
@@ -63,7 +63,7 @@
       <div class="input-group">
         <mat-form-field class="full-width" >
           <mat-label>Age</mat-label>
-          <div class="form-group" [ngClass]="{ 'has-danger': age.invalid && (age.dirty || age.touched),
+          <div class="" [ngClass]="{ 'has-danger': age.invalid && (age.dirty || age.touched),
           'has-success': age.valid && (age.dirty || age.touched)  }">
           <input matInput placeholder="" formControlName="age" type="number">
           </div>
@@ -156,3 +156,51 @@
 </div>
  </div>
   </div>
+
+
+<!-- <div class="container-fluid text-center">
+<div class="">
+
+
+  <div class="row">
+    <div class="col-12  ml-3 col-sm-4">
+      <h2 class="mb-5">Sign In</h2>
+      <form id="signin" (ngSubmit)="handleSubmit()" (ngReset)="handleReset()" [formGroup]="signin">
+         <div class="row">
+          <div class="col-6">
+            <mat-form-field class="full-width">
+              <mat-label>First Name</mat-label>
+              <div class="full-width" [ngClass]="{ 'has-danger': firstname.invalid && (firstname.dirty || firstname.touched),
+              'has-success': firstname.valid && (firstname.dirty || firstname.touched)  }">
+              <input matInput placeholder="" formControlName="firstname"  id="firstname" type="text">
+            </div>
+              <mat-icon matSuffix>person</mat-icon>
+
+            </mat-form-field>
+
+          <div class="form-control-feedback" [ngClass]="'has-danger'" *ngIf="firstname.errors && (firstname.dirty || firstname.touched)">
+            <p *ngIf="firstname.errors.required">Firstname is required</p>
+            <p *ngIf="firstname.errors?.pattern">Firstname Must be Capitalize without Space</p>
+        </div>
+          </div>
+          <div class="col-6">
+            <mat-form-field class="full-width"  >
+              <mat-label>Last Name</mat-label>
+              <div class="" [ngClass]="{ 'has-danger': lastname.invalid && (lastname.dirty || lastname.touched),
+              'has-success': lastname.valid && (lastname.dirty || lastname.touched)  }">
+              <input matInput placeholder="" formControlName="lastname" type="text">
+            </div>
+            <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+            <div class="form-control-feedback" [ngClass]="'has-danger'" *ngIf="lastname.errors && (lastname.dirty || lastname.touched)">
+              <p *ngIf="lastname.errors.required">Lastname is required</p>
+              <p *ngIf="lastname.errors?.pattern">Lastname Must be Capitalize without Space</p>
+          </div>
+          </div>
+         </div>
+   </form>
+    </div>
+
+  </div>
+</div>
+</div> -->
