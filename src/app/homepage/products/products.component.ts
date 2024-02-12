@@ -13,11 +13,11 @@ export class ProductsComponent {
    pageSize = 4;
   currentPage = 1;
 
-   baseurl="http://localhost:8081"
+  //private baseUrl:any = 'http://localhost:8081/product/getProductByCategory';
    constructor(private http:HttpClient,private router:Router,private route: ActivatedRoute){
        this.category=localStorage.getItem("category");
        this.getProducts()
-       this.products=[
+      /* this.products=[
 {name:"phone",description:"kdjflsdkzjlfkjsl",price:23,
    image:"https://www.reliancedigital.in/medias/Vivo-Y56-Mobile-Phone-493665033-i-2-1200Wx1200H?context=bWFzdGVyfGltYWdlc3w2MjI4N3xpbWFnZS9qcGVnfGltYWdlcy9oOWYvaGZiLzk5NjQxODY1MDExNTAuanBnfDIxZjUyNjQ1OTUzMzgyZTdlNTdlZDcxODdmYTkxNTI2NzI3YzFmNGM2Yjg5ZjAwOWE2ZjJmZjQ2YzJjMDg1ZTk",
   colors:["red","blue","White"],
@@ -51,7 +51,7 @@ image:"https://www.reliancedigital.in/medias/Vivo-Y56-Mobile-Phone-493665033-i-2
   colors:["red","blue","White"],
 },
 
-       ]
+       ]*/
 
    }
 
@@ -72,7 +72,8 @@ image:"https://www.reliancedigital.in/medias/Vivo-Y56-Mobile-Phone-493665033-i-2
     });
   }
    getProducts(){
-    this.http.get(`baseurl/getproducts/${this.category}`).subscribe(
+    alert(this.category);
+    this.http.get(`http://localhost:8081/product/getProductByCategory/${this.category}`).subscribe(
       (result:any)=>{
         console.log(result);
         this.products=result;

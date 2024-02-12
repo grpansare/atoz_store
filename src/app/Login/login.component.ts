@@ -46,8 +46,10 @@ this.http.post("http://localhost:8081/user/loginuser",this.login.value).subscrib
   (response:any) =>{
     if(response!=null){
       localStorage.setItem('username',response.username)
+      sessionStorage.setItem('username',response.username)
       const user=JSON.stringify(response);
       localStorage.setItem('user',user);
+      sessionStorage.setItem('user',user);
       console.log(  localStorage.getItem('user'))
 
     

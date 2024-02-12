@@ -20,7 +20,9 @@ export class LogoutComponent {
      this. openLogoutConfirmation().then((confirmed) => {
         if (confirmed) {
           localStorage.removeItem("username");
+          sessionStorage.removeItem("username");
           localStorage.removeItem("user");
+          sessionStorage.removeItem("user");
             this.router.navigateByUrl('/');
         }
         else{

@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class AddproductComponent {
 
-
+  private baseUrl:any = 'http://localhost:8081/product/newproduct';
   //dynamically add fields this is correct logic code
   selectedFile!: any;
   imagepreview: any = "";
@@ -85,7 +85,7 @@ sendData() {
     });
     formDataToSend.append('image', this.selectedFile);
 
-    this.http.post('http://localhost:8188/newproduct', formDataToSend).subscribe(
+    this.http.post(this.baseUrl, formDataToSend).subscribe(
       (response) => {
         console.log('Request successful!', response);
         Swal.fire({

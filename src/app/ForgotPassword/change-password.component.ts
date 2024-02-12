@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   styleUrl: './change-password.component.css'
 })
 export class ChangePasswordComponent {
-  private baseUrl:any = 'http://localhost:8182/user';
+  private baseUrl:any = 'http://localhost:8081/user';
 
   isSubmited:boolean=false;
   generatedOTP:number=0;
