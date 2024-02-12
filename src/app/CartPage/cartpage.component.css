@@ -2,6 +2,7 @@
 
 .back{
   background-color: #fff;
+  padding: 3rem;
 }
 .header{
   color: black;
@@ -25,11 +26,11 @@ text-align: center;
   font-size: larger;
   color: black;
   font-weight: 1000;
-  
+
 }
 .btn:hover {
-  background-color: rgb(49, 174, 166); 
-  color: #fff; 
+  background-color: rgb(49, 174, 166);
+  color: #fff;
   border-color: #000;
 }
 
@@ -46,10 +47,9 @@ text-align: center;
       height: 150px;
       width: 100px;
     }
-  
-    
+
+
   }
 
 
-  
-  
+

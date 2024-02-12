@@ -1,90 +1,124 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
-  styleUrl: './addproduct.component.css'
+  styleUrls: ['./addproduct.component.css']
 })
 export class AddproductComponent {
+
+
+  //dynamically add fields this is correct logic code
   selectedFile!: any;
-  imagepreview:any="";
-  productinfo:any={};
-  colors!:any;
-  size!:any;
-  addproduct=new FormGroup({
+  imagepreview: any = "";
+  productForm: FormGroup;
 
-    category:new FormControl("",),
-    color1:new FormControl("",),
-    color2:new FormControl("",),
-    color3: new FormControl("",),
-    description:new FormControl("",),
-    offer:new FormControl(""),
-    price:new FormControl("",),
-    productname:new FormControl("",),
-    quantity:new FormControl(""),
-  size1:new FormControl("",),
-  size2:new FormControl("",),
-  size3: new FormControl("",),
-
-
-  });
-  constructor(private http:HttpClient){
-
+  constructor(private http: HttpClient, private fb: FormBuilder) {
+    this.productForm = this.fb.group({
+      productid: ['', Validators.required],
+      productname: ['', Validators.required],
+      category: ['', Validators.required],
+      price: ['', [Validators.required, Validators.min(0)]],
+      quantity: ['', [Validators.required, Validators.min(0)]],
+      offer: ['null'],
+      description: ['', Validators.required],
+      colors: this.fb.array([
+        this.fb.group({ color: ['', Validators.required] })
+      ]),
+      sizes: this.fb.array([
+        this.fb.group({ size: ['', Validators.required] })
+      ]),
+      selectedFile: ['']
+    });
   }
+
+  colors(): FormArray {
+    return this.productForm.get('colors') as FormArray;
+  }
+
+  sizes(): FormArray {
+    return this.productForm.get('sizes') as FormArray;
+  }
+
+  addColor() {
+    this.colors().push(this.fb.group({ color: ['', Validators.required] }));
+  }
+
+  removeColor(index: number) {
+    this.colors().removeAt(index);
+  }
+
+  addSize() {
+    this.sizes().push(this.fb.group({ size: ['', Validators.required] }));
+  }
+
+  removeSize(index: number) {
+    this.sizes().removeAt(index);
+  }
+
   getImage(event: any) {
+    this.selectedFile = event.target.files[0];
+    this.imagepreview = URL.createObjectURL(this.selectedFile);
 
-    this.selectedFile=event.target.files[0];
-    this.imagepreview=URL.createObjectURL(this.selectedFile);
-  }
-
-  //
-  handleSubmit() {
-  this.productinfo=this.addproduct.value;
-  console.log(this.productinfo)
-
-    this.productinfo.price = parseInt( this.productinfo.price);
-
-
-    if (this.selectedFile) {
-
-      const formData=new FormData();
-      formData.append('category',this.productinfo.category);
-      formData.append('color1',this.productinfo.color1);
-      formData.append('color2',this.productinfo.color2);
-      formData.append('color3',this.productinfo.color3);
-      formData.append('description',this.productinfo.description);
-      formData.append('image',this.selectedFile);
-      formData.append('offer',this.productinfo.offer);
-      formData.append('price',this.productinfo.price);
-      formData.append('productname',this.productinfo.productname);
-      formData.append('quantity',this.productinfo.quantity);
-      formData.append('size1',this.productinfo.size1);
-      formData.append('size2',this.productinfo.size2);
-      formData.append('size3',this.productinfo.size3);
-    console.log(formData)
-
-
-
-
-
-
-      this.http.post('http://localhost:8081/product/addproduct', formData).subscribe(
-        (response) => {
-          console.log('Image uploaded successfully!', response);
-          // Handle any additional logic after successful image upload
-        },
-        (error) => {
-          console.error('Error uploading image', error);
-          // Handle error
-        }
-      );
-    } else {
-      console.warn('No image selected');
-      // Handle case where no image is selected
-    }
-  }
-
+    // Update the productForm with the selected file
+    this.productForm.patchValue({
+      selectedFile: this.selectedFile
+    });
 }
 
+product:any={};
+
+
+sendData() {
+  if (this.productForm.valid) {
+    const formData = this.productForm.value;
+    formData.price = parseInt(formData.price, 10);
+    formData.productid = parseInt(formData.productid, 10);
+    formData.colors = JSON.stringify(formData.colors);
+    formData.sizes = JSON.stringify(formData.sizes);
+    const formDataToSend = new FormData();
+    Object.keys(formData).forEach(key => {
+      formDataToSend.append(key, formData[key]);
+    });
+    formDataToSend.append('image', this.selectedFile);
+    alert(formDataToSend)
+    console.log(formDataToSend);
+    this.http.post('http://localhost:8081/product/newproduct', formDataToSend).subscribe(
+      (response) => {
+        console.log('Request successful!', response);
+        Swal.fire({
+          icon: 'success',
+          title: 'Product Added Successfully!',
+          text: 'Your product has been successfully added.',
+        }).then(() => {
+          this.resetForm();
+        });
+      },
+      (error) => {
+        console.error('Error sending product data', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error!',
+          text: 'An error occurred while adding the product. Please try again later.',
+        });
+      }
+    );
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Form Validation Error!',
+      text: 'Please fill all required fields and provide valid inputs.',
+    });
+  }
+}
+
+resetForm() {
+  this.productForm.reset();
+  this.imagepreview = '';
+  this.selectedFile = null;
+}
+
+}

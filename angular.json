@@ -105,7 +105,8 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "D:/AtoZ_Store/AtoZ_Store_backend123/AtoZStore_Backend/src/main/resources"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/deeppurple-amber.css",

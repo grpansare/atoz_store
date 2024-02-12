@@ -13,6 +13,7 @@
                 <tr><td>Email</td><td>{{userinfo.email}}</td></tr>
                 <tr><td>Phone Number</td><td>{{userinfo.contactno}}</td></tr>
                 <tr><td>Gender</td><td>{{userinfo.gender}}</td></tr>
+                <tr><td>Age</td><td>{{userinfo.age}}</td></tr>
 
               </table>
         </div>
@@ -20,7 +21,8 @@
     </div>
   </mat-card-content>
   <mat-card-actions class="btns ">
-   <app-updateprofile [user]="userinfo"></app-updateprofile>
+    <app-updateprofile (userUpdated)="updateUser($event)"  ></app-updateprofile>
+
 
 
   </mat-card-actions>

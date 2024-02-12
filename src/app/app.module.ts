@@ -63,6 +63,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddproductComponent } from './addproduct/addproduct.component';
+import { AddimageComponent } from './addimage/addimage.component';
+import { ProductdialogComponent } from './homepage/productdialog/productdialog.component';
+import { CartServiceComponent } from './Services/cart-service/cart-service.component';
 
 
 
@@ -98,7 +101,10 @@ import { AddproductComponent } from './addproduct/addproduct.component';
    ProductsummaryComponent,
    UpdateprofileComponent,
    PaginatorComponent,
-   AddproductComponent
+   AddproductComponent,
+   AddimageComponent,
+   ProductdialogComponent,
+   CartServiceComponent
 
   ],
   imports: [

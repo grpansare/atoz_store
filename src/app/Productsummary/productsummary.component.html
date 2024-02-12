@@ -81,7 +81,7 @@
                           for="region"
                           class="block text-sm font-medium text-gray-700"
                         >
-                          State 
+                          State
                         </label>
                         <div class="mt-1">
                           <input
@@ -163,9 +163,12 @@
 
                 <div class="ml-5 flex flex-col justify-between">
                   <div class="flex-1 ">
-                    <p class="text-sm font-bold details">{{product.name|titlecase}}</p>
+                    <p class="text-sm font-bold details">{{product.productname}}</p>
                     <p class="mt-1.5 text-sm font-medium text-gray-500">
-                      {{product.colors}}
+                    Color:  {{product.color}}
+                    </p>
+                    <p class="mt-1.5 text-sm font-medium text-gray-500">
+                     Size: {{product.size}}
                     </p>
                   </div>
                   <p class="mt-4 text-xs font-medium ">{{product.quantity}}</p>
@@ -175,7 +178,7 @@
             </li>
           </ul>
         </div>
-        <hr class="mt-6 border-gray-200" />    
+        <hr class="mt-6 border-gray-200" />
         <ul class="mt-6 space-y-3">
           <li class="flex items-center justify-between text-gray-900">
             <p class="text-sm font-medium details">Total:</p>

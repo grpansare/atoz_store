@@ -20,14 +20,19 @@ export class LogoutComponent {
      this. openLogoutConfirmation().then((confirmed) => {
         if (confirmed) {
           localStorage.removeItem("username");
+          localStorage.removeItem("user");
             this.router.navigateByUrl('/');
         }
         else{
           this.router.navigateByUrl('/home');
 
+
         }
       });
-    }
+
+        }
+
+
     openLogoutConfirmation(): Promise<boolean> {
       return Swal.fire({
         title: 'Logout Confirmation',
@@ -41,4 +46,9 @@ export class LogoutComponent {
       });
     }
 
-}
+
+  }
+
+
+
+
