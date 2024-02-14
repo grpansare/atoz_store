@@ -18,6 +18,9 @@ import { LogoutComponent } from './Logout/logout.component';
 import { ProductsummaryComponent } from './Productsummary/productsummary.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { AddimageComponent } from './addimage/addimage.component';
+import { VendorsiteregistrationComponent } from './VendorSiteRegistration/vendorsiteregistration.component';
+import { DelieverypartnerregistrationComponent } from './DelieveryPartnerRegistration/delieverypartnerregistration.component';
+import { VendorhomepageComponent } from './VendorHomepage/vendorhomepage.component';
 
 const routes: Routes = [
   { path: '', component: WelcomepageComponent },
@@ -25,6 +28,11 @@ const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'forgotpassword', component: ChangePasswordComponent},
   { path: 'login', component: LoginComponent },
+  { path: 'vendors', component: VendorsiteregistrationComponent },
+  { path: 'delievery', component: DelieverypartnerregistrationComponent },
+
+
+
   { path: 'addproduct', component: AddproductComponent},
   { path: 'addimage', component: AddimageComponent},
 
@@ -39,6 +47,13 @@ const routes: Routes = [
 
   ]
   },
+  {path:'vendorhome',component:VendorhomepageComponent,
+  children:[
+
+  ]
+},
+{ path: 'vendorhome/addproduct', component: AddproductComponent},
+
   { path: '**', component: NotfoundComponent}
 
 
