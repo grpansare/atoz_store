@@ -121,7 +121,7 @@ margin-right: 400px;
     flex-direction: row;
   }
   .info-box{
-    width: 350px;
+    width: 450px;
     display: flex;
     flex-direction: column;
     padding: 8px;
