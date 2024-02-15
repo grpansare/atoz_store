@@ -43,15 +43,16 @@ img{
   height: 40px;
   background-size: cover;
 }
-
-
-
+.icons2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .aboutus{
 background-color: #ceb5b7;
 }
 
-.aboutus
 .about{
   font-size: larger;
   font-weight: 900;
@@ -110,14 +111,21 @@ background-color: #ceb5b7;
 
 
 
+/*contact*/
 
 .contact{
   margin-left: 500px;
   color: black;
 }
+/* .colorcontact{
+  background-image: url(/assets/imgabout.webp);
+} */
 .colorcontact{
   background-image: url(/assets/imgabout.webp);
 }
+
+
+
 
 
 

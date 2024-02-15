@@ -66,6 +66,11 @@ import { AddproductComponent } from './addproduct/addproduct.component';
 import { AddimageComponent } from './addimage/addimage.component';
 import { ProductdialogComponent } from './homepage/productdialog/productdialog.component';
 import { CartServiceComponent } from './Services/cart-service/cart-service.component';
+import { VendorhomepageComponent } from './VendorHomepage/vendorhomepage.component';
+import { VendorsiteregistrationComponent } from './VendorSiteRegistration/vendorsiteregistration.component';
+import { DelieverypartnerregistrationComponent } from './DelieveryPartnerRegistration/delieverypartnerregistration.component';
+import { TestimonialsComponent } from './Testimonials/testimonials.component';
+import { ProductinfoComponent } from './VendorHomepage/productinfo/productinfo.component';
 
 
 
@@ -104,7 +109,12 @@ import { CartServiceComponent } from './Services/cart-service/cart-service.compo
    AddproductComponent,
    AddimageComponent,
    ProductdialogComponent,
-   CartServiceComponent
+   CartServiceComponent,
+   VendorhomepageComponent,
+   VendorsiteregistrationComponent,
+   DelieverypartnerregistrationComponent,
+   TestimonialsComponent,
+   ProductinfoComponent
 
   ],
   imports: [

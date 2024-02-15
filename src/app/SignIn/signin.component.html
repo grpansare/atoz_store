@@ -1,14 +1,11 @@
-
-
-
-<div class="register-box mx-auto  " >
+<div  class="register-box mx-auto mt-3 ">
   <div class="row d-flex justify-content-center  ">
-    <div class="col-12 col-md-6 col-lg-6 mt-5 p-5 border  shadow rounded-lg" style="background-color:white;">
-      <h2 class="mb-5 text-center " style="color: rgb(79, 132, 188); font-size: 1.5rem;">Sign Up</h2>
+    <div class="col-12 col-md-6 col-lg-6 mx-auto p-5 border f1">
+      <h2 class="mb-5 text-center">Sign In</h2>
 
-      <form id="signin" (ngSubmit)="handleSubmit()" (ngReset)="handleReset()" [formGroup]="signin">
+      <form  id="signin" (ngSubmit)="handleSubmit()" (ngReset)="handleReset()" [formGroup]="signin">
         <div class="row  ">
-          <div class="col-md-6 col-sm-12">
+          <div class="col-6">
             <mat-form-field class="full-width">
               <mat-label>First Name</mat-label>
               <div class="full-width" [ngClass]="{ 'has-danger': firstname.invalid && (firstname.dirty || firstname.touched), 'has-success': firstname.valid && (firstname.dirty || firstname.touched) }">
@@ -21,7 +18,7 @@
               <p *ngIf="firstname.errors?.pattern">Firstname Must be Capitalize without Space</p>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12">
+          <div class="col-6">
             <mat-form-field class="full-width">
               <mat-label>Last Name</mat-label>
               <div class="" [ngClass]="{ 'has-danger': lastname.invalid && (lastname.dirty || lastname.touched), 'has-success': lastname.valid && (lastname.dirty || lastname.touched) }">
@@ -36,7 +33,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 col-sm-12">
+          <div class="col-6">
             <mat-form-field class="full-width">
               <mat-label>Gender</mat-label>
               <div [ngClass]="{ 'has-danger': gender.invalid && (gender.dirty || gender.touched), 'has-success': gender.valid && (gender.dirty || gender.touched) }">
@@ -51,7 +48,7 @@
               <p *ngIf="gender.errors.required">Gender is required</p>
             </div>
           </div>
-          <div class="col-md-6 col-sm-12">
+          <div class="col-6">
             <mat-form-field class="full-width">
               <mat-label>Age</mat-label>
               <div class="" [ngClass]="{ 'has-danger': age.invalid && (age.dirty || age.touched), 'has-success': age.valid && (age.dirty || age.touched) }">
@@ -65,7 +62,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 col-sm-12">
+          <div class="col-6">
             <mat-form-field class="full-width" >
               <mat-label>Email</mat-label>
               <div class="form-group" [ngClass]="{ 'has-danger': email.invalid && (email.dirty || email.touched),
@@ -78,7 +75,7 @@
               <p *ngIf="email.errors.required">Email is required</p>
           </div>
           </div>
-          <div class="col-md-6 col-sm-12">
+          <div class="col-6">
             <mat-form-field class="full-width" >
               <mat-label>Contact No.</mat-label>
               <div class="form-group" [ngClass]="{ 'has-danger': contactno.invalid && (contactno.dirty || contactno.touched),
@@ -151,8 +148,13 @@
           </div>
         </div>
         </div>
+        <span>
+         <p> <a routerLink="/vendors" class="forgot-password" id="forgotpassword">Vendors Registration</a></p>
+      </span>
+      <span>
+          <a routerLink="/delievery" class="new-user" id="new-user">Deleivery Partners Registration</a>
+      </span>
       </form>
     </div>
   </div>
 </div>
-

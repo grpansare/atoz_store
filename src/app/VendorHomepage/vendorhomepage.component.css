@@ -8,10 +8,10 @@
 }
 
 .btn{
-  border: 1px solid rgb(253, 249, 249);
+  border: 1px solid black;
 padding: 0.6rem 2rem;
 /* font-size: 1rem; */
-color: rgb(250, 249, 249);
+color: black;
 
 }
 .show{
@@ -22,9 +22,9 @@ color: rgb(250, 249, 249);
 }
 .searchbox{
   display: flex;
-  border: 1px solid white;
+  border: 1px solid black;
   border-radius: 10px;
-  color: white;
+  color:black;
   position: relative;
   align-items: center;
   justify-content: space-around;
@@ -36,13 +36,13 @@ color: rgb(250, 249, 249);
   padding: 0.5rem 0.5rem;
   width: 70%;
   background: transparent;
-  color: white;
+  color: black;
 }
 .searchbox:hover{
   box-shadow: 0 0 3px 3px white;
 }
 .searchbox input::placeholder {
-  color: white;
+  color: rgb(72, 71, 71);
   font-size: 1.3rem;
 }
 .searchbox.fa-solid{
@@ -56,29 +56,28 @@ color: rgb(250, 249, 249);
 color: black;
 }
  .cart{
-  border: 1px solid white;
+  border: 1px solid black;
 padding: 0.3rem 0.9rem;
   border-radius: 7px;
   transition: all 0.5s;
-  color: white;
+  color: black;
   margin-left: 0.7rem;
   margin-right: 0.4rem;
 
 }
  .cart:hover{
-  background-color: rgb(249, 246, 246);
+  background-color: rgb(241, 238, 238);
   border: 1px solid rgb(226, 219, 219);
 
   color: black;
 }
 .dropdown-item{
   font-size: 1.1rem;
-
 }
 .dropdown{
-  
-color: white;
-}
+ border: 1px solid white;
+  color: white;
+  }
 .font-bold {
   color: white;
 }
@@ -102,6 +101,43 @@ color: white;
   display: flex;
   align-items: center;
 font-size: 1.5rem;
-
 }
 
+
+.add{
+color: black;
+background-color: aqua;
+margin-right: 10px;
+}
+.list{
+color: black;
+background-color: aqua;
+margin-right: 400px;
+
+
+}
+  .main{
+    display: flex;
+    flex-direction: row;
+  }
+  .info-box{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    padding-left: 20px;
+    margin: 25px;
+    border: 1px lightgray solid;
+    height: 75px;
+    background-color: #B4D4FF;
+    border-radius: 15px;
+  }
+  .sub-info-box{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  .icon1{
+    color: white;
+
+  }

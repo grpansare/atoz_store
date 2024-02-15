@@ -2,9 +2,9 @@
   width: 100%;
 }
 /* Gradient Background */
-.register-box {
+/* .register-box {
   background: linear-gradient(to bottom right, #4f84bc, #7095c7);
-}
+} */
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -32,7 +32,7 @@
 .has-success{
   color: green;
   font-size: 17px;
-  font-family: system-ui;
+  font-family: system-ui;
 }
 
 
@@ -41,6 +41,11 @@
     box-shadow:0 0 10px rgba(0, 0, 0, 0.5) ;
   }
   to{
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
   }
+}
+.f1{
+  background-image: url(/assets/bg.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
