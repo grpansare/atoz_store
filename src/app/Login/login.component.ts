@@ -40,17 +40,17 @@ export class LoginComponent {
  handleSubmit(){
 
   console.log(this.data)
-  
-  
+
+
 this.http.post("http://localhost:8081/user/loginuser",this.login.value).subscribe(
   (response:any) =>{
     if(response!=null){
-      localStorage.setItem('username',response.username)
+      sessionStorage.setItem('username',response.username)
       const user=JSON.stringify(response);
-      localStorage.setItem('user',user);
-      console.log(  localStorage.getItem('user'))
+      sessionStorage.setItem('user',user);
+      console.log(  sessionStorage.getItem('user'))
 
-    
+
     Swal.fire({
       icon: 'success',
       title: 'Login Successful!',
