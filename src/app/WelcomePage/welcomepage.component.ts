@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {  HostListener } from '@angular/core';
@@ -21,6 +20,24 @@ import { trigger, style, animate, transition } from '@angular/animations';
 })
 export class WelcomepageComponent {
 
+  imgsrc:any="assets/atozabout.jpg";
+
+  hoveredCard: number | null = null;
+  constructor(private router: Router){
+
+  }
+
+
+hoverCard(cardNumber: number): void {
+  this.hoveredCard = cardNumber;
+}
+
+unhoverCard(): void {
+  this.hoveredCard = null;
+}
+
+
+
   email: string = '';
   message: string = '';
 
@@ -28,7 +45,6 @@ export class WelcomepageComponent {
 
     console.log('Email sent:', this.email, 'Message:', this.message);
   }
-  constructor(private router: Router) {}
 
   animationState = 'out';
 

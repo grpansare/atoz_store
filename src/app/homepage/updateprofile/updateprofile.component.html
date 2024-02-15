@@ -29,6 +29,11 @@
             <input matInput [(ngModel)]="user.email" name="email">
             <mat-icon matSuffix>email</mat-icon>
           </mat-form-field>
+          <mat-form-field class="w-full p-2" appearance="fill">
+            <mat-label>Age</mat-label>
+            <input matInput [(ngModel)]="user.age" name="age">
+            <mat-icon matSuffix>Age</mat-icon>
+          </mat-form-field>
           <select class="w-full border-3 text-xl p-2 form-select-md mb-3" aria-label="Large select example" [(ngModel)]="user.gender" name="gender">
 
             <option value="Male">Male</option>
@@ -43,7 +48,7 @@
 		</form>
 	</div>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Sav click')">Cancel</button>
 
 		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
 	</div>

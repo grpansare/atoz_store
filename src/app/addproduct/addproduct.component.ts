@@ -62,7 +62,7 @@ export class AddproductComponent {
   getImage(event: any) {
     this.selectedFile = event.target.files[0];
     this.imagepreview = URL.createObjectURL(this.selectedFile);
-    
+
     // Update the productForm with the selected file
     this.productForm.patchValue({
       selectedFile: this.selectedFile
@@ -71,7 +71,7 @@ export class AddproductComponent {
 
 product:any={};
 
-  
+
 sendData() {
   if (this.productForm.valid) {
     const formData = this.productForm.value;
@@ -85,7 +85,8 @@ sendData() {
     });
     formDataToSend.append('image', this.selectedFile);
 
-    this.http.post(this.baseUrl, formDataToSend).subscribe(
+    
+    this.http.post('http://localhost:8081/product/newproduct', formDataToSend).subscribe(
       (response) => {
         console.log('Request successful!', response);
         Swal.fire({

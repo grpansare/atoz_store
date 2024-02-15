@@ -33,14 +33,15 @@ const routes: Routes = [
     {path:"",component:CategoriesComponent},
     {path:"profile",component:ProfileComponent},
     { path: 'products/:category', component: ProductcategoryComponent },
+    { path: 'logout', component: LogoutComponent },
     { path: 'cart', component: CartpageComponent },
-    { path: 'cart/checkout', component: ProductsummaryComponent},
-    {path:'logout',component:LogoutComponent}
+    { path: 'cart/checkout', component: ProductsummaryComponent}
+
   ]
   },
   { path: '**', component: NotfoundComponent}
 
-  
+
 ];
 
 @NgModule({

@@ -64,6 +64,8 @@ import { PaginatorComponent } from './paginator/paginator.component';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { AddimageComponent } from './addimage/addimage.component';
+import { ProductdialogComponent } from './homepage/productdialog/productdialog.component';
+import { CartServiceComponent } from './Services/cart-service/cart-service.component';
 
 
 
@@ -100,7 +102,9 @@ import { AddimageComponent } from './addimage/addimage.component';
    UpdateprofileComponent,
    PaginatorComponent,
    AddproductComponent,
-   AddimageComponent
+   AddimageComponent,
+   ProductdialogComponent,
+   CartServiceComponent
 
   ],
   imports: [

@@ -1,60 +1,78 @@
-<h2 align="center" id="bycategory">
+<h2 align="center" id="bycategory" class="mt-2">
   Categorized Products
 </h2>
-   <div class=" products gap-6  ml-4     mx-auto grid w-full max-w-8xl items-center d-flex flex-wrap justify-center space-y-4 px-5 py-10 md:grid-cols-2 md:gap-12 md:space-y-0 lg:grid-cols-3 ">
+   <div class=" products gap-6  ml-4  mt-4    mx-auto grid w-full max-w-8xl items-center d-flex flex-wrap justify-center space-y-4 px-5 py-10 md:grid-cols-2 md:gap-12 md:space-y-0 lg:grid-cols-3 ">
 
 
 
 
-  <div class="rounded-lg product pt-3 px-5  mr-3" *ngFor="let product of displayedProducts">
+  <div class="rounded-lg product pt-3 px-5  mr-3" *ngFor="let product of displayedProducts ">
+    <div (click)="openDialog(product)">
     <img
-      [src]="product.image"
+      [src]="product.imageFile.filePath"
       alt="Laptop"
       class="aspect-[16/9] w-full rounded-md md:aspect-auto md:h-[300px] lg:h-[200px]"
     />
     <div class="p-2">
-      <h1 class="inline-flex items-center text-md font-semibold">
-       {{product.name |titlecase}}
-      </h1>
-      <p class=" text-sm text-gray-600">
-       {{product.description}}
+      <h3 class="inline-flex items-center text-md font-semibold">
+       {{product.productname |titlecase}}
+      </h3>
 
-      </p>
-      <span class="block text-sm font-semibold">Colors : </span>
 
-      <div class="mt-1 flex items-center gap-2 colors">
-        <div class="radiobutton flex items-center " *ngFor="let color of product.colors;let i=index">
+      <!-- <ng-container *ngIf="!product.sizes.includes('Standard') || !product.sizes.includes('standard')">
 
-       <input type="radio" name="color" [id]="i" [value]="color">
-       <label [for]="i">{{color}}</label>
+        <span class="block text-sm font-semibold">Colors : </span>
+
+        <div class="mt-1 flex items-center gap-2 colors">
+          <div class="radiobutton flex items-center" *ngFor="let color of product.colors; let i = index">
+            <div >
+              <input type="radio" name="color" [id]="'color_' + i" [value]="color" [(ngModel)]="selectedColor">
+              <label [for]="'color_' + i">{{color}}</label>
+            </div>
+          </div>
         </div>
-
-      </div>
+      </ng-container> -->
+      <!-- <ng-container *ngIf="!product.colors.includes('Standard') || !product.colors.includes('standard')">
       <span class="block text-sm font-semibold">Size: </span>
 
-      <div class="mt-1 flex items-center space-x-2 ">
-        <span class="block cursor-pointer rounded-md border border-gray-300 p-1 px-2 text-xs font-medium">
-          8 UK
-        </span>
-        <span class="block cursor-pointer rounded-md border border-gray-300 p-1 px-2 text-xs font-medium">
-          9 UK
-        </span>
-        <span class="block cursor-pointer rounded-md border border-gray-300 p-1 px-2 text-xs font-medium">
-          10 UK
-        </span>
+      <div class="mt-1 flex items-center w-100  space-x-2 "  >
+        <div class="mt-1 flex items-center w-100 space-x-2">
+          <div class="mt-1 flex items-center w-100 space-x-2">
+            <div class="mt-1 flex items-center w-100 space-x-2">
+              <span
+              #sizeRef
+                *ngFor="let size of product.sizes; let i = index"
+                class="block cursor-pointer rounded-md border border-gray-300 p-1 px-2 text-xs font-medium"
+                (click)="changeBackgroundColor(sizeRef)"
+                >
+                {{size}}
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+
       </div>
+      </ng-container> -->
       <div class="price mt-2">
         <h2> Price: {{ product.price | currency:'INR':'symbol':'1.2-2' }}</h2>
 
       </div>
-      <button
+      <!-- <button
         type="button"
-        class="mt-2 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+        class="mt-2 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80
+        focus-visible:outline focus-visible:outline-2
+        focus-visible:outline-offset-2 focus-visible:outline-black"
+        (click)="addToCart(product)"
       >
         Add to Cart
-      </button>
+      </button> -->
     </div>
+</div>
   </div>
+
 
   </div>
   <app-paginator

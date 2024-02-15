@@ -13,7 +13,5 @@ export class HomepageComponent {
    changeDropDown(){
     this.showdropdown=!this.showdropdown;
    }
-   logout(){
-    this.router.navigateByUrl("home/logout");
-   }
+
 }

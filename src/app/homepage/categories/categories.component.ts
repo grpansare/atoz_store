@@ -11,7 +11,7 @@ export class CategoriesComponent {
 
   }
   getProducts(category:any){
-    // alert(category)
+
     this.router.navigate(['home/products', category]);
   }
 }

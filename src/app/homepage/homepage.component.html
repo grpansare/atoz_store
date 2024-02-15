@@ -1,5 +1,5 @@
 <div  >
-  <mat-toolbar class="navbar py-3">
+  <mat-toolbar class="navbar py-2">
     <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center " >
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
@@ -27,24 +27,31 @@
 
 
 
-        <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+        <div mdbDropdown class="dropdown" style="color: white;">
           <button
+
+            class="btn  dropdown-toggle"
             type="button"
-            class="btn  me-2"
-            id="dropdownManual"
-            ngbDropdownAnchor
-            (focus)="myDrop.open()"
-            (click)="changeDropDown()">
-            <i class="fa-solid fa-user fa-xl"></i>
+            id="dropdownMenu2"
+            mdbDropdownToggle
+            aria-expanded="false"
+          >
+          <i class="fa-solid fa-user  fa-2xl"></i>
+
           </button>
-          <div ngbDropdownMenu aria-labelledby="dropdownManual" [class]="showdropdown ? 'show' : 'hide'">
-            <button ngbDropdownItem  class=" btn-outline-info" (click)="changeDropDown()">
-              <a routerLink="profile" class="text-decoration-none">View Profile <i class="fa-solid fa-eye ml-2"></i></a>
-            </button>
-            <a routerLink="logout">
-            <button ngbDropdownItem class=" btn-outline-info" (click)="changeDropDown()">Logout <i class="fa-solid fa-sign-out"></i></button>
-            </a>
-          </div>
+          <ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li><a  routerLink="profile" class="dropdown-item" >
+
+              View Profile <i class="fa-solid fa-eye  ml-2"></i>
+            </a></li>
+            <li><button class="dropdown-item" type="button">
+              <a routerLink="logout">
+              Logout
+              </a>
+              <i class="fa-solid fa-sign-out"></i></button></li>
+            <li>
+            </li>
+          </ul>
         </div>
 
 

@@ -8,10 +8,10 @@
 }
 
 .btn{
-  border: 1px solid black;
+  border: 1px solid rgb(253, 249, 249);
 padding: 0.6rem 2rem;
 /* font-size: 1rem; */
-color: black;
+color: rgb(250, 249, 249);
 
 }
 .show{
@@ -22,9 +22,9 @@ color: black;
 }
 .searchbox{
   display: flex;
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 10px;
-  color:black;
+  color: white;
   position: relative;
   align-items: center;
   justify-content: space-around;
@@ -36,13 +36,13 @@ color: black;
   padding: 0.5rem 0.5rem;
   width: 70%;
   background: transparent;
-  color: black;
+  color: white;
 }
 .searchbox:hover{
   box-shadow: 0 0 3px 3px white;
 }
 .searchbox input::placeholder {
-  color: rgb(72, 71, 71);
+  color: white;
   font-size: 1.3rem;
 }
 .searchbox.fa-solid{
@@ -56,26 +56,30 @@ color: black;
 color: black;
 }
  .cart{
-  border: 1px solid black;
+  border: 1px solid white;
 padding: 0.3rem 0.9rem;
   border-radius: 7px;
   transition: all 0.5s;
-  color: black;
+  color: white;
   margin-left: 0.7rem;
   margin-right: 0.4rem;
 
 }
  .cart:hover{
-  background-color: rgb(241, 238, 238);
+  background-color: rgb(249, 246, 246);
   border: 1px solid rgb(226, 219, 219);
 
   color: black;
 }
 .dropdown-item{
   font-size: 1.1rem;
+
+}
+.dropdown{
+color: white;
 }
 .font-bold {
-  color: black;
+  color: white;
 }
 .d:none{
   display: none;
@@ -92,10 +96,11 @@ padding: 0.3rem 0.9rem;
   z-index: 999;
 }
 .navbar{
-  background-color:#8ecae6;
+  background-color:#00193a;
 
   display: flex;
   align-items: center;
 font-size: 1.5rem;
+
 }
 

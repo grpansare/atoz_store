@@ -17,27 +17,27 @@ export class AddimageComponent {
   })
   productinfo: any;
 
-  
+
   constructor(private http:HttpClient){
 
   }
-  
+
   getImage(event: any) {
 
     this.selectedFile=event.target.files[0];
     this.imagepreview=URL.createObjectURL(this.selectedFile);
   }
 
-  
+
 
   handleSubmit(){
     this.productinfo=this.addproduct.value;
     this.productinfo.productid = parseInt( this.productinfo.productid);
      const formData=new FormData();
     formData.append('image',this.selectedFile);
-    
-    
-    this.http.post(`http://localhost:8188/uploadImage/${this.productinfo.productid}`, formData).subscribe(
+
+
+    this.http.post(`http://localhost:8081/uploadImage/${this.productinfo.productid}`, formData).subscribe(
       (response) => {
         console.log('Image uploaded successfully!', response);
         alert("product added successfully")

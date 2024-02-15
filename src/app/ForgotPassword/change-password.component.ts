@@ -11,6 +11,15 @@ import Swal from 'sweetalert2';
 })
 export class ChangePasswordComponent {
   private baseUrl:any = 'http://localhost:8081/user';
+  header:String="Reset Password";
+  description:String="Lost your password? Please enter your username and email address. You will receive a link to create a new password via email.";
+
+  otpdesc:String="Verification required";
+  otpver:String="To continue, complete this verification step. We've sent a One Time Password (OTP) to the email . Please enter it below."
+
+ newpassword:String="Create new password";
+newdesc:String="We'll ask for this password whenever you Sign-In.";
+
 
   isSubmited:boolean=false;
   generatedOTP:number=0;
@@ -112,6 +121,7 @@ export class ChangePasswordComponent {
     this.http.post(this.baseUrl + "/forgotpass", forgotpassData).subscribe(
       (response: any) => {
         // Handle success response
+        alert(response)
         console.log(response);
 
         if (response !== null) {

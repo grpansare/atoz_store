@@ -28,8 +28,13 @@ export class LogoutComponent {
         else{
           this.router.navigateByUrl('/home');
 
-        }      });
-    }
+
+        }
+      });
+
+        }
+
+
     openLogoutConfirmation(): Promise<boolean> {
       return Swal.fire({
         title: 'Logout Confirmation',
@@ -42,5 +47,10 @@ export class LogoutComponent {
         return result.isConfirmed;
       });
     }
-    
-}
+
+
+  }
+
+
+
+
