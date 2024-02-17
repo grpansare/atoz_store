@@ -3,7 +3,7 @@
  </h2>
  <ng-container *ngIf="products.length; else noProducts">
 
- <div  class=" products gap-6  ml-4  mt-4    mx-auto grid w-full max-w-8xl items-center d-flex flex-wrap justify-center space-y-4 px-5 py-10 md:grid-cols-2 md:gap-12 md:space-y-0 lg:grid-cols-3 ">
+ <div  class=" products gap-4  ml-4  mt-4    mx-auto grid w-full max-w-8xl items-center d-flex flex-wrap justify-center space-y-4 px-5 py-10 md:grid-cols-2 md:gap-12 md:space-y-0 lg:grid-cols-3 ">
 
 
 
@@ -29,7 +29,8 @@
 
        <div class="price d-flex align-items-center gap-2">
          <h2>  Price:{{ product.price | calculatepricepipe:product.offer | currency:'INR':'symbol':'1.2-2' }}</h2>
-        <h4 class="text-decoration-overline">  {{ product.price | currency:'INR':'symbol':'1.2-2' }}</h4>
+         <h4 class="text-decoration-line-through">{{ product.price | currency:'INR':'symbol':'1.2-2' }}</h4>
+
 
 
 
@@ -57,4 +58,4 @@
  </ng-template>
 
 
- <p>offered-products works!</p>
+

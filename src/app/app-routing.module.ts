@@ -21,6 +21,7 @@ import { AddimageComponent } from './addimage/addimage.component';
 import { VendorsiteregistrationComponent } from './VendorSiteRegistration/vendorsiteregistration.component';
 import { DelieverypartnerregistrationComponent } from './DelieveryPartnerRegistration/delieverypartnerregistration.component';
 import { VendorhomepageComponent } from './VendorHomepage/vendorhomepage.component';
+import { SearchproductComponent } from './homepage/searchproduct/searchproduct.component';
 
 const routes: Routes = [
   { path: '', component: WelcomepageComponent },
@@ -43,7 +44,8 @@ const routes: Routes = [
     { path: 'products/:category', component: ProductcategoryComponent },
     { path: 'logout', component: LogoutComponent },
     { path: 'cart', component: CartpageComponent },
-    { path: 'cart/checkout', component: ProductsummaryComponent}
+    { path: 'cart/checkout', component: ProductsummaryComponent},
+    { path: 'searchproduct/:searchpro', component: SearchproductComponent}
 
   ]
   },

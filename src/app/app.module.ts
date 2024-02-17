@@ -73,6 +73,7 @@ import { TestimonialsComponent } from './Testimonials/testimonials.component';
 import { ProductinfoComponent } from './VendorHomepage/productinfo/productinfo.component';
 import { OfferedProductsComponent } from './homepage/offered-products/offered-products.component';
 import { CalculatepricepipePipe } from './Pipes/calculatepricepipe.pipe';
+import { SearchproductComponent } from './homepage/searchproduct/searchproduct.component';
 
 
 
@@ -118,7 +119,8 @@ import { CalculatepricepipePipe } from './Pipes/calculatepricepipe.pipe';
    TestimonialsComponent,
    ProductinfoComponent,
    OfferedProductsComponent,
-   CalculatepricepipePipe
+   CalculatepricepipePipe,
+   SearchproductComponent
 
   ],
   imports: [

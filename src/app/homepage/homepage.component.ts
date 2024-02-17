@@ -14,4 +14,12 @@ export class HomepageComponent {
     this.showdropdown=!this.showdropdown;
    }
 
+   searchProd(searchpro:any){
+
+    this.router.navigate(['home/searchproduct', searchpro]);
+   }
+   goToHome(){
+    this.router.navigateByUrl('home')
+   }
+
 }

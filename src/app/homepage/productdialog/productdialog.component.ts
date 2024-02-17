@@ -12,9 +12,9 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 })
 export class ProductdialogComponent {
 
-  selectedColor!:String;
+  selectedColor:String=this.data.colors[0];
   user:any={};
-  selectedSize: string | null = null;
+  selectedSize: string=this.data.sizes[0];
   baseurl="http://localhost:8081";
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';

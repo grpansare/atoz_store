@@ -5,15 +5,14 @@
         <mat-icon>menu</mat-icon>
       </button>
 
-      <a routerLink=""  class="text-decoration-none ">
-      <span class="font-bold ml-4 logo"><i class="fa-solid mr-3 fa-cart-shopping fa-xl"></i>AtoZStore</span>
+      <a (click)="goToHome()" class="text-decoration-none ">
+      <span class="font-bold ml-4 logo"><i class="fa-solid mr-3  fa-shopping-bag fa-xl"></i>AtoZStore</span>
       </a>
 
       <div fxShow="true" fxHide.lt-md fxLayout="row" fxLayoutAlign="end center" class="g-3 mr-5">
       <form class="d-flex input-group w-auto">
         <div class="searchbox">
-
-          <input type="search" name="" id="" placeholder="Search product">
+          <input type="search" name="" id="" #searchInput placeholder="Search product" (input)="searchProd(searchInput.value)">
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
       </form>
@@ -61,7 +60,7 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <mat-sidenav-container fxFlexFill>
+  <mat-sidenav-container >
     <mat-sidenav #sidenav>
       <mat-nav-list>
 
@@ -108,7 +107,7 @@
       </mat-nav-list>
     </mat-sidenav>
 
-    <mat-sidenav-content fxFlexFill class="content">
+    <mat-sidenav-content  class="content">
 
 
 

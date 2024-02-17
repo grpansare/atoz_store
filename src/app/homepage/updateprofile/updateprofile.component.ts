@@ -23,7 +23,7 @@ export class UpdateprofileComponent {
 
   open(content: any) {
 
-    this.user=localStorage.getItem('user');
+    this.user=sessionStorage.getItem('user');
     this.user=JSON.parse(this.user)
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       if (result === 'Save click') {
