@@ -1,22 +1,33 @@
 .prod-info{
     margin-top: 10px;
-    border: 5px black solid;
-    width: auto;
+    width: 900px;
+    border: 5px lightgreen solid;
+
     height: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-h3{
-    font-size: larger;
-    font-weight: 900;
- }
+.prodname{
+    font-size: xx-large;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
  
 img{
-    height: 400px;
-    width: 400px;
-    display: flex;
-    flex-direction: row;
+    height: 380px;
+    width: 380px;
      
 }
+.info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+  
+  
+  
+ 

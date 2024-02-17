@@ -22,7 +22,7 @@ export class ProductsummaryComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.userinfo=localStorage.getItem('user');
+    this.userinfo=sessionStorage.getItem('user');
    this.userinfo=JSON.parse(this.userinfo)
     // console.log(this.userinfo)
 

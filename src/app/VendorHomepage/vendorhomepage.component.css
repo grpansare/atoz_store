@@ -7,6 +7,7 @@
   /* background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%); */
 }
 
+
 .btn{
   border: 1px solid black;
 padding: 0.6rem 2rem;
@@ -107,18 +108,15 @@ font-size: 1.5rem;
 .add{
 color: black;
 background-color: aqua;
-margin-right: 10px;
+margin-right: 500px;
 }
-.list{
-color: black;
-background-color: aqua;
-margin-right: 400px;
 
-
-}
   .main{
     display: flex;
     flex-direction: row;
+    background-image: url("/assets/vendortheme2.jpg"); 
+    /* background-color: white; */
+
   }
   .info-box{
     width: 450px;
@@ -128,8 +126,8 @@ margin-right: 400px;
     padding-left: 20px;
     margin: 25px;
     border: 1px lightgray solid;
-    height: 75px;
-    background-color: #B4D4FF;
+    height: 85px;
+    background-color: floralwhite;
     border-radius: 15px;
   }
   .sub-info-box{

@@ -11,16 +11,16 @@ import Swal from 'sweetalert2';
 })
 export class VendorsiteregistrationComponent {
 
-  private baseUrl:any = "http://localhost:8081/user"; 
+  private baseUrl:any = "http://localhost:8081/user";
 
   isSubmited:boolean=false;
-  
-  constructor(private http: HttpClient,private router: Router,private formBuilder:FormBuilder) { 
+
+  constructor(private http: HttpClient,private router: Router,private formBuilder:FormBuilder) {
 
   }
 
   ngOnInit(): void {
-   
+
   }
 
   signin=new FormGroup({
@@ -50,7 +50,7 @@ export class VendorsiteregistrationComponent {
    matchPassword(control: AbstractControl): { [key: string]: boolean } | null {
     if (!this.signin || !this.signin.get('password')) {
        console.error('Form or password control not initialized.');
-       return { 'passwordMismatch': true }; 
+       return { 'passwordMismatch': true };
      }
 
      const password = this.signin.get('password')?.value;
@@ -145,7 +145,7 @@ get postalCode():any{
     this.isSubmited = true;
     this.myForm = this.signin;
 
-    if (this.signin.valid) 
+    if (this.signin.valid)
     {
 
       const registeringData = {
@@ -157,7 +157,7 @@ get postalCode():any{
         age: this.myForm.value.age,
         username: this.myForm.value.username,
         password: this.myForm.value.password,
-        companyname:this.myForm.value.companyname,  
+        companyname:this.myForm.value.companyname,
        companytype:this.myForm.value.companytype,
        address: this.myForm.value.address,
        city: this.myForm.value.city,
@@ -186,8 +186,8 @@ get postalCode():any{
 
           this.router.navigateByUrl('/login');
 
-          
-          
+
+
         },
         (error: any) => {
           // Handle error response
@@ -199,11 +199,11 @@ get postalCode():any{
             title: 'Error in Registration',
             text: 'There was an error during registration. Please try again later.',
           });
-          
+
         }
       );
-      
-    } 
+
+    }
   }
- 
+
 }

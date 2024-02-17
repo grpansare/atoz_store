@@ -2,6 +2,7 @@
 
   width: 100%;
   font-size: 1rem;
+padding: 2rem;
 
 
 
@@ -12,9 +13,9 @@
  color:rgb(74, 75, 74);
   border: 2px solid rgb(7, 154, 173);
   /* box-shadow: 0 0 12px 1px rgb(131, 132, 132); */
-  width: 300px;
-  height: 370px;
-  padding: 1rem;
+  width: 380px;
+  height: 400px;
+  
 
 
 
@@ -39,13 +40,12 @@ font-size: 1rem;
 align-items: center;
 
 }
+.offer{
+  font-weight: 600;
+  font-size: 1.5rem;
+}
 .radiobutton input, .radiobutton label {
   display: inline-block;
   margin: 0;
-  padding: 0;
-}
-@media screen and (max-width:600px){
-  .product{
-   height: 270px;
-  }
+  padding: 0;
 }

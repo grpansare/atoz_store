@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filters',
@@ -16,6 +16,7 @@ export class FiltersComponent {
   colours = ["Red", "Blue", "Black", "White", "Yellow", "Green", "Gray", "Purple"];
   minPrice: any='';
   maxPrice: any='';
+  @Output() priceFilterSubmit: EventEmitter<{ min: any, max: any }> = new EventEmitter();
 prodArr:any[]=[];
 
   ngOnInit() {
@@ -66,7 +67,9 @@ prodArr:any[]=[];
     this.searchCategory();
   }
 
-  handlePriceFilterSubmit(){
 
+  handlePriceFilterSubmit() {
+    // Emit the min and max prices to the parent component
+    this.priceFilterSubmit.emit({ min: this.minPrice, max: this.maxPrice });
   }
 }

@@ -11,7 +11,7 @@
       <hr>
       <div class="flex w-full space-x-2 sm:space-x-4">
           <img
-          [src]="product.cartimageFile.filePath"
+          [src]="product.cartimageFile?.filePath"
           alt="Laptop"
           class="aspect-[16/9] w-full rounded-md md:aspect-auto md:h-[300px] lg:h-[200px]"
         />
@@ -31,104 +31,103 @@
               <p class="text-sm color">
                 Size:   {{product.size|titlecase}}
 
-           </p>
-               <br>
-              <label for="quantity" class="text-sm color">Quantity:</label>
-  <!-- <select id="quantity" [(ngModel)]="product.quantity" class="text-sm text-[your-color-class]" class="border-dark">
-    <option *ngFor="let quantityOption of quantity" [value]="quantityOption">{{ quantityOption }}</option>
-  </select> -->
+              </p>
+              <br>
+             <label for="quantity" class="text-sm color">Quantity:</label>
+ <!-- <select id="quantity" [(ngModel)]="product.quantity" class="text-sm text-[your-color-class]" class="border-dark">
+   <option *ngFor="let quantityOption of quantity" [value]="quantityOption">{{ quantityOption }}</option>
+ </select> -->
 
 
-    <select [(ngModel)]="product.quantity" id="quantity" class="appearance-none rounded border border-gray-300 py-2 pl-3 pr-10 text-sm focus:border-black focus:outline-none focus:ring-2 focus:ring-black">
-      <option *ngFor="let quantityOption of quantity" [value]="quantityOption">{{ quantityOption }}</option>
+   <select [(ngModel)]="product.quantity" id="quantity" class="appearance-none rounded border border-gray-300 py-2 pl-3 pr-10 text-sm focus:border-black focus:outline-none focus:ring-2 focus:ring-black">
+     <option *ngFor="let quantityOption of quantity" [value]="quantityOption">{{ quantityOption }}</option>
 
-    </select>
-    <span class="pointer-events-none absolute right-0 top-0 flex h-full w-10 items-center justify-center text-center text-gray-600">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-chevron-down"
-      >
-        <polyline points="6 9 12 15 18 9"></polyline>
-      </svg>
-    </span>
-
-
+   </select>
+   <span class="pointer-events-none absolute right-0 top-0 flex h-full w-10 items-center justify-center text-center text-gray-600">
+     <svg
+       xmlns="http://www.w3.org/2000/svg"
+       width="16"
+       height="16"
+       viewBox="0 0 24 24"
+       fill="none"
+       stroke="currentColor"
+       stroke-width="2"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       class="lucide lucide-chevron-down"
+     >
+       <polyline points="6 9 12 15 18 9"></polyline>
+     </svg>
+   </span>
 
 
-            </div>
-            <div class="text-right">
-              <p class="text-lg font-semibold">{{product.price|currency:'INR'}}</p>
-            </div>
-          </div>
-          <div class="flex divide-x text-sm color">
-            <button
-              type="button"
-              class="flex items-center space-x-2 px-2 py-1 pl-0"
-              (click)="removeFromCart(product)"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-trash"
-              >
-                <path d="M3 6h18"></path>
-                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
-                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
-              </svg>
-              <span>Remove</span>
-            </button>
 
-          </div>
-        </div>
-      </div>
-      <hr>
-    </li>
-  </ul>
-
-
-  <hr>
-  <div class="space-y-1 text-right color">
-    <p>
-      Total amount:<span class="font-semibold"> {{sum|currency:'INR'}}</span>
-    </p>
   </div>
-  <div class="flex justify-end space-x-4">
-
-    <button
-    (click)="gotoCategory()"
-      type="button"
-      class="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black btn"
-    >
-
-     Back to shop
-    </button>
-
-    <a routerLink="checkout"
-
-      class="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black btn"
-    >
-      Checkout
-  </a>
+  <div class="text-right">
+    <p class="text-lg font-semibold">{{product.price|currency:'INR'}}</p>
   </div>
-  </ng-container>
-  <ng-template #noProducts>
-    <!-- <div class="text-center mt-4">
-      <div class="spinner-border text-info" role="status">
+</div>
+<div class="flex divide-x text-sm color">
+  <button
+    type="button"
+    class="flex items-center space-x-2 px-2 py-1 pl-0"
+    (click)="removeFromCart(product)"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-trash"
+    >
+      <path d="M3 6h18"></path>
+      <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+      <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+    </svg>
+    <span>Remove</span>
+  </button>
+
+</div>
+</div>
+</div>
+<hr>
+</li>
+</ul>
+
+
+<hr>
+<div class="space-y-1 text-right color">
+  <p>
+    Total amount:<span class="font-semibold"> {{sum|currency:'INR'}}</span>
+  </p>
+</div>
+<div class="flex justify-end space-x-4">
+
+  <button
+  (click)="gotoCategory()"
+    type="button"
+    class="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black btn"
+  >
+
+   Back to shop
+  </button>
+
+  <a routerLink="checkout"
+
+    class="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black btn"
+  >
+    Checkout
+</a>
+</div>
+</ng-container>
+<ng-template #noProducts>
+  <!-- <div class="text-center mt-4">
+    <div class="spinner-border text-info" role="status">
       <span class="visually-hidden">Loading...</span>
     </div></div> -->
     <div class="container-fluid  mt-100">
@@ -157,6 +156,6 @@
 
       </div>
 
-     </div>
+    </div>
   </ng-template>
 </div>

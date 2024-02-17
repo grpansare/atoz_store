@@ -13,6 +13,9 @@ import Swal from 'sweetalert2';
 export class LoginComponent {
 
   user:any={};
+  showuserlogin:boolean=true;
+  showvenderlogin:boolean=false;
+  showDeliverylogin:boolean=false;
 
 
   constructor(private http: HttpClient,private router: Router) {
@@ -24,8 +27,6 @@ export class LoginComponent {
     password:new FormControl("",[Validators.required ]),
 
   });
-
-
 
   get username():any{
     return this.login.get('username');
@@ -82,6 +83,26 @@ error => {
 
 }
 );
+
+}
+showVender(){
+ 
+  this.showuserlogin=false;
+  this.showvenderlogin=true;
+  this.showDeliverylogin=false;
+  
+}
+
+showDelivery(){
+  this.showDeliverylogin=true;
+  this.showuserlogin=false;
+  this.showvenderlogin=false;
+
+}
+showUserlogin(){
+  this.showuserlogin=true;
+  this.showDeliverylogin=false;
+  this.showvenderlogin=false;
 
 }
 }

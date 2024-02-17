@@ -18,12 +18,12 @@ constructor(private http:HttpClient){
 
 }
 ngOnInit(): void {
-  this.userid=localStorage.getItem('username');
+  this.userid=sessionStorage.getItem('username');
    this.getUser();
 }
 getUser(){
 
-  this.userid=localStorage.getItem('username');
+  this.userid=sessionStorage.getItem('username');
 
 
   this.http.get(`http://localhost:8081/user/getuser/${this.userid}`).subscribe(
@@ -39,6 +39,6 @@ getUser(){
 }
 updateUser(user: any) {
   this.userinfo = user;
-  localStorage.setItem('user', JSON.stringify(this.userinfo));
+  sessionStorage.setItem('user', JSON.stringify(this.userinfo));
 }
 }
