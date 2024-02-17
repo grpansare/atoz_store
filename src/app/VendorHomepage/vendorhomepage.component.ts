@@ -13,7 +13,8 @@ export class VendorhomepageComponent {
   product:any={
     productname:"iPhone",
     price:40000,
-    category:"electronics"
+    category:"electronics",
+    description:"Iphone 14 pro max is a fastest model"
   };
   products:any=[];
   constructor(private router:Router){
@@ -21,33 +22,39 @@ export class VendorhomepageComponent {
       {
         productname:"iPhone",
         price:40000,
-        category:"electronics"
+        category:"electronics",
+        description:"Iphone 14 pro max is a fastest model"
+
       },
       {
         productname:"Laptop",
         price:70000,
-        category:"electronics"
+        category:"electronics",
+        description:" Laptop is a 4GBRAM model"
+
       },
       {
         productname:"Charger",
         price:2000,
-        category:"electronics"
+        category:"electronics",
+        description:"Charger  has 1.5 w speed charger"
+
       },
       {
         productname:"Keyboard",
         price:4000,
-        category:"electronics"
+        category:"electronics",
+        description:"Keyboard is use for PC "
+
       },
       {
         productname:"TV",
         price:100000,
-        category:"electronics"
+        category:"electronics",
+        description:"Panasonic Tv with 32 inches size with high definition screen"
+
       },
-      {
-        productname:"Mouse",
-        price:250,
-        category:"electronics"
-      }
+      
     ]
   }
   changeDropDown(){

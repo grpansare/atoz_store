@@ -1,4 +1,4 @@
-<div>
+<div >
   <mat-toolbar class="navbar py-2">
     <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
@@ -16,7 +16,6 @@
       
 
 
-        <button class="btn btn-primary list" routerLink="product-list">Product List</button>
 
 
 
@@ -85,10 +84,10 @@
 <div class="main">
   <div>
       <div class="info-box" *ngFor="let product of products" (click)="showprodinfo(product)">
-        <h3>Product name: {{product.productname}}</h3>
+        <h2>Product name: {{product.productname}}</h2>
         <div class="sub-info-box">
-          <h5>price: {{product.price}}</h5>
-          <h5>category: {{product.category}}</h5>
+          <h3>Price: {{product.price|currency:'INR'}}</h3>
+          <h3>Category: {{product.category}}</h3>
         </div>
       </div>
   </div>

@@ -49,12 +49,12 @@ const routes: Routes = [
 
   ]
   },
-  {path:'vendorhome',component:VendorhomepageComponent,
+  {path:"vendor",component:VendorhomepageComponent,
   children:[
 
   ]
 },
-{ path: 'vendorhome/addproduct', component: AddproductComponent},
+{ path: 'vendor/addproduct', component: AddproductComponent},
 
   { path: '**', component: NotfoundComponent}
 

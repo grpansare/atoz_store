@@ -13,6 +13,9 @@ import Swal from 'sweetalert2';
 export class LoginComponent {
 
   user:any={};
+  showuserlogin:boolean=true;
+  showvenderlogin:boolean=false;
+  showDeliverylogin:boolean=false;
 
 
   constructor(private http: HttpClient,private router: Router) {
@@ -24,8 +27,6 @@ export class LoginComponent {
     password:new FormControl("",[Validators.required ]),
 
   });
-
-
 
   get username():any{
     return this.login.get('username');
@@ -40,17 +41,17 @@ export class LoginComponent {
  handleSubmit(){
 
   console.log(this.data)
-
-
+  
+  
 this.http.post("http://localhost:8081/user/loginuser",this.login.value).subscribe(
   (response:any) =>{
     if(response!=null){
-      sessionStorage.setItem('username',response.username)
+      localStorage.setItem('username',response.username)
       const user=JSON.stringify(response);
-      sessionStorage.setItem('user',user);
-      console.log(  sessionStorage.getItem('user'))
+      localStorage.setItem('user',user);
+      console.log(  localStorage.getItem('user'))
 
-
+    
     Swal.fire({
       icon: 'success',
       title: 'Login Successful!',
@@ -82,6 +83,26 @@ error => {
 
 }
 );
+
+}
+showVender(){
+ 
+  this.showuserlogin=false;
+  this.showvenderlogin=true;
+  this.showDeliverylogin=false;
+  
+}
+
+showDelivery(){
+  this.showDeliverylogin=true;
+  this.showuserlogin=false;
+  this.showvenderlogin=false;
+
+}
+showUserlogin(){
+  this.showuserlogin=true;
+  this.showDeliverylogin=false;
+  this.showvenderlogin=false;
 
 }
 }
