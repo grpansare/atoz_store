@@ -13,6 +13,8 @@ export class SearchproductComponent {
   searchprod:any="";
   searchedProducts:any=[];
   baseurl="http://localhost:8081";
+  isLoading:boolean=true;
+  noProductFound:boolean=false;
   constructor(private route: ActivatedRoute,private http:HttpClient,private router:Router,public dialog: MatDialog) {
 
   }
@@ -24,7 +26,9 @@ this.searchprod= params.get('searchpro');
 
     console.log(this.searchprod)
     if(this.searchprod.length>3){
+      this.isLoading=false;
 this.getProducts()
+
     }
 
   }
@@ -35,7 +39,14 @@ getProducts(){
 
   this.http.get<any[]>(this.baseurl+`/product/searchproducts/${this.searchprod}`).subscribe(
     success=>{
+
       this.searchedProducts=success
+      if(this.searchedProducts.length==0){
+        this.noProductFound=true;
+      }else{
+        this.noProductFound=false;
+
+      }
       console.log(this.searchedProducts)
     },
     error=>{

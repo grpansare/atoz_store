@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, Inject, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-productdialog',
@@ -10,25 +11,47 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
   styleUrl: './productdialog.component.css',
 
 })
-export class ProductdialogComponent {
+export class ProductdialogComponent implements OnInit{
 
   selectedColor:String=this.data.colors[0];
   user:any={};
+  addingToCart:boolean=false;
   selectedSize: string=this.data.sizes[0];
   baseurl="http://localhost:8081";
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
+  isPresentInCart:boolean=false;
   constructor(
     public dialogRef: MatDialogRef<ProductdialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private http:HttpClient,
-    private snak:MatSnackBar
+    private snak:MatSnackBar,
+    private router:Router
 
   ) {}
+ngOnInit(): void {
+  this.CheckInCart()
+}
+  CheckInCart(){
+    this.user=sessionStorage.getItem('user');
+    const userinfo=JSON.parse(this.user);
+    this.http.post(this.baseurl+`/cart/checkInCart/${userinfo.username}`,this.data.productid).subscribe(
+      response=>{
+      if(response==true){
+        this.isPresentInCart=true;
+      }
+
+      },
+      error=>{
+        console.log(error)
+      }
+    )
+  }
   addToCart(product:any){
     this.user=sessionStorage.getItem('user');
     const userinfo=JSON.parse(this.user);
-    console.log(product);
+    console.log(userinfo);
+    this.addingToCart=true;
 
 
     const imageFile1={
@@ -83,5 +106,9 @@ this.http.post<any[]>(this.baseurl+`/cart/addToCart/${userinfo.username}`,cartpr
     const target = event.target as HTMLSelectElement;
     this.selectedSize = target.value;
     console.log('Selected Size:', this.selectedSize);
+  }
+  goToCart(){
+    this.dialogRef.close();
+    this.router.navigateByUrl('home/cart')
   }
 }

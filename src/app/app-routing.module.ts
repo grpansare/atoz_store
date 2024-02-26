@@ -22,6 +22,10 @@ import { VendorsiteregistrationComponent } from './VendorSiteRegistration/vendor
 import { DelieverypartnerregistrationComponent } from './DelieveryPartnerRegistration/delieverypartnerregistration.component';
 import { VendorhomepageComponent } from './VendorHomepage/vendorhomepage.component';
 import { SearchproductComponent } from './homepage/searchproduct/searchproduct.component';
+import { DelieveryboydetailsComponent } from './DelieveryHomepage/DelieveryHomepage/delieveryboydetails/delieveryboydetails.component';
+import { DelieveryhomepageComponent } from './DelieveryHomepage/DelieveryHomepage/delieveryhomepage.component';
+import { VendorprofileComponent } from './VendorHomepage/vendorprofile/vendorprofile.component';
+import { VendordetailsComponent } from './VendorHomepage/vendordetails/vendordetails.component';
 
 const routes: Routes = [
   { path: '', component: WelcomepageComponent },
@@ -51,15 +55,28 @@ const routes: Routes = [
   },
   {path:"vendor",component:VendorhomepageComponent,
   children:[
+    {path:"",component:VendordetailsComponent},
+
+    {path:"vendorprofile",component:VendorprofileComponent},
 
   ]
 },
 { path: 'vendor/addproduct', component: AddproductComponent},
 
+
+{path:"delieveryhome",component:DelieveryhomepageComponent,
+  children:[
+    {path:"",component:DelieveryboydetailsComponent},
+
+  ]
+},
   { path: '**', component: NotfoundComponent}
 
 
 ];
+
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

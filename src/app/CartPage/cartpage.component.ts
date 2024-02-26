@@ -12,9 +12,10 @@ import { CartServiceService } from '../Services/cart-service.service';
 export class CartpageComponent {
   products:any=[];
   user:any={};
+  selectedQuantity:number[]=[];
 
   sum:number=0;
-  quantity: number[] = Array.from({ length: 100 }, (_, i) => i + 1);
+  quantity: number[] = [1,2,3,4,5,6,7,8,9,10];
 
 
 
@@ -23,6 +24,7 @@ export class CartpageComponent {
   constructor(private http:HttpClient,private router:Router,private cartService: CartServiceService){
   this.user=sessionStorage.getItem('user');
   this.user=JSON.parse(this.user);
+
 
 
   }
@@ -39,7 +41,7 @@ export class CartpageComponent {
 
 
 getCartProducts(){
-  this.http.get<any[]>(this.baseurl+`/cart/getcartproducts/${this.user.username}`).subscribe(
+  this.http.get<any[]>(this.baseurl+`/cart/getcartproducts/${this.user?.username}`).subscribe(
 response=>{
   console.log(response);
 
@@ -75,11 +77,62 @@ calculateprice(){
   this.sum=0;
   this.products.forEach((element:any) => {
     console.log(element)
-    this.sum=this.sum+element.price
+    if(element.offer!=='null' && element.offer!==null){
+
+    this.sum=this.sum+this.calculateDiscountedPrice(element)*element.quantity;
+    }
+    else{
+    this.sum=this.sum+element.price*element.quantity
+    }
     console.log("total :"+this.sum)
   });
 }
 gotoCategory(){
   this.router.navigateByUrl("home")
+}
+AddTotalAmount(product:any,index:any){
+
+  if(product.offer!=='null'){
+
+    this.sum=this.sum+this.calculateDiscountedPrice(product);
+    }
+    else{
+    this.sum=this.sum+product.price
+    }
+   this.updateProductQuantity("add",product);
+  this.products[index].quantity+=1;
+}
+
+subtractTotalAmount(product:any,index:any){
+  if(this.products[index].quantity>1){
+  if(product.offer!=='null'){
+
+    this.sum-=this.calculateDiscountedPrice(product);
+    }
+    else{
+    this.sum-=product.price
+    }
+    this.updateProductQuantity("subtract",product);
+  this.products[index].quantity-=1;
+    }
+}
+calculateDiscountedPrice(element:any):number{
+  const discountPercentage = parseFloat(element.offer.replace('%', ''));
+
+
+
+  const finalPrice = element.price - (element.price * discountPercentage / 100);
+
+  return finalPrice;
+}
+updateProductQuantity(update:any,product:any){
+   this.http.post(this.baseurl+`/cart/productquantity/${update}/${this.user.username}`,product).subscribe(
+    (success:any)=>{
+
+    },
+    error=>{
+
+    }
+   )
 }
 }

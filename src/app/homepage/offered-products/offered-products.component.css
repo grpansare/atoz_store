@@ -1,8 +1,12 @@
 .products{
 
-  width: 100%;
+  width: 90%;
   font-size: 1rem;
-padding: 2rem;
+padding:2rem  ;
+display: flex;
+justify-content: center;
+
+
 
 
 
@@ -15,7 +19,8 @@ padding: 2rem;
   /* box-shadow: 0 0 12px 1px rgb(131, 132, 132); */
   width: 380px;
   height: 400px;
-  text-decoration: ;
+
+
 
 
 
@@ -47,5 +52,6 @@ align-items: center;
 .radiobutton input, .radiobutton label {
   display: inline-block;
   margin: 0;
-  padding: 0;
+padding:0;
+
 }

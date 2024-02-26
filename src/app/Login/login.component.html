@@ -91,7 +91,7 @@
               <span>
               <a routerLink="/forgotpassword" class="forgot-password" id="forgotpassword">Forgot Password</a>
           </span>
-          <span>  
+          <span>
               <a routerLink="/signin" class="new-user" id="new-user">New User? Register Here</a>
           </span>
           </form>
@@ -182,7 +182,7 @@
           <button mat-button color="primary" (click)="showUserlogin()">Customer</button>
           <button mat-button color="primary" (click)="showDelivery()">Delivery</button>
       </div>
-          <form (ngSubmit)="handleSubmit()" [formGroup]="login">
+          <form (ngSubmit)="handleVendorLogin()" [formGroup]="login">
               <mat-form-field >
                   <mat-label>User Name</mat-label>
                   <input matInput placeholder="Username" formControlName="username" id="username" type="text">
@@ -197,7 +197,7 @@
               <span>
               <a routerLink="/forgotpassword" class="forgot-password" id="forgotpassword">Forgot Password</a>
           </span>
-          <span>  
+          <span>
               <a routerLink="/signin" class="new-user" id="new-user">New Vender? Register Here</a>
           </span>
           </form>
@@ -304,7 +304,7 @@
               <span>
               <a routerLink="/forgotpassword" class="forgot-password" id="forgotpassword">Forgot Password</a>
           </span>
-          <span>  
+          <span>
               <a routerLink="/signin" class="new-user" id="new-user">New Delivery Partner? Register Here</a>
           </span>
           </form>

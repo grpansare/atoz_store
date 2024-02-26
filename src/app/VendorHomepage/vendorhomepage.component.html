@@ -5,7 +5,7 @@
         <mat-icon>menu</mat-icon>
       </button>
 
-      <a routerLink="" class="text-decoration-none">
+      <a (click)="vendorpage()" class="text-decoration-none">
         <span class="font-bold ml-4 logo"><i class="fa-solid mr-3 fa-cart-shopping fa-xl"></i>AtoZStore</span>
       </a>
 
@@ -32,7 +32,7 @@
           </button>
           <ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenu2">
             <li>
-              <a routerLink="profile" class="dropdown-item">
+              <a routerLink="vendorprofile" class="dropdown-item">
                 View Profile <i class="fa-solid fa-eye  ml-2"></i>
               </a>
             </li>
@@ -80,16 +80,3 @@
 
 
 
-
-<div class="main">
-  <div>
-      <div class="info-box" *ngFor="let product of products" (click)="showprodinfo(product)">
-        <h2>Product name: {{product.productname}}</h2>
-        <div class="sub-info-box">
-          <h3>Price: {{product.price|currency:'INR'}}</h3>
-          <h3>Category: {{product.category}}</h3>
-        </div>
-      </div>
-  </div>
-      <app-productinfo [product]="product"></app-productinfo>
-</div>

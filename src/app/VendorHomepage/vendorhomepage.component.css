@@ -139,3 +139,54 @@ margin-right: 500px;
     color: white;
 
   }
+
+
+
+  @media only screen and (max-width: 768px) {
+    /* Adjustments for screens smaller than 768px width */
+    .navbar {
+      font-size: 1rem;
+    }
+  
+    .navbar .logo {
+      font-size: 1.2rem;
+    }
+  
+    .navbar .add {
+      margin-right: 100px; /* Adjust as needed */
+    }
+  
+    .main {
+      flex-direction: column; /* Stack elements vertically */
+    }
+  
+    .info-box {
+      width: 100%; /* Full width on smaller screens */
+      margin: 15px; /* Reduce margin */
+    }
+  }
+  
+  @media only screen and (max-width: 576px) {
+    /* Adjustments for screens smaller than 576px width */
+    .navbar {
+      font-size: 0.9rem;
+    }
+  
+    .navbar .logo {
+      font-size: 1rem;
+    }
+  
+    .navbar .add {
+      margin-right: 50px; /* Adjust as needed */
+    }
+  
+    .main {
+      flex-direction: column; /* Stack elements vertically */
+    }
+  
+    .info-box {
+      width: 100%; /* Full width on smaller screens */
+      margin: 10px; /* Reduce margin */
+    }
+  }
+  

@@ -40,18 +40,18 @@ export class LoginComponent {
  data:any={};
  handleSubmit(){
 
-  console.log(this.data)
-  
-  
+
+
+
 this.http.post("http://localhost:8081/user/loginuser",this.login.value).subscribe(
   (response:any) =>{
     if(response!=null){
-      localStorage.setItem('username',response.username)
+      sessionStorage.setItem('username',response.username)
       const user=JSON.stringify(response);
-      localStorage.setItem('user',user);
-      console.log(  localStorage.getItem('user'))
+      sessionStorage.setItem('user',user);
+      // console.log(  localStorage.getItem('user'))
 
-    
+
     Swal.fire({
       icon: 'success',
       title: 'Login Successful!',
@@ -86,11 +86,11 @@ error => {
 
 }
 showVender(){
- 
+
   this.showuserlogin=false;
   this.showvenderlogin=true;
   this.showDeliverylogin=false;
-  
+
 }
 
 showDelivery(){
@@ -104,5 +104,50 @@ showUserlogin(){
   this.showDeliverylogin=false;
   this.showvenderlogin=false;
 
+}
+
+handleVendorLogin(){
+  this.http.post("http://localhost:8081/vendor/vendorlogin",this.login.value).subscribe(
+  (response:any) =>{
+    console.log(response);
+
+    if(response!=null){
+      sessionStorage.setItem('username',response.username)
+      const user=JSON.stringify(response);
+      sessionStorage.setItem('user',user);
+      // console.log(  localStorage.getItem('user'))
+
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Login Successful!',
+      text: 'Welcome back!',
+    });
+
+    this.router.navigateByUrl("/vendor");
+  }
+  else{
+    // alert("Wrong Credentials")
+    // console.log('Wrong User', response);
+
+    Swal.fire({
+      icon: 'error',
+      title: 'Wrong Credentials',
+      text: 'Please check your username and password.',
+    });
+  }
+},
+error => {
+
+  // console.error('Login failed', error);
+
+  Swal.fire({
+    icon: 'error',
+    title: 'Login Failed',
+    text: 'Invalid username or password. Please try again.',
+  });
+
+}
+);
 }
 }

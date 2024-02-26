@@ -35,8 +35,8 @@ mat-card-header {
 }
 
 mat-card-content {
-  margin-top: 0.1rem;
-  padding: 4rem;
+  /* margin-top: 0.1rem; */
+  padding:3rem 4rem;
 }
 
 mat-form-field {
@@ -106,17 +106,17 @@ width: 50%;
     height: 480px;
   }
   .button-container {
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column;
+    align-items: center;
   }
 
   .button-container button {
-    width: 100%; 
-    margin-bottom: 10px; 
+    width: 100%;
+    margin-bottom: 10px;
   }
 
   .button-container button:last-child {
-    margin-bottom: 0; 
+    margin-bottom: 0;
   }
 }
 .button-container {

@@ -1,13 +1,12 @@
-.prod-info{
-    margin-top: 10px;
-    width: 900px;
-    border: 5px lightgreen solid;
 
-    height: 600px;
+.order-info{
+  margin-top: 2px;
+    border: 5px black solid;
+
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    
 }
 .prodname{
     font-size: xx-large;
@@ -15,22 +14,23 @@
     margin-right: 20px;
 }
 
- 
-img{
-    height: 380px;
-    width: 380px;
-     
-}
+
 .info{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+}
+
+.header{
+  text-align: center;
+  margin-left: 300px;
+  border: 1px solid black;
+  background-color: antiquewhite;
 }
 
   
 
 @media only screen and (max-width: 768px) {
-    .prod-info {
+    .order-info {
       width: 100%; /* Make it full width on smaller screens */
       max-width: 100%; /* Ensure it doesn't exceed the screen width */
       height: auto; /* Let the height adjust based on content */
@@ -39,12 +39,12 @@ img{
       border: none; /* Remove border */
       padding: 20px; /* Add some padding for better spacing */
     }
-    .prod-info .lg:w-1/ {
+    .order-info .lg:w-1/ {
         width: 100%; /* Make the text content full width */
         text-align:center;/* Center the text content */
       }
   
-    .prod-info img {
+    .order-info img {
       width: 100%; /* Make the image responsive, filling the container */
       height: auto; /* Let the height adjust based on the width */
       max-width: 100%; /* Ensure it doesn't exceed the container width */

@@ -1,0 +1,17 @@
+
+<div class="main">
+    <div>
+        <div class="info-box" *ngFor="let product of products" (click)="showprodinfo(product)">
+          <h2>Product name: {{product.productname}}</h2>
+          <div class="sub-info-box">
+            <h3>Price: {{product.price|currency:'INR'}}</h3>
+            <h3>Category: {{product.category}}</h3>
+            <i class="fas fa-trash-alt"></i>
+          </div>
+
+        </div>
+
+
+    </div>
+        <app-productinfo [product]="product"></app-productinfo>
+  </div>

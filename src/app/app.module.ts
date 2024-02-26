@@ -15,7 +15,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatOption, MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatCardModule} from '@angular/material/card';
+import {MatCardActions, MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
@@ -47,6 +47,7 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { MAT_NAV_LIST, MatListModule, MatNavList } from '@angular/material/list';
@@ -66,7 +67,7 @@ import { AddproductComponent } from './addproduct/addproduct.component';
 import { AddimageComponent } from './addimage/addimage.component';
 import { ProductdialogComponent } from './homepage/productdialog/productdialog.component';
 import { CartServiceComponent } from './Services/cart-service/cart-service.component';
-import { VendorhomepageComponent } from './VendorHomepage/vendorhomepage.component';
+
 import { VendorsiteregistrationComponent } from './VendorSiteRegistration/vendorsiteregistration.component';
 import { DelieverypartnerregistrationComponent } from './DelieveryPartnerRegistration/delieverypartnerregistration.component';
 import { TestimonialsComponent } from './Testimonials/testimonials.component';
@@ -74,6 +75,13 @@ import { ProductinfoComponent } from './VendorHomepage/productinfo/productinfo.c
 import { OfferedProductsComponent } from './homepage/offered-products/offered-products.component';
 import { CalculatepricepipePipe } from './Pipes/calculatepricepipe.pipe';
 import { SearchproductComponent } from './homepage/searchproduct/searchproduct.component';
+import { UpdatevendorprofileComponent } from './VendorHomepage/updatevendorprofile/updatevendorprofile.component';
+import { VendordetailsComponent } from './VendorHomepage/vendordetails/vendordetails.component';
+import { DelieveryhomepageComponent } from './DelieveryHomepage/DelieveryHomepage/delieveryhomepage.component';
+import { DelieveryboydetailsComponent } from './DelieveryHomepage/DelieveryHomepage/delieveryboydetails/delieveryboydetails.component';
+import { OrderlistComponent } from './DelieveryHomepage/DelieveryHomepage/orderlist/orderlist.component';
+import { VendorhomepageComponent } from './VendorHomepage/vendorhomepage.component';
+import { VendorprofileComponent } from './VendorHomepage/vendorprofile/vendorprofile.component';
 
 
 
@@ -120,7 +128,14 @@ import { SearchproductComponent } from './homepage/searchproduct/searchproduct.c
    ProductinfoComponent,
    OfferedProductsComponent,
    CalculatepricepipePipe,
-   SearchproductComponent
+   SearchproductComponent,
+   UpdatevendorprofileComponent,
+   VendordetailsComponent,
+   UpdatevendorprofileComponent,
+    DelieveryhomepageComponent,
+    DelieveryboydetailsComponent,
+    OrderlistComponent,
+    VendorprofileComponent
 
   ],
   imports: [
@@ -170,6 +185,8 @@ import { SearchproductComponent } from './homepage/searchproduct/searchproduct.c
 
 
 MatOption,
+
+MatAutocompleteModule,
 MdbAccordionModule,
 MdbCarouselModule,
 MdbCheckboxModule,
