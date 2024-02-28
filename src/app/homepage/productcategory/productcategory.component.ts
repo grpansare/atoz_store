@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-productcategory',
@@ -11,7 +11,7 @@ export class ProductcategoryComponent {
   showfilters:boolean=false;
   products:any=[];
   category:any="";
-  constructor(private route: ActivatedRoute,private http:HttpClient) {
+  constructor(private route: ActivatedRoute,private http:HttpClient,private router:Router) {
 
   }
  baseUrl:any="http://localhost:8081/product";
@@ -43,5 +43,26 @@ getProducts(){
       console.log(error)
     }
   )
+}
+handlePriceFilter(eventData: { min: any, max: any }) {
+
+  const min = eventData.min;
+  const max = eventData.max;
+  const formdata=new FormData();
+  formdata.append('min',min)
+  formdata.append('max',max)
+  this.http.post(`http://localhost:8081/product/byPriceRange/${this.category}`,formdata).subscribe(
+    success=>{
+      this.products=success;
+    },
+    error=>{
+      console.log(error);
+
+    }
+  )
+
+}
+gotoCategory(){
+  this.router.navigateByUrl("home")
 }
 }

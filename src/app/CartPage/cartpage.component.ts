@@ -33,6 +33,7 @@ export class CartpageComponent {
 
 
 
+
 }
 
 
@@ -42,17 +43,42 @@ response=>{
   console.log(response);
 
   this.products=response;
+  console.log(this.products)
   this.cartService.setCartProducts(this.products);
-  this.products.forEach((element:any) => {
-    this.sum=this.sum+element.price
-    console.log("total :"+this.sum)
-  });
+this.calculateprice();
+
 },
 error=>{
   console.log(error);
 }
   )
 }
+removeFromCart(product:any){
 
+  const formdata=new FormData();
+  formdata.append("username",this.user.username);
+  formdata.append("cartproductid",product.cartproductId);
+  this.http.post(this.baseurl+`/cart/deleteFromCart`,formdata).subscribe(
+    response=>{
+      console.log(response);
+       // Subtract the price of the removed product from the total sum
 
+     this.getCartProducts()
+    },
+    error=>{
+      console.log(error);
+    }
+      )
+}
+calculateprice(){
+  this.sum=0;
+  this.products.forEach((element:any) => {
+    console.log(element)
+    this.sum=this.sum+element.price
+    console.log("total :"+this.sum)
+  });
+}
+gotoCategory(){
+  this.router.navigateByUrl("home")
+}
 }

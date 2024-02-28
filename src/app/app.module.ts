@@ -71,6 +71,8 @@ import { VendorsiteregistrationComponent } from './VendorSiteRegistration/vendor
 import { DelieverypartnerregistrationComponent } from './DelieveryPartnerRegistration/delieverypartnerregistration.component';
 import { TestimonialsComponent } from './Testimonials/testimonials.component';
 import { ProductinfoComponent } from './VendorHomepage/productinfo/productinfo.component';
+import { OfferedProductsComponent } from './homepage/offered-products/offered-products.component';
+import { CalculatepricepipePipe } from './Pipes/calculatepricepipe.pipe';
 
 
 
@@ -114,7 +116,9 @@ import { ProductinfoComponent } from './VendorHomepage/productinfo/productinfo.c
    VendorsiteregistrationComponent,
    DelieverypartnerregistrationComponent,
    TestimonialsComponent,
-   ProductinfoComponent
+   ProductinfoComponent,
+   OfferedProductsComponent,
+   CalculatepricepipePipe
 
   ],
   imports: [

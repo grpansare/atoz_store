@@ -27,7 +27,7 @@ export class ProductdialogComponent {
   ) { console.log(data); }
 
   addToCart(product:any){
-    this.user=localStorage.getItem('user');
+    this.user=sessionStorage.getItem('user');
     const userinfo=JSON.parse(this.user);
     console.log(product);
 

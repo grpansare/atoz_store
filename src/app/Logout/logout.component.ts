@@ -17,11 +17,9 @@ export class LogoutComponent {
     //   this.router.navigateByUrl('/');
     //  }
      LogoutConfirmation(): void {
-     this. openLogoutConfirmation().then((confirmed) => {
+     this.openLogoutConfirmation().then((confirmed) => {
         if (confirmed) {
-          localStorage.removeItem("username");
           sessionStorage.removeItem("username");
-          localStorage.removeItem("user");
           sessionStorage.removeItem("user");
             this.router.navigateByUrl('/');
         }
