@@ -1,0 +1,64 @@
+
+.order-info{
+  margin-top: 2px;
+    border: 5px black solid;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.prodname{
+    font-size: xx-large;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+
+.info{
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+  text-align: center;
+  margin-left: 300px;
+  border: 1px solid black;
+  background-color: antiquewhite;
+}
+
+  
+
+@media only screen and (max-width: 768px) {
+    .order-info {
+      width: 100%; /* Make it full width on smaller screens */
+      max-width: 100%; /* Ensure it doesn't exceed the screen width */
+      height: auto; /* Let the height adjust based on content */
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center; /* Center items horizontally */
+      border: none; /* Remove border */
+      padding: 20px; /* Add some padding for better spacing */
+    }
+    .order-info .lg:w-1/ {
+        width: 100%; /* Make the text content full width */
+        text-align:center;/* Center the text content */
+      }
+  
+    .order-info img {
+      width: 100%; /* Make the image responsive, filling the container */
+      height: auto; /* Let the height adjust based on the width */
+      max-width: 100%; /* Ensure it doesn't exceed the container width */
+      margin-bottom: 20px; /* Add some space below the image */
+    }
+  
+   
+  
+    .prodname {
+      font-size: 2rem; /* Decrease font size for smaller screens */
+      margin: 0; /* Remove margin for better spacing */
+    }
+  }
+  
+  
+  
+ 

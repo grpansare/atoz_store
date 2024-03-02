@@ -1,11 +1,11 @@
-<div>
+<div >
   <mat-toolbar class="navbar py-2">
     <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
       </button>
 
-      <a routerLink="" class="text-decoration-none">
+      <a (click)="vendorpage()" class="text-decoration-none">
         <span class="font-bold ml-4 logo"><i class="fa-solid mr-3 fa-cart-shopping fa-xl"></i>AtoZStore</span>
       </a>
 
@@ -16,7 +16,6 @@
       
 
 
-        <button class="btn btn-primary list" routerLink="product-list">Product List</button>
 
 
 
@@ -33,7 +32,7 @@
           </button>
           <ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenu2">
             <li>
-              <a routerLink="profile" class="dropdown-item">
+              <a routerLink="vendorprofile" class="dropdown-item">
                 View Profile <i class="fa-solid fa-eye  ml-2"></i>
               </a>
             </li>
@@ -81,16 +80,3 @@
 
 
 
-
-<div class="main">
-  <div>
-      <div class="info-box" *ngFor="let product of products" (click)="showprodinfo(product)">
-        <h3>Product name: {{product.productname}}</h3>
-        <div class="sub-info-box">
-          <h5>price: {{product.price}}</h5>
-          <h5>category: {{product.category}}</h5>
-        </div>
-      </div>
-  </div>
-      <app-productinfo [product]="product"></app-productinfo>
-</div>

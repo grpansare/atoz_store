@@ -2,7 +2,7 @@
     <div class="row d-flex justify-content-center  ">
       <div class="col-12 col-md-6 col-lg-6 mx-auto p-5 border f1">
         <h2 class="mb-5 text-center">Vendor's Registration</h2>
-  
+
         <form  id="signin" (ngSubmit)="handleSubmit()" (ngReset)="handleReset()" [formGroup]="signin">
           <div class="row  ">
             <h2>Personal Information</h2>
@@ -51,7 +51,7 @@
                 <p *ngIf="gender.errors.required">Gender is required</p>
               </div>
             </div>
-            
+
             <div class="col-6">
               <mat-form-field class="full-width">
                 <mat-label>Age</mat-label>
@@ -118,7 +118,7 @@
                 <p *ngIf="username.errors?.pattern">username Must be Capitalize without Space</p>
             </div>
             </div>
-          
+
 
 
 
@@ -130,11 +130,11 @@
               </mat-form-field>
               <div class="form-control-feedback" [ngClass]="'has-danger'" *ngIf="password.errors && (password.dirty || password.touched)">
                 <p *ngIf="password.errors?.required">Password is required</p>
-  
+
                 <p *ngIf="password.errors?.minlength">Password must be 8 characters long, we need another
                     {{password.errors.minlength.requiredLength - password.errors.minlength.actualLength}} characters
                 </p>
-  
+
                 <p *ngIf="password.errors?.pattern">The Password must contain one at least Uppercase, Lowercase, Digit &
                     Special character</p>
             </div>
@@ -148,17 +148,17 @@
                 <input matInput placeholder="" formControlName="confirmpass" type="password">
                 <mat-icon matSuffix>confirmpass</mat-icon>
               </mat-form-field>
-  
+
               <div class="form-group" [ngClass]="{'has-danger': confirmpass.invalid && (confirmpass.dirty || confirmpass.touched),
               'has-success': confirmpass.valid && (confirmpass.dirty || confirmpass.touched) }">
-  
+
           <div class="form-control-feedback" *ngIf="confirmpass.errors && (confirmpass.dirty || confirmpass.touched)">
                   <p *ngIf="confirmpass.errors?.required">Confirm Password is required</p>
                   <p *ngIf="confirmpass.errors?.passwordMismatch">Passwords do not match</p>
           </div>
             </div>
           </div>
-           
+
 
           <h2>Company Details</h2>
 
@@ -184,14 +184,14 @@
                 <mat-option value="Private ltd">Private ltd</mat-option>
                 <mat-option value="Public">Public</mat-option>
                 <mat-option value="StartUp">StartUp</mat-option>
-                
+
               </mat-select>
             </mat-form-field>
             <div class="form-control-feedback" [ngClass]="'has-danger'" *ngIf="companytype.errors && (companytype.dirty || companytype.touched)">
               <p *ngIf="companyname.errors.required">Company Type is required</p>
             </div>
           </div>
-            
+
           <div class="col-6">
             <mat-form-field class="full-width" >
               <mat-label>Contact No.</mat-label>
@@ -207,7 +207,7 @@
           </div>
           </div>
 
-          
+
             <div class="col-6">
               <mat-form-field class="full-width" >
                 <mat-label>Email</mat-label>
@@ -227,11 +227,11 @@
             <div class="row">
               <div class="col-6">
                 <mat-form-field class="full-width" >
-                  <mat-label>Address</mat-label>
-                  <input matInput placeholder="" formControlName="address" type="text">
+                  <mat-label>Street</mat-label>
+                  <input matInput placeholder="" formControlName="street" type="text">
                 </mat-form-field>
-                <div class="form-control-feedback" [ngClass]="'has-danger'" *ngIf="address.errors && (address.dirty || address.touched)">
-                  <p *ngIf="address.errors.required">Address is required</p>
+                <div class="form-control-feedback" [ngClass]="'has-danger'" *ngIf="street.errors && (street.dirty || street.touched)">
+                  <p *ngIf="street.errors.required">street is required</p>
                 </div>
               </div>
               <div class="col-6">
@@ -276,17 +276,17 @@
               </div>
               <div class="col-6">
                 <mat-form-field class="full-width" >
-                  <mat-label>Postal Code</mat-label>
-                  <input matInput placeholder="" formControlName="postalCode" type="text">
+                  <mat-label>Pin Code</mat-label>
+                  <input matInput placeholder="" formControlName="pincode" type="text">
                 </mat-form-field>
-                <div class="form-control-feedback" [ngClass]="'has-danger'" *ngIf="postalCode.errors && (postalCode.dirty || postalCode.touched)">
-                  <p *ngIf="postalCode.errors.required">Postal Code is required</p>
+                <div class="form-control-feedback" [ngClass]="'has-danger'" *ngIf="pincode.errors && (pincode.dirty || pincode.touched)">
+                  <p *ngIf="pincode.errors.required">pincode is required</p>
                 </div>
               </div>
             </div>
-            
 
-          
+
+
 
 
 
@@ -296,9 +296,8 @@
             </div>
           </div>
           </div>
-         
+
         </form>
       </div>
     </div>
   </div>
-  

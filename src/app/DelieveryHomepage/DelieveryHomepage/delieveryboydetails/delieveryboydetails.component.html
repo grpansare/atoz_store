@@ -1,0 +1,18 @@
+
+<div class="main">
+    <div>
+        <div class="info-box" *ngFor="let order of orders" (click)="showprodinfo(order)">
+          <h2>Availability: {{order.availability}}</h2>
+          <div class="sub-info-box">
+            <p>Username: {{order.username}}</p>
+            <p>Email: {{order.email}}</p>
+
+            <p>Price:{{order.price|currency:'INR'}}</p>
+            <p> LandMark:{{order.landmark}}</p>
+
+          </div>
+        </div>
+    </div>
+        <app-orderlist [order]="order"></app-orderlist>
+  </div>
+  

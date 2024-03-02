@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class VendorsiteregistrationComponent {
 
-  private baseUrl:any = "http://localhost:8081/user";
+  private baseUrl:any = "http://localhost:8081";
 
   isSubmited:boolean=false;
 
@@ -38,12 +38,12 @@ export class VendorsiteregistrationComponent {
     companyname:new FormControl("",[Validators.required]),
     companytype:new FormControl("",[Validators.required]),
 
-    address:new FormControl("",[Validators.required]),
+    street:new FormControl("",[Validators.required]),
     city:new FormControl("",[Validators.required]),
     state:new FormControl("",[Validators.required]),
     landmark:new FormControl("",[Validators.required]),
     country:new FormControl("",[Validators.required]),
-    postalCode:new FormControl("",[Validators.required]),
+    pincode:new FormControl("",[Validators.required]),
 
   });
 
@@ -104,8 +104,8 @@ export class VendorsiteregistrationComponent {
 }
 
 
-get address():any{
-  return this.signin.get('address');
+get street():any{
+  return this.signin.get('street');
 }
 
 
@@ -129,8 +129,8 @@ get country():any{
 }
 
 
-get postalCode():any{
-  return this.signin.get('postalCode');
+get pincode():any{
+  return this.signin.get('pincode');
 }
 
 
@@ -159,12 +159,12 @@ get postalCode():any{
         password: this.myForm.value.password,
         companyname:this.myForm.value.companyname,
        companytype:this.myForm.value.companytype,
-       address: this.myForm.value.address,
+       street:this.myForm.value.companytype,
        city: this.myForm.value.city,
        state: this.myForm.value.state,
        landmark: this.myForm.value.landmark,
        country: this.myForm.value.country,
-       postalCode: this.myForm.value.postalCode,
+       pincode: this.myForm.value.pincode,
 
 
 
@@ -172,7 +172,7 @@ get postalCode():any{
 
       console.log(registeringData);
 
-      this.http.post(this.baseUrl + "/newuser", registeringData).subscribe(
+      this.http.post(this.baseUrl + "/vendor/vendorRegister", registeringData).subscribe(
         (response: any) => {
           // Handle success response
           alert("Registered successfully!");

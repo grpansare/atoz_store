@@ -5,7 +5,7 @@
         <div class="flow-root">
           <div class="-my-6 divide-y divide-gray-200">
             <div class="py-6">
-              <form>
+              <form  (ngSubmit)="addAddress()" [formGroup]="addressForm">
                 <div class="mx-auto max-w-2xl px-4 lg:max-w-none lg:px-0 ">
                   <div>
                     <h3
@@ -53,7 +53,7 @@
                           <input
                             type="text"
                             id="address"
-                            name="address"
+                            formControlName="street"
                             autoComplete="street-address"
                             class="flex h-10 w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 border-black"
                           />
@@ -70,7 +70,7 @@
                           <input
                             type="text"
                             id="city"
-                            name="city"
+                            formControlName="city"
                             autoComplete="address-level2"
                             class="flex h-10 w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 border-black"
                           />
@@ -78,7 +78,7 @@
                       </div>
                       <div>
                         <label
-                          for="region"
+                          for="state"
                           class="block text-sm font-medium text-gray-700"
                         >
                           State
@@ -86,8 +86,8 @@
                         <div class="mt-1">
                           <input
                             type="text"
-                            id="region"
-                            name="region"
+                            id="state"
+                            formControlName="state"
                             autoComplete="address-level1"
                             class="border-black flex h-10 w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                           />
@@ -105,7 +105,7 @@
                           <input
                             type="text"
                             id="region"
-                            name="region"
+                            formControlName="landMark"
                             autoComplete="address-level1"
                             class="border-black flex h-10 w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                           />
@@ -123,7 +123,7 @@
                           <input
                             type="text"
                             id="region"
-                            name="region"
+                            formControlName="country"
                             autoComplete="address-level1"
                             class="border-black flex h-10 w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                           />
@@ -136,18 +136,26 @@
                           for="postal-code"
                           class="block text-sm font-medium text-gray-700"
                         >
-                          Postal code
+                        Pin code
                         </label>
                         <div class="mt-1">
                           <input
                             type="text"
                             id="postal-code"
-                            name="postal-code"
+                            formControlName="pincode"
                             autoComplete="postal-code"
                             class="border-black flex h-10 w-full rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                           />
                         </div>
-                      </div>
+                      </div><br>
+                      <div>
+                      <button
+              type="submit"
+              class="rounded-md btn btn-info btn-outline text-warning border border-black px-3 py-2 text-sm font-semibold  shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black btn"
+            >
+          Add Address
+            </button>
+          </div>
                     </div>
                   </div>
 </div>
@@ -181,9 +189,10 @@
         <hr class="mt-6 border-gray-200" />
         <ul class="mt-6 space-y-3">
           <li class="flex items-center justify-between text-gray-900">
-            <p class="text-sm font-medium details">Total:</p>
-            <p class="text-sm font-bold ">{{sum|currency:'INR'}}</p>
-          </li>
+            <p class="text-info font-weight-bold text-sm font-medium details"  [(ngModel)]="sum" >Total : {{sum|currency:'INR'}}</p>
+             
+          </li> 
+         
         </ul>
       </div>
     </div>

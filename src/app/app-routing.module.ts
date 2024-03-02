@@ -21,6 +21,12 @@ import { AddimageComponent } from './addimage/addimage.component';
 import { VendorsiteregistrationComponent } from './VendorSiteRegistration/vendorsiteregistration.component';
 import { DelieverypartnerregistrationComponent } from './DelieveryPartnerRegistration/delieverypartnerregistration.component';
 import { VendorhomepageComponent } from './VendorHomepage/vendorhomepage.component';
+import { SearchproductComponent } from './homepage/searchproduct/searchproduct.component';
+import { DelieveryboydetailsComponent } from './DelieveryHomepage/DelieveryHomepage/delieveryboydetails/delieveryboydetails.component';
+import { DelieveryhomepageComponent } from './DelieveryHomepage/DelieveryHomepage/delieveryhomepage.component';
+import { VendorprofileComponent } from './VendorHomepage/vendorprofile/vendorprofile.component';
+import { VendordetailsComponent } from './VendorHomepage/vendordetails/vendordetails.component';
+import { OrderhistoryComponent } from './Order_History/orderhistory.component';
 
 const routes: Routes = [
   { path: '', component: WelcomepageComponent },
@@ -35,6 +41,7 @@ const routes: Routes = [
 
   { path: 'addproduct', component: AddproductComponent},
   { path: 'addimage', component: AddimageComponent},
+  
 
   {path:"home",component:HomepageComponent,
   children:[
@@ -43,21 +50,36 @@ const routes: Routes = [
     { path: 'products/:category', component: ProductcategoryComponent },
     { path: 'logout', component: LogoutComponent },
     { path: 'cart', component: CartpageComponent },
-    { path: 'cart/checkout', component: ProductsummaryComponent}
+    { path: 'cart/checkout', component: ProductsummaryComponent},
+    { path: 'searchproduct/:searchpro', component: SearchproductComponent},
+    {path: 'orderHistory',component:OrderhistoryComponent},
 
   ]
   },
-  {path:'vendorhome',component:VendorhomepageComponent,
+  {path:"vendor",component:VendorhomepageComponent,
   children:[
+    {path:"",component:VendordetailsComponent},
+
+    {path:"vendorprofile",component:VendorprofileComponent},
 
   ]
 },
-{ path: 'vendorhome/addproduct', component: AddproductComponent},
+{ path: 'vendor/addproduct', component: AddproductComponent},
 
+
+{path:"delieveryhome",component:DelieveryhomepageComponent,
+  children:[
+    {path:"",component:DelieveryboydetailsComponent},
+
+  ]
+},
   { path: '**', component: NotfoundComponent}
 
 
 ];
+
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

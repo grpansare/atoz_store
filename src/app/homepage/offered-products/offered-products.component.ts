@@ -79,8 +79,7 @@ this.getOfferedProducts()
       },
       error=>{
         console.log(error)
-      }
-    )
-  }
-  }
-
+      }
+    )
+  }
+  }

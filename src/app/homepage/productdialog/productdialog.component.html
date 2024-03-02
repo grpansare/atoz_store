@@ -16,11 +16,11 @@
         <div class=" mt-2 flex items-center   ">
           <ng-container *ngIf="!data.colors.includes('Standard') && !data.colors.includes('standard')">
 
-            <span class="block text-sm font-semibold">Colors : </span>
-
+            <span class="block text-sm font-semibold">Colors :</span>
+      <br>
             <div class="mt-1 flex items-center gap-2 colors">
               <div class="radiobutton flex items-center" *ngFor="let color of data.colors; let i = index">
-                <div class="mr-2" >
+                <div class="" >
                   <input type="radio" name="color" [id]="'color_' + i" [value]="color" [(ngModel)]="selectedColor" class="mr-1">
                   <label [for]="'color_' + i">{{color}}</label>
                 </div>
@@ -66,16 +66,50 @@
 
 
         <div class="flex mt-2 items-center justify-between">
-          <span class="title-font text-xl font-bold text-gray-900">
-            ₹{{data.price}}
-          </span>
+
+
+          <div class="price" *ngIf="data.offer!=='null'  else nodiscount">
+            <div class="d-flex align-items-center gap-2 border-black" >
+              <h2>  {{ data.price | calculatepricepipe:data.offer | currency:'INR':'symbol':'1.2-2' }}</h2>
+           <h5 class="d-flex align-items-center gap-2" > <span class="text-decoration-line-through">₹{{ data.price  }}</span></h5>
+            </div>
+            <span style="position: relative; bottom: 8px;"> ({{data.offer}} Off) </span>
+
+           </div>
+        <ng-template #nodiscount>
+        <h2>{{ data.price | currency:'INR':'symbol':'1.2-2'  }}</h2>
+
+        </ng-template>
+        <div *ngIf="!isPresentInCart else presentInCart">
           <button
             type="button"
             class="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
           (click)="addToCart(data)"
+          *ngIf="!addingToCart else addingtocart"
+
             >
             Add to Cart
           </button>
+          <ng-template #addingtocart>
+            <button class="btn bg-black rounded-md bg-black px-3 py-2 text-sm  text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blac" type="button" disabled>
+              <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+              <span role="status" class="text-capitalize">Adding...</span>
+            </button>
+          </ng-template>
+          </div>
+          <ng-template #presentInCart>
+            <button
+            type="button"
+            class="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            (click)="goToCart()"
+
+            >
+            View In Cart
+          </button>
+          </ng-template>
+        </div>
+        <div *ngIf="isPresentInCart">
+             This product is already in cart
         </div>
       </div>
     </div>

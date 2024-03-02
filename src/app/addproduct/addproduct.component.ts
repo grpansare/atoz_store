@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 export class AddproductComponent {
 
   private baseUrl:any = 'http://localhost:8081/product/newproduct';
+  vendorid:any="grpansare234";
   //dynamically add fields this is correct logic code
   selectedFile!: any;
   imagepreview: any = "";
@@ -85,7 +86,11 @@ sendData() {
     });
     formDataToSend.append('image', this.selectedFile);
 
-    
+
+    formDataToSend.append('vendorid',this.vendorid)
+    alert(formDataToSend)
+    console.log(formDataToSend);
+
     this.http.post('http://localhost:8081/product/newproduct', formDataToSend).subscribe(
       (response) => {
         console.log('Request successful!', response);

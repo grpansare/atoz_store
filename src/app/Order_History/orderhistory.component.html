@@ -1,0 +1,117 @@
+
+
+<div class="mx-auto my-4 max-w-4xl md:my-6">
+    <h1 class="text-4xl font-bold" align="center">Order Details</h1>
+    <div class="mt-1.5 font-semibold text-sm h-5 font-medium text-gray-600">
+        Username : {{userinfo.username}}
+      </div>
+      <div class="mt-3 text-sm">
+        <p class="mt-1.5 font-italic text-sm font-medium text-gray-600">
+            {{userinfo.email}}
+          </p>
+          <p class="mt-1.5 text-sm font-medium text-gray-600">
+            {{userinfo.contactno}}
+          </p>
+      </div>
+  <div class="mt-3 h5">
+     Hello <u>{{userinfo.firstname}} {{userinfo.lastname}}</u> , Check the status of recent and old orders &amp; discover more products
+  </div>
+  <div class="mt-8 flex flex-col overflow-hidden rounded-lg border border-gray-300 md:flex-row" *ngFor="let order of orderss">
+    <!-- <div class="overflow-hidden rounded-xl border border-gray-100 shadow"> -->
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="px-5 py-6 md:border-r md:border-r-gray-200 md:px-8">
+          <div class="flow-root">
+            <ul class="-my-7 divide-y divide-gray-200">
+              <li class="flex items-stretch justify-between space-x-5 py-7" *ngFor="let orderprod of order">
+                <div class="flex flex-1 items-stretch">
+                  <!-- <div class="flex-shrink-0">
+                    <img
+                      class="h-20 w-20 rounded-lg border border-gray-200 object-contain"
+                      src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/54a510de-a406-41b2-8d62-7f8c587c9a7e/air-force-1-07-lv8-shoes-9KwrSk.png"
+                      alt="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/54a510de-a406-41b2-8d62-7f8c587c9a7e/air-force-1-07-lv8-shoes-9KwrSk.png"
+                    />
+                  </div> -->
+                  <div class="ml-5 flex flex-col justify-between">
+                    <div class="flex-1">
+                      <p class="text-sm font-bold text-gray-900">
+                        {{orderprod.productname}}
+                      </p>
+                      <p class="mt-1.5 font-italic text-sm font-medium text-gray-600">
+                        {{orderprod.category}}
+                      </p>
+                      <p class="mt-1.5 text-sm font-medium text-gray-600">
+                        {{orderprod.color}}
+                      </p>
+                    </div>
+                    
+                    <p class="mt-4 text-sm font-medium text-gray-500">x {{orderprod.quantity}}</p>
+                  </div>
+                </div>
+                <div class="ml-auto flex flex-col items-end justify-between">
+                    <p class="mt-1.5 text-sm font-medium text-gray-600">
+                        {{orderprod.size}}
+                      </p>
+                  <p class="text-right text-sm font-bold text-gray-900">
+                    {{orderprod.price|currency:'INR'}}
+                  </p>
+                </div>
+              </li>
+             
+            </ul>
+            <hr class="mt-6 border-gray-200" />
+            <ul class="mt-6 space-y-3">
+                
+              <li class="flex items-center justify-between">
+                <p class="text-sm text-uppercase font-semibold">Total</p>
+                <p class="text-sm font-bold ">₹1,14,399</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="px-5 py-6 md:px-8">
+          <div class="flow-root">
+            <div class="-my-6 divide-y divide-gray-200">
+              <div class="py-6">
+                <h2 class="text-base font-bold text-black">
+                  Contact Information
+                </h2>
+                <p class="fontmedium mt-3 text-xs text-gray-700">
+                  Order Number: {{order.orderid}}
+                </p>
+                <p class="text-xs font-medium text-gray-700">
+                  Order Date: {{order.date}}
+                </p>
+                <p class="text-xs font-medium text-gray-700">
+                    Order Time: {{order.time}}
+                  </p>
+                
+              </div>
+              <div class="py-6">
+                <h2 class="mb-2 text-base font-bold text-black">
+                  Shipping Information
+                </h2>
+                <p class="mt-3 text-xs font-medium text-gray-700">{{order.street}} , {{order.landmark}} </p>
+                <p class="text-xs font-medium text-gray-700">
+                    {{order.city}} - {{order.pincode}}
+                </p>
+                <p class="text-xs font-medium text-gray-700">{{order.state}}</p>
+                <p class="text-xs font-medium text-gray-700">{{order.country}}</p>
+              </div>
+              <div class="py-6">
+                <h2 class="text-base font-bold text-black">
+                  Payment Information
+                </h2>
+                <p class="mt-3 text-xs font-medium text-gray-700">
+                  PymentId = <span> {{order.payment_id}}</span> 
+                </p>
+                <p class="mt-3 text-xs font-medium text-gray-700">
+                    Pyment signature = <span> {{order.payment_signature}}</span> 
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
