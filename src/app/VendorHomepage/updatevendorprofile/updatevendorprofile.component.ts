@@ -22,7 +22,7 @@ export class UpdatevendorprofileComponent {
 
    open(content: any) {
 
-     this.user=localStorage.getItem('user');
+     this.user=sessionStorage.getItem('user');
      this.user=JSON.parse(this.user)
      this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
        if (result === 'Save click') {
@@ -54,7 +54,7 @@ export class UpdatevendorprofileComponent {
 
 
          saveUserInfo() {
-          this.http.post("http://localhost:8081/user/update",this.user).subscribe(
+          this.http.post("http://localhost:8081/vendor/update",this.user).subscribe(
            (response:any)=>{
              console.log(response);
 

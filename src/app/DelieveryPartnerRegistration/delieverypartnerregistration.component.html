@@ -2,13 +2,13 @@
     <div class="row d-flex justify-content-center  ">
       <div class="col-12 col-md-6 col-lg-6 mx-auto p-5 border f1">
         <h2 class="mb-5 text-center">Delievery Partner Registration</h2>
-  
+
         <form  id="signin" (ngSubmit)="handleSubmit()" (ngReset)="handleReset()" [formGroup]="signin">
           <div class="row  ">
             <h3>Personal Information</h3>
-  
+
             <div class="col-6">
-  
+
               <mat-form-field class="full-width">
                 <mat-label>First Name</mat-label>
                 <div class="full-width" [ngClass]="{ 'has-danger': firstname.invalid && (firstname.dirty || firstname.touched), 'has-success': firstname.valid && (firstname.dirty || firstname.touched) }">
@@ -51,7 +51,7 @@
                 <p *ngIf="gender.errors.required">Gender is required</p>
               </div>
             </div>
-            
+
             <div class="col-6">
               <mat-form-field class="full-width">
                 <mat-label>Age</mat-label>
@@ -65,9 +65,9 @@
               </div>
             </div>
           </div>
-  
-  
-  
+
+
+
           <div class="row">
             <div class="col-6">
               <mat-form-field class="full-width" >
@@ -82,9 +82,9 @@
                 <p *ngIf="email.errors.required">Email is required</p>
             </div>
             </div>
-  
-  
-  
+
+
+
             <div class="col-6">
               <mat-form-field class="full-width" >
                 <mat-label>Contact No.</mat-label>
@@ -100,9 +100,9 @@
             </div>
             </div>
           </div>
-  
-  
-  
+
+
+
           <div class="row">
             <div class="col-6">
               <mat-form-field class="full-width" >
@@ -118,10 +118,10 @@
                 <p *ngIf="username.errors?.pattern">username Must be Capitalize without Space</p>
             </div>
             </div>
-          
-  
-  
-  
+
+
+
+
             <div class="col-6">
               <mat-form-field class="full-width" >
                 <mat-label>Password</mat-label>
@@ -130,17 +130,17 @@
               </mat-form-field>
               <div class="form-control-feedback" [ngClass]="'has-danger'" *ngIf="password.errors && (password.dirty || password.touched)">
                 <p *ngIf="password.errors?.required">Password is required</p>
-  
+
                 <p *ngIf="password.errors?.minlength">Password must be 8 characters long, we need another
                     {{password.errors.minlength.requiredLength - password.errors.minlength.actualLength}} characters
                 </p>
-  
+
                 <p *ngIf="password.errors?.pattern">The Password must contain one at least Uppercase, Lowercase, Digit &
                     Special character</p>
             </div>
             </div>
             </div>
-  
+
           <div class="row">
             <div class="col-6">
               <mat-form-field class="full-width" >
@@ -148,20 +148,20 @@
                 <input matInput placeholder="" formControlName="confirmpass" type="password">
                 <mat-icon matSuffix>confirmpass</mat-icon>
               </mat-form-field>
-  
+
               <div class="form-group" [ngClass]="{'has-danger': confirmpass.invalid && (confirmpass.dirty || confirmpass.touched),
               'has-success': confirmpass.valid && (confirmpass.dirty || confirmpass.touched) }">
-  
+
           <div class="form-control-feedback" *ngIf="confirmpass.errors && (confirmpass.dirty || confirmpass.touched)">
                   <p *ngIf="confirmpass.errors?.required">Confirm Password is required</p>
                   <p *ngIf="confirmpass.errors?.passwordMismatch">Passwords do not match</p>
           </div>
             </div>
           </div>
-           
-  
+
+
           <h3>Vehicle Information</h3>
-  
+
           <div class="col-6">
             <mat-form-field class="full-width">
               <mat-label>Vehicle Type</mat-label>
@@ -169,17 +169,17 @@
                 <mat-option value="Car">Car</mat-option>
                 <mat-option value="Motorcycle">Motorcycle</mat-option>
                 <mat-option value="Bicycle">Bicycle</mat-option>
-                
+
               </mat-select>
             </mat-form-field>
             <div class="form-control-feedback" [ngClass]="'has-danger'" *ngIf="vehicleType.errors && (vehicleType.dirty || vehicleType.touched)">
               <p *ngIf="vehicleType.errors.required">Vehicle Type is required</p>
             </div>
           </div>
-  
-        
-         
-  
+
+
+
+
           <div class="col-6">
             <mat-form-field class="full-width">
               <mat-label>Vehicle Registration Number</mat-label>
@@ -189,21 +189,21 @@
               <p *ngIf="vehicleRegNumber.errors.required">Vehicle Registration Number is required</p>
             </div>
           </div>
-  
-          
-  
-  
-  
-  
+
+
+
+
+
+
             <h3>Shipping Address</h3>
             <div class="row">
               <div class="col-6">
                 <mat-form-field class="full-width" >
-                  <mat-label>Address</mat-label>
-                  <input matInput placeholder="" formControlName="address" type="text">
+                  <mat-label>street</mat-label>
+                  <input matInput placeholder="" formControlName="street" type="text">
                 </mat-form-field>
-                <div class="form-control-feedback" [ngClass]="'has-danger'" *ngIf="address.errors && (address.dirty || address.touched)">
-                  <p *ngIf="address.errors.required">Address is required</p>
+                <div class="form-control-feedback" [ngClass]="'has-danger'" *ngIf="street.errors && (street.dirty || street.touched)">
+                  <p *ngIf="street.errors.required">street is required</p>
                 </div>
               </div>
               <div class="col-6">
@@ -256,21 +256,20 @@
                 </div>
               </div>
             </div>
-            
-  
-          
-  
-  
-  
+
+
+
+
+
+
           <div class="row">
             <div class="vol text-center ">
               <button  mat-raised-button  [disabled]="!signin.valid" class="full-width btn-primary"  type="submit">Submit</button>
             </div>
           </div>
           </div>
-         
+
         </form>
       </div>
     </div>
   </div>
-  

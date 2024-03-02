@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CartServiceComponent } from '../Services/cart-service/cart-service.component';
+
 import { CartServiceService } from '../Services/cart-service.service';
 
 @Component({

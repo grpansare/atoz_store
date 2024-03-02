@@ -143,17 +143,19 @@
           </div>
         </div>
         <div class="row">
-          <div class="vol text-center">
-            <button mat-raised-button  [disabled]="!signin.valid" class="full-width btn-primary"  type="submit">Submit</button>
+          <div class="col ml-3 text-center justify-content-center">
+            <button mat-raised-button  [disabled]="!signin.valid" class="full-width btn-primary w-100"  type="submit">Submit</button>
           </div>
         </div>
         </div>
+        <div class="d-flex justify-content-center gap-2 mt-3">
         <span>
-         <p> <a routerLink="/vendors" class="forgot-password" id="forgotpassword">Vendors Registration</a></p>
+         <p> <a routerLink="/vendors" class=" btn btn-primary" id="forgotpassword">Vendors Registration</a></p>
       </span>
       <span>
-          <a routerLink="/delievery" class="new-user" id="new-user">Deleivery Partners Registration</a>
+          <a routerLink="/delievery" class=" btn btn-primary" id="new-user">Deleivery Partners Registration</a>
       </span>
+        </div>
       </form>
     </div>
   </div>

@@ -66,7 +66,7 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { AddimageComponent } from './addimage/addimage.component';
 import { ProductdialogComponent } from './homepage/productdialog/productdialog.component';
-import { CartServiceComponent } from './Services/cart-service/cart-service.component';
+
 
 import { VendorsiteregistrationComponent } from './VendorSiteRegistration/vendorsiteregistration.component';
 import { DelieverypartnerregistrationComponent } from './DelieveryPartnerRegistration/delieverypartnerregistration.component';
@@ -120,7 +120,7 @@ import { VendorprofileComponent } from './VendorHomepage/vendorprofile/vendorpro
    AddproductComponent,
    AddimageComponent,
    ProductdialogComponent,
-   CartServiceComponent,
+
    VendorhomepageComponent,
    VendorsiteregistrationComponent,
    DelieverypartnerregistrationComponent,
