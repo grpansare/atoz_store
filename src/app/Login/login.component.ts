@@ -46,6 +46,7 @@ export class LoginComponent {
 this.http.post("http://localhost:8081/user/loginuser",this.login.value).subscribe(
   (response:any) =>{
     if(response!=null){
+
       sessionStorage.setItem('username',response.username)
       const user=JSON.stringify(response);
       sessionStorage.setItem('user',user);
@@ -125,6 +126,50 @@ handleVendorLogin(){
     });
 
     this.router.navigateByUrl("/vendor");
+  }
+  else{
+    // alert("Wrong Credentials")
+    // console.log('Wrong User', response);
+
+    Swal.fire({
+      icon: 'error',
+      title: 'Wrong Credentials',
+      text: 'Please check your username and password.',
+    });
+  }
+},
+error => {
+
+  // console.error('Login failed', error);
+
+  Swal.fire({
+    icon: 'error',
+    title: 'Login Failed',
+    text: 'Invalid username or password. Please try again.',
+  });
+
+}
+);
+}
+handleDeliveryLogin(){
+  this.http.post("http://localhost:8081/delivery/deliverylogin",this.login.value).subscribe(
+  (response:any) =>{
+    console.log(response);
+
+    if(response!=null){
+      sessionStorage.setItem('username',response.username)
+      const user=JSON.stringify(response);
+      sessionStorage.setItem('user',user);
+      // console.log(  localStorage.getItem('user'))
+
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Login Successful!',
+      text: 'Welcome back!',
+    });
+
+    this.router.navigateByUrl("/delieveryhome");
   }
   else{
     // alert("Wrong Credentials")

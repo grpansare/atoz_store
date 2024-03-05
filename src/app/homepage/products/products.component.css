@@ -2,9 +2,16 @@
 
   width: 100%;
   font-size: 1rem;
+}
+.products-container{
+  height: 100vh;
+  overflow-y: scroll; /* Show scrollbar only when needed */
+}
 
-
-
+/* Hide scrollbar */
+.products-container::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
 }
 .product{
   background-color:white;

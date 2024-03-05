@@ -22,7 +22,8 @@ export class ProductcategoryComponent {
       this.category = params.get('category');
       this.getProducts();
     console.log(this.category)
-
+    //alert(this.category)
+    //localStorage.setItem("category", this.category);
 
   }
 

@@ -20,6 +20,7 @@ export class ChangePasswordComponent {
  newpassword:String="Create new password";
 newdesc:String="We'll ask for this password whenever you Sign-In.";
 
+
   isSubmited:boolean=false;
   generatedOTP:number=0;
 

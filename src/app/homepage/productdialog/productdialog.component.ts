@@ -3,7 +3,11 @@ import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+
+import { data } from 'jquery';
+
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-productdialog',
@@ -27,8 +31,11 @@ export class ProductdialogComponent implements OnInit{
     private http:HttpClient,
     private snak:MatSnackBar,
     private router:Router
+  ) { console.log(data); }
 
-  ) {}
+    
+
+
 ngOnInit(): void {
   this.CheckInCart()
 }
@@ -47,6 +54,7 @@ ngOnInit(): void {
       }
     )
   }
+
   addToCart(product:any){
     this.user=sessionStorage.getItem('user');
     const userinfo=JSON.parse(this.user);
@@ -73,7 +81,7 @@ ngOnInit(): void {
 
   }
 
-
+console.log("before backend"+cartproduct)
 this.http.post<any[]>(this.baseurl+`/cart/addToCart/${userinfo.username}`,cartproduct).subscribe(
   response=>{
      console.log(response)

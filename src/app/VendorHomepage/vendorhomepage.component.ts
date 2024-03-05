@@ -25,11 +25,7 @@ export class VendorhomepageComponent {
          sessionStorage.removeItem("user");
            this.router.navigateByUrl('/');
        }
-       else{
-         this.router.navigateByUrl('/home');
 
-
-       }
      });
 
        }

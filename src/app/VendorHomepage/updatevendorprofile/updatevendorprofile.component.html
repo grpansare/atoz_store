@@ -1,7 +1,8 @@
-<ng-template #content let-modal>
+<ng-template #content let-modal >
+
 	<div class="modal-header">
 		<h4 class="modal-title" id="modal-basic-title">Vendor Profile update</h4>
-		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+		<button type="button" class="btn-close bg-danger text-white" aria-label="Close" (click)="modal.dismiss('Cross click')"><i class="fa fa-times"></i></button>
 	</div>
 	<div class="modal-body">
 		<form>
@@ -122,6 +123,7 @@
 
 		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
 	</div>
+
 </ng-template>
 
 <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Update</button>
