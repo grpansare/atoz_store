@@ -26,6 +26,7 @@ export class ProductsummaryComponent implements OnInit {
 
    baseUrl: any = "http://localhost:8081";
   addressForm!: FormGroup;
+  selectedAddressOption:any="";
 
   constructor(private http: HttpClient,private router: Router, private cartService: CartServiceService, private route: ActivatedRoute) {
 
@@ -56,11 +57,11 @@ export class ProductsummaryComponent implements OnInit {
     });
   }
 
-  total = () => {
-    this.products.forEach((element: { price: number; }) => {
-      this.sum = this.sum + element.price;
-    });
-  }
+  // total = () => {
+  //   this.products.forEach((element: { price: number; }) => {
+  //     this.sum = this.sum + element.price;
+  //   });
+  // }
 
   get street(): any {
     return this.addressForm.get('street');
@@ -93,10 +94,7 @@ export class ProductsummaryComponent implements OnInit {
 
     this.products=response;
     console.log(this.products)
-    this.products.forEach((element: { price: number; }) => {
-      this.sum = this.sum + element.price;
-      console.log("total :" + this.sum);
-    });
+   this.calculateprice()
 
 
   },
@@ -165,7 +163,7 @@ export class ProductsummaryComponent implements OnInit {
       },
 
       theme: {
-        color: "#F37254"
+        color: "#000000"
       }
     };
     console.log(options);
@@ -229,7 +227,33 @@ console.log(date + " == " + time);
     }
 );
   }
+  calculateprice(){
+    this.sum=0;
+    this.products.forEach((element:any) => {
+      console.log(element)
+      if(element.offer!=='null' && element.offer!==null){
 
+      this.sum=this.sum+this.calculateDiscountedPrice(element)*element.quantity;
+      }
+      else{
+      this.sum=this.sum+element.price*element.quantity
+      }
+      console.log("total :"+this.sum)
+    });
+  }
+  gotoCategory(){
+    this.router.navigateByUrl("home")
+  }
+
+  calculateDiscountedPrice(element:any):number{
+    const discountPercentage = parseFloat(element.offer.replace('%', ''));
+
+
+
+    const finalPrice = element.price - (element.price * discountPercentage / 100);
+
+    return finalPrice;
+  }
 
 
 

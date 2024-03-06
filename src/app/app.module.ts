@@ -87,6 +87,7 @@ import { DelieveryprofileComponent } from './DelieveryHomepage/DelieveryHomepage
 import { UpdatedelieveryprofileComponent } from './DelieveryHomepage/DelieveryHomepage/updatedelieveryprofile/updatedelieveryprofile.component';
 import { VendorforgetpasswordComponent } from './VendorForgetPassword/vendorforgetpassword.component';
 import { DelieveryforgetpasswordComponent } from './DelieveryForgetPassword/delieveryforgetpassword.component';
+import { ConfirmationDialogComponent } from './VendorHomepage/vendordetails/confirmation-dialog/confirmation-dialog.component';
 
 
 
@@ -146,7 +147,8 @@ import { DelieveryforgetpasswordComponent } from './DelieveryForgetPassword/deli
     VendorprofileComponent,
     VendorforgetpasswordComponent,
 
-    OrderhistoryComponent
+    OrderhistoryComponent,
+      ConfirmationDialogComponent
 
   ],
   imports: [

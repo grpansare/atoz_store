@@ -42,6 +42,7 @@
                     <h3 class="text-lg font-semibold text-gray-900 details">
                       Shipping address
                     </h3>
+
                     <div class="mt-6 grid grid-cols-1 gap-x-3 gap-y-6 sm:grid-cols-3">
                       <div class="sm:col-span-3">
                         <label
@@ -172,36 +173,54 @@
                 <div class="ml-5 flex flex-col justify-between">
                   <div class="flex-1 ">
                     <p class="text-sm font-bold details">{{product.productname}}</p>
-                    <p class="mt-1.5 text-sm font-medium text-gray-500">
-                    Color:  {{product.color}}
-                    </p>
-                    <p class="mt-1.5 text-sm font-medium text-gray-500">
-                     Size: {{product.size}}
-                    </p>
+                    <ng-container *ngIf="product.color !== 'Standard' && product.color !== 'standard'">
+                      <p class="text-sm color" >
+                           Colour:   {{product.color|titlecase}}
+
+                      </p>
+                      </ng-container>
+
+                    <ng-container *ngIf="product.size !== 'Standard' && product.size !== 'standard'">
+                      <p class="mt-1.5 text-sm font-medium text-gray-500">
+                        Size: {{product.size}}
+                       </p>
+                      </ng-container>
                   </div>
-                  <p class="mt-4 text-xs font-medium ">{{product.quantity}}</p>
+                  <p class="mt-4 text-xs font-medium ">x{{product.quantity}}</p>
                 </div>
 
-                <p class="text-right text-sm font-bold text-gray-900">{{product.price|currency:'INR'}} </p>
+                <div class="price" *ngIf="product.offer!=='null'  else nodiscount">
+                  <div class="d-flex align-items-center gap-2 border-black" >
+                    <h2>  {{ product.price | calculatepricepipe:product.offer | currency:'INR':'symbol':'1.2-2' }}</h2>
+                 <h5 class="d-flex align-items-center gap-2" > <span class="text-decoration-line-through">₹{{ product.price  }}</span></h5>
+                  </div>
+                  <span style="position: relative; bottom: 8px;"> ({{product.offer}} Off) </span>
+
+                 </div>
+              <ng-template #nodiscount>
+              <h2>{{ product.price | currency:'INR':'symbol':'1.2-2'  }}</h2>
+
+              </ng-template>
             </li>
           </ul>
         </div>
         <hr class="mt-6 border-gray-200" />
-        <ul class="mt-6 space-y-3">
+        <ul class="mt-6 space-y-3 flex items-center justify-between">
           <li class="flex items-center justify-between text-gray-900">
             <p class="text-info font-weight-bold text-sm font-medium details"  [(ngModel)]="sum" >Total : {{sum|currency:'INR'}}</p>
 
           </li>
+            <li>
+          <button
+          type="button"
+          class="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+         (click)="addAddress()"
 
+          >
+          Make payment
+        </button>
+        </li>
         </ul>
-        <button
-        type="button"
-        class="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-       (click)="addAddress()"
-
-        >
-        Make payment
-      </button>
       </div>
     </div>
   </div>

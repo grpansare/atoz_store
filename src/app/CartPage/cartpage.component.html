@@ -29,10 +29,12 @@
 
               </p>
               </ng-container>
+              <ng-container *ngIf="product.size !== 'Standard' && product.size !== 'standard'">
               <p class="text-sm color">
                 Size:   {{product.size|titlecase}}
 
               </p>
+              </ng-container>
               <br>
               <!-- <select id="quantity" [(ngModel)]="product.quantity" class="text-sm text-[your-color-class]" class="border-dark">
                 <option *ngFor="let quantityOption of quantity" [value]="quantityOption">{{ quantityOption }}</option>

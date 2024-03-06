@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-vendordetails',
@@ -13,7 +15,7 @@ export class VendordetailsComponent {
   products: any[] = [];
   product: any = {};
 
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(private router: Router, private http: HttpClient,private dialog: MatDialog) {
     this.products = [
       {
         productname: "iPhone",
@@ -77,5 +79,17 @@ this.product=this.products[0];
 
       }
     )
+  }
+  openConfirmationDialog(productid:any): void {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+
+       this.deleteProduct(productid)
+      } else {
+
+      }
+    });
   }
 }
