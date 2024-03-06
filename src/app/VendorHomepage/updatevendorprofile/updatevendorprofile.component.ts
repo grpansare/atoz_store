@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalDismissReasons, NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-updatevendorprofile',
@@ -19,12 +19,17 @@ export class UpdatevendorprofileComponent {
 
    private modalService = inject(NgbModal);
    closeResult = '';
+   ngbModalOptions: NgbModalOptions = {
+    backdrop : 'static',
+    keyboard : false,
+    
+};
 
    open(content: any) {
 
-     this.user=localStorage.getItem('user');
+     this.user=sessionStorage.getItem('user');
      this.user=JSON.parse(this.user)
-     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+     this.modalService.open(content, this.ngbModalOptions).result.then((result) => {
        if (result === 'Save click') {
          this.saveUserInfo();
          this.vendorUpdated.emit(this.user)
@@ -54,7 +59,7 @@ export class UpdatevendorprofileComponent {
 
 
          saveUserInfo() {
-          this.http.post("http://localhost:8081/user/update",this.user).subscribe(
+          this.http.post("http://localhost:8081/vendor/update",this.user).subscribe(
            (response:any)=>{
              console.log(response);
 

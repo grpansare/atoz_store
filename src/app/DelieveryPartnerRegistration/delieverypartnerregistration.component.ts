@@ -11,16 +11,16 @@ import Swal from 'sweetalert2';
 })
 export class DelieverypartnerregistrationComponent {
 
-  private baseUrl:any = "http://localhost:8081/user"; 
+  private baseUrl:any = "http://localhost:8081/delivery";
 
   isSubmited:boolean=false;
-  
-  constructor(private http: HttpClient,private router: Router,private formBuilder:FormBuilder) { 
+
+  constructor(private http: HttpClient,private router: Router,private formBuilder:FormBuilder) {
 
   }
 
   ngOnInit(): void {
-   
+
   }
 
   signin=new FormGroup({
@@ -38,7 +38,7 @@ export class DelieverypartnerregistrationComponent {
     vehicleType:new FormControl("",[Validators.required]),
     vehicleRegNumber:new FormControl("",[Validators.required]),
 
-    address:new FormControl("",[Validators.required]),
+    street:new FormControl("",[Validators.required]),
     city:new FormControl("",[Validators.required]),
     state:new FormControl("",[Validators.required]),
     landmark:new FormControl("",[Validators.required]),
@@ -50,7 +50,7 @@ export class DelieverypartnerregistrationComponent {
    matchPassword(control: AbstractControl): { [key: string]: boolean } | null {
     if (!this.signin || !this.signin.get('password')) {
        console.error('Form or password control not initialized.');
-       return { 'passwordMismatch': true }; 
+       return { 'passwordMismatch': true };
      }
 
      const password = this.signin.get('password')?.value;
@@ -104,8 +104,8 @@ export class DelieverypartnerregistrationComponent {
 }
 
 
-get address():any{
-  return this.signin.get('address');
+get street():any{
+  return this.signin.get('street');
 }
 
 
@@ -145,9 +145,16 @@ get postalCode():any{
     this.isSubmited = true;
     this.myForm = this.signin;
 
-    if (this.signin.valid) 
+    if (this.signin.valid)
     {
-
+      const address={
+        street: this.myForm.value.street,
+        city: this.myForm.value.city,
+        state: this.myForm.value.state,
+        landMark: this.myForm.value.landmark,
+        country: this.myForm.value.country,
+        pincode: this.myForm.value.postalCode,
+      }
       const registeringData = {
         firstname: this.myForm.value.firstname,
         lastname: this.myForm.value.lastname,
@@ -157,14 +164,9 @@ get postalCode():any{
         age: this.myForm.value.age,
         username: this.myForm.value.username,
         password: this.myForm.value.password,
-        vehicleType:this.myForm.value.vehicleType,  
+        vehicleType:this.myForm.value.vehicleType,
         vehicleRegNumber:this.myForm.value.vehicleRegNumber,
-       address: this.myForm.value.address,
-       city: this.myForm.value.city,
-       state: this.myForm.value.state,
-       landmark: this.myForm.value.landmark,
-       country: this.myForm.value.country,
-       postalCode: this.myForm.value.postalCode,
+        shippingAddress:address
 
 
 
@@ -172,10 +174,10 @@ get postalCode():any{
 
       console.log(registeringData);
 
-      this.http.post(this.baseUrl + "/newuser", registeringData).subscribe(
+      this.http.post(this.baseUrl + "/register", registeringData).subscribe(
         (response: any) => {
           // Handle success response
-          alert("Registered successfully!");
+
           console.log(response);
 
           Swal.fire({
@@ -186,8 +188,8 @@ get postalCode():any{
 
           this.router.navigateByUrl('/login');
 
-          
-          
+
+
         },
         (error: any) => {
           // Handle error response
@@ -199,10 +201,10 @@ get postalCode():any{
             title: 'Error in Registration',
             text: 'There was an error during registration. Please try again later.',
           });
-          
+
         }
       );
-      
-    } 
+
+    }
   }
 }

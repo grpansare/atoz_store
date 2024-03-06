@@ -1,7 +1,7 @@
 
 
 <main>
-  <div class="container-fluid mt-4">
+  <div class="container-fluid mt-4" >
     <div class="md:flex md:flex-row md:items-start md:justify-between">
 
 
@@ -53,7 +53,7 @@
             </div>
           </div>
 
-          <div class="mx-3 my-1 py-1">
+          <!-- <div class="mx-3 my-1 py-1">
             <div>
               <div class="my-2">Size</div>
               <div  class="ml-3" *ngFor="let val of sizeFinal">
@@ -62,20 +62,20 @@
                 <label class="form-check-label" for="{{'checkbox-' + val}}">{{val}}</label>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="mx-3 my-1 py-1">
             <div>
               <div class="my-2">CATEGORIES</div>
-              <div class="ml-3" *ngFor="let val of catFinal">
+              <div class="ml-3" *ngFor="let val of categories">
                 <input type="radio" class="form-check-input" id="{{'radio-' + val}}" name="radioGroup" [value]="val"
-                  (change)="handleChange($event)" />
+                  (click)="selectCategory($event)" />
                 <label class="form-check-label" for="{{'radio-' + val}}">{{val}}</label>
               </div>
             </div>
           </div>
 
-          <div class="mx-3 my-1 py-1">
+          <!-- <div class="mx-3 my-1 py-1">
             <div>
               <div class="my-2">COLOURS</div>
               <div class="ml-3" *ngFor="let val of colours">
@@ -84,7 +84,7 @@
                 <label class="form-check-label" for="{{'checkbox-' + val}}">{{val}}</label>
               </div>
             </div>
-          </div>
+          </div> -->
 
         </aside>
       </div>

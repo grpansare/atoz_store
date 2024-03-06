@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartServiceComponent } from '../Services/cart-service/cart-service.component';
 import { CartServiceService } from '../Services/cart-service.service';
 
 @Component({
@@ -40,7 +41,7 @@ export class CartpageComponent {
 
 
 getCartProducts(){
-  this.http.get<any[]>(this.baseurl+`/cart/getcartproducts/${this.user?.username}`).subscribe(
+  this.http.get<any[]>(`${this.baseurl}/cart/getcartproducts/${this.user?.username}`).subscribe(
 response=>{
   console.log(response);
 
@@ -60,7 +61,7 @@ removeFromCart(product:any){
   const formdata=new FormData();
   formdata.append("username",this.user.username);
   formdata.append("cartproductid",product.cartproductId);
-  this.http.post(this.baseurl+`/cart/deleteFromCart`,formdata).subscribe(
+  this.http.post(`${this.baseurl}/cart/deleteFromCart`, formdata).subscribe(
     response=>{
       console.log(response);
        // Subtract the price of the removed product from the total sum
@@ -125,7 +126,7 @@ calculateDiscountedPrice(element:any):number{
   return finalPrice;
 }
 updateProductQuantity(update:any,product:any){
-   this.http.post(this.baseurl+`/cart/productquantity/${update}/${this.user.username}`,product).subscribe(
+    this.http.post(`${this.baseurl}/cart/productquantity/${update}/${this.user.username}`, product).subscribe(
     (success:any)=>{
 
     },

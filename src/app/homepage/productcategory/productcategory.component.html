@@ -11,7 +11,7 @@
       ></i>
       </button>
     <div [class]=" showfilters ?'filter active'   :'filter'">
-   <app-filters (priceFilterSubmit)="handlePriceFilter($event)"></app-filters>
+   <app-filters (priceFilterSubmit)="handlePriceFilter($event)" ></app-filters>
    </div>
    <app-products [products]="products" ></app-products>
    </div>

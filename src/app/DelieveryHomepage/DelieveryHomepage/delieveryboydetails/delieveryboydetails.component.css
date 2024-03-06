@@ -1,16 +1,19 @@
 .main {
   display: flex;
     flex-direction: row;
+    width: 100vw;
+    border: 1px solid black;
+
 }
 
 .info-box {
-  border: 1px solid #ccc; 
-  border-radius: 5px; 
-  padding: 10px; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
   margin-bottom: 10px;
-  cursor: pointer; 
-  transition: background-color 0.3s; 
-  
+  cursor: pointer;
+  transition: background-color 0.3s;
+
     width: 350px;
     display: flex;
     flex-direction: column;
@@ -18,11 +21,11 @@
     padding-left: 20px;
     margin: 25px;
     height: 180px;
-  
+
 }
 
 .info-box:hover {
-  background-color: #f0f0f0; 
+  background-color: #f0f0f0;
 }
 
 .sub-info-box {

@@ -26,6 +26,10 @@ import { DelieveryboydetailsComponent } from './DelieveryHomepage/DelieveryHomep
 import { DelieveryhomepageComponent } from './DelieveryHomepage/DelieveryHomepage/delieveryhomepage.component';
 import { VendorprofileComponent } from './VendorHomepage/vendorprofile/vendorprofile.component';
 import { VendordetailsComponent } from './VendorHomepage/vendordetails/vendordetails.component';
+import { OrderhistoryComponent } from './Order_History/orderhistory.component';
+import { DelieveryprofileComponent } from './DelieveryHomepage/DelieveryHomepage/delieveryprofile/delieveryprofile.component';
+import { VendorforgetpasswordComponent } from './VendorForgetPassword/vendorforgetpassword.component';
+import { DelieveryforgetpasswordComponent } from './DelieveryForgetPassword/delieveryforgetpassword.component';
 
 const routes: Routes = [
   { path: '', component: WelcomepageComponent },
@@ -35,11 +39,14 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'vendors', component: VendorsiteregistrationComponent },
   { path: 'delievery', component: DelieverypartnerregistrationComponent },
+  { path: 'vendorforgotpassword', component: VendorforgetpasswordComponent},
+   { path: 'delieveryforgotpassword', component: DelieveryforgetpasswordComponent},
 
 
 
   { path: 'addproduct', component: AddproductComponent},
   { path: 'addimage', component: AddimageComponent},
+
 
   {path:"home",component:HomepageComponent,
   children:[
@@ -49,7 +56,8 @@ const routes: Routes = [
     { path: 'logout', component: LogoutComponent },
     { path: 'cart', component: CartpageComponent },
     { path: 'cart/checkout', component: ProductsummaryComponent},
-    { path: 'searchproduct/:searchpro', component: SearchproductComponent}
+    { path: 'searchproduct/:searchpro', component: SearchproductComponent},
+    {path: 'orderHistory',component:OrderhistoryComponent},
 
   ]
   },
@@ -67,6 +75,9 @@ const routes: Routes = [
 {path:"delieveryhome",component:DelieveryhomepageComponent,
   children:[
     {path:"",component:DelieveryboydetailsComponent},
+    {path:"delieveryprofile",component:DelieveryprofileComponent},
+
+
 
   ]
 },

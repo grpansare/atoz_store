@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-filters',
@@ -11,7 +12,7 @@ export class FiltersComponent {
   products: any[] = [];
   category: string = '';
   genFinal = ["Men", "Women","Kids",""];
-  catFinal = ["Electronics", "Footwear", "Cloths", "Grocery", "Cosmetics & Beauty", "Medicine", "Furniture", "Books"];
+  categories = ["Electronics", "Grocery", "Beauty", "Furniture", "Books","Fashion"];
   sizeFinal = ["S", "M", "L", "XL", "XXL"];
   colours = ["Red", "Blue", "Black", "White", "Yellow", "Green", "Gray", "Purple"];
   minPrice: any='';
@@ -26,7 +27,7 @@ prodArr:any[]=[];
   }
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private router:Router) {
       this.show();
   }
   private baseUrl:any = 'http://localhost:8188/product';
@@ -47,6 +48,11 @@ prodArr:any[]=[];
 
 }
 
+selectCategory(event: any){
+this.category=event.target.value;
+this.searchCategory();
+}
+
   searchCategory() {
     // Make an HTTP request to fetch products based on the category
     /*
@@ -59,12 +65,13 @@ prodArr:any[]=[];
         console.error(error);
       }
     );*/
+    this.router.navigate(['home/products', this.category]);
   }
 
   handleChange(event: any) {
     // Handle changes when a filter option is selected
     this.category = event.target.value;
-    this.searchCategory();
+    
   }
 
 

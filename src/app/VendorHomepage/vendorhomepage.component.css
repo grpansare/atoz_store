@@ -12,7 +12,8 @@
   border: 1px solid black;
 padding: 0.6rem 2rem;
 /* font-size: 1rem; */
-color: black;
+color: white;
+
 
 }
 .show{
@@ -78,6 +79,7 @@ padding: 0.3rem 0.9rem;
 .dropdown{
  border: 1px solid white;
   color: white;
+  border-radius: 5px;
   }
 .font-bold {
   color: white;
@@ -114,6 +116,7 @@ margin-right: 500px;
   .main{
     display: flex;
     flex-direction: row;
+    background-image: url("/assets/vendortheme2.jpg"); 
     /* background-color: white; */
 
   }
@@ -146,46 +149,45 @@ margin-right: 500px;
     .navbar {
       font-size: 1rem;
     }
-  
+
     .navbar .logo {
       font-size: 1.2rem;
     }
-  
+
     .navbar .add {
       margin-right: 100px; /* Adjust as needed */
     }
-  
+
     .main {
       flex-direction: column; /* Stack elements vertically */
     }
-  
+
     .info-box {
       width: 100%; /* Full width on smaller screens */
       margin: 15px; /* Reduce margin */
     }
   }
-  
+
   @media only screen and (max-width: 576px) {
     /* Adjustments for screens smaller than 576px width */
     .navbar {
       font-size: 0.9rem;
     }
-  
+
     .navbar .logo {
       font-size: 1rem;
     }
-  
+
     .navbar .add {
       margin-right: 50px; /* Adjust as needed */
     }
-  
+
     .main {
       flex-direction: column; /* Stack elements vertically */
     }
-  
+
     .info-box {
       width: 100%; /* Full width on smaller screens */
       margin: 10px; /* Reduce margin */
     }
   }
-  

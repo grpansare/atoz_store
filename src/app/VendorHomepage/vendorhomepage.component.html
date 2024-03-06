@@ -9,11 +9,11 @@
         <span class="font-bold ml-4 logo"><i class="fa-solid mr-3 fa-cart-shopping fa-xl"></i>AtoZStore</span>
       </a>
 
-      <div fxShow="true" fxHide.lt-md fxLayout="row" fxLayoutAlign="end center" class="g-3 mr-5">
+      <div fxShow="true" fxHide.lt-md fxLayout="row" fxLayoutAlign="end center" class=" mr-5">
 
 
        <a routerLink="addproduct"> <button class="btn btn-primary add" >Add Product</button></a>
-      
+
 
 
 
@@ -37,7 +37,7 @@
               </a>
             </li>
             <li>
-              <button class="dropdown-item" type="button">Logout <i class="fa-solid fa-sign-out"></i></button>
+              <button (click)="logout()" class="dropdown-item" type="button">Logout <i class="fa-solid fa-sign-out"></i></button>
             </li>
           </ul>
         </div>

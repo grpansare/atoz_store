@@ -1,89 +1,88 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vendordetails',
   templateUrl: './vendordetails.component.html',
-  styleUrl: './vendordetails.component.css'
+  styleUrls: ['./vendordetails.component.css']
 })
 export class VendordetailsComponent {
   showdropdown:boolean=false;
   product:any={
-    productid:"01",
     productname:"iPhone",
     price:40000,
     category:"electronics",
-    description:"Iphone 14 pro max is a fastest model",
-    size:["128 GB", "256 GB", "512 GB", "1 TB"],
-    color:["White", "Black", "Red", "Blue", "Green"]
+    description:"Iphone 14 pro max is a fastest model"
   };
   products:any=[];
+  http: any;
   constructor(private router:Router){
     this.products=[
       {
-        productid:"01",
         productname:"iPhone",
         price:40000,
         category:"electronics",
-        description:"Iphone 14 pro max is a fastest model",
-        size:["128 GB", "256 GB", "512 GB", "1 TB"],
-        color:["White", "Black", "Red", "Blue", "Green"]
+        description:"Iphone 14 pro max is a fastest model"
+
       },
-      {    
-        productid:"02",
+      {
         productname:"Laptop",
         price:70000,
         category:"electronics",
-        description:" Laptop is a 8GB RAM model",
-        size:["128 GB", "256 GB", "512 GB", "1 TB"],
-        color:["White", "Black"]
+        description:" Laptop is a 4GBRAM model"
 
       },
       {
-        productid:"03",
         productname:"Charger",
         price:2000,
         category:"electronics",
-        description:"Charger  has 1.5 w speed charger",
-        size:["standard"],
-        color:["White", "Black"]
+        description:"Charger  has 1.5 w speed charger"
 
       },
       {
-        productid:"04",
         productname:"Keyboard",
         price:4000,
         category:"electronics",
-        description:"Keyboard is use for PC ",
-        size:["standard"],
-        color:["White", "Black"]
+        description:"Keyboard is use for PC "
 
       },
       {
-        productid:"05",
         productname:"TV",
         price:100000,
         category:"electronics",
-        description:"Panasonic Tv with 32 inches size with high definition screen",
-        size:["32 inches", "43 inches", "56 inches", "72 inches"],
-        color:["White", "Black"]
+        description:"Panasonic Tv with 32 inches size with high definition screen"
 
       },
       
     ]
   }
-  changeDropDown(){
-   this.showdropdown=!this.showdropdown;
-   
-  } 
-  showprodinfo(product:any){
-    this.product=product;
+
+  changeDropDown() {
+    this.showdropdown = !this.showdropdown;
   }
 
-  
-}
-function info(product: any, any: any) {
-  throw new Error('Function not implemented.');
-}
+  showprodinfo(product: any) {
+    this.product = product;
+  }
 
+  // You need to provide a URL for the HTTP request
+  fetchData() {
+    this.http.get(`http://localhost:8081/vendor/getProducts/${this.vendor.username}`).subscribe
+    ((data: any) => {
+this.products=data;
+console.log(this.products)
+this.product=this.products[0];
+    });
+  }
+  deleteProduct(productid:any){
+    this.http.delete(`http://localhost:8081/product/deleteProductById/${productid}`).subscribe(
+      (response:any)=>{
+            this.fetchData()
+      },
+      (error:any)=>{
 
+      }
+    )
+  }
+}

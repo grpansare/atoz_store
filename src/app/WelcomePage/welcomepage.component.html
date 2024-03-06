@@ -28,7 +28,7 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <mat-sidenav-container class="navbar">
+  <mat-sidenav-container class="navbar" >
     <mat-sidenav #sidenav>
       <mat-nav-list>
         <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
@@ -48,7 +48,7 @@
 <div  id="carouselexample" class="carousel slide carousel-fade " data-bs-ride="carousel" data-bs-keyboard="true">
   <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="2000">
-          <img src="assets/beauty.jpeg" class="w-100">
+          <img src="assets/beauty.jpeg" class="w-100 ">
           <div class="carousel-caption d-block d-md-block">
               <h2 class="slide">Slide 1</h2>
           </div>
@@ -757,39 +757,35 @@
 
         <!-- Grid column -->
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links --><br><br>
-          <h1 class="text-uppercase fw-bold mb-4">
-            Products
-          </h1>
+          <!-- Links -->
+          <br><br>
+          <h1 class="text-uppercase fw-bold mb-4">Products</h1>
           <p>
-            <a href="#photo" class="text-reset">Products</a>
+            <a href="#photo" class="text-reset"><i class="fas fa-shopping-bag"></i>  Products</a>
           </p>
           <p>
-            <a href="#atoz" class="text-reset">About AtoZStore</a>
+            <a href="#atoz" class="text-reset"><i class="fas fa-info-circle"></i> About AtoZStore</a>
           </p>
           <p>
-            <a href="#home" class="text-reset">Offers</a>
+            <a href="#home" class="text-reset"><i class="fas fa-tags"></i> Offers</a>
           </p>
-
         </div>
         <!-- Grid column -->
 
         <!-- Grid column -->
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <!-- Links --><br><br>
-          <h1 class="text-uppercase fw-bold mb-4">
-            Quick links
-          </h1>
+          <!-- Links -->
+          <br><br>
+          <h1 class="text-uppercase fw-bold mb-4">Quick links</h1>
           <p>
-            <a href="#home" class="text-reset">Home</a>
+            <a href="#home" class="text-reset"><i class="fas fa-chevron-right"></i> Home</a>
           </p>
           <p>
-            <a href="#aboutus" class="text-reset">AboutUs</a>
+            <a href="#aboutus" class="text-reset"><i class="fas fa-chevron-right"></i> About Us</a>
           </p>
           <p>
-            <a href="#contactus" class="text-reset">Contact</a>
+            <a href="#contactus" class="text-reset"><i class="fas fa-chevron-right"></i> Contact</a>
           </p>
-
         </div>
         <!-- Grid column -->
 
@@ -802,7 +798,7 @@
           <p><i class="fas fa-home me-3"></i> AtoZStore</p>
           <p>
             <i class="fas fa-envelope me-3"></i>
-            atozstore.gmail.com
+             {{ 'arkhambatman08@gmail.com' }}
           </p>
           <p><i class="fas fa-phone me-3"></i> + 91 8762718271</p>
         </div>

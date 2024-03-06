@@ -66,6 +66,7 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { AddimageComponent } from './addimage/addimage.component';
 import { ProductdialogComponent } from './homepage/productdialog/productdialog.component';
+import { CartServiceComponent } from './Services/cart-service/cart-service.component';
 
 import { VendorsiteregistrationComponent } from './VendorSiteRegistration/vendorsiteregistration.component';
 import { DelieverypartnerregistrationComponent } from './DelieveryPartnerRegistration/delieverypartnerregistration.component';
@@ -81,6 +82,11 @@ import { DelieveryboydetailsComponent } from './DelieveryHomepage/DelieveryHomep
 import { OrderlistComponent } from './DelieveryHomepage/DelieveryHomepage/orderlist/orderlist.component';
 import { VendorhomepageComponent } from './VendorHomepage/vendorhomepage.component';
 import { VendorprofileComponent } from './VendorHomepage/vendorprofile/vendorprofile.component';
+import { OrderhistoryComponent } from './Order_History/orderhistory.component';
+import { DelieveryprofileComponent } from './DelieveryHomepage/DelieveryHomepage/delieveryprofile/delieveryprofile.component';
+import { UpdatedelieveryprofileComponent } from './DelieveryHomepage/DelieveryHomepage/updatedelieveryprofile/updatedelieveryprofile.component';
+import { VendorforgetpasswordComponent } from './VendorForgetPassword/vendorforgetpassword.component';
+import { DelieveryforgetpasswordComponent } from './DelieveryForgetPassword/delieveryforgetpassword.component';
 
 
 
@@ -119,6 +125,7 @@ import { VendorprofileComponent } from './VendorHomepage/vendorprofile/vendorpro
    AddproductComponent,
    AddimageComponent,
    ProductdialogComponent,
+   CartServiceComponent,
    VendorhomepageComponent,
    VendorsiteregistrationComponent,
    DelieverypartnerregistrationComponent,
@@ -132,8 +139,14 @@ import { VendorprofileComponent } from './VendorHomepage/vendorprofile/vendorpro
    UpdatevendorprofileComponent,
     DelieveryhomepageComponent,
     DelieveryboydetailsComponent,
+    DelieveryforgetpasswordComponent,
+    DelieveryprofileComponent,
+    UpdatedelieveryprofileComponent,
     OrderlistComponent,
-    VendorprofileComponent
+    VendorprofileComponent,
+    VendorforgetpasswordComponent,
+
+    OrderhistoryComponent
 
   ],
   imports: [

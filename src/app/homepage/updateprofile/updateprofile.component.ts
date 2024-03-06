@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, Output, TemplateRef, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalDismissReasons, NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 
 @Component({
@@ -20,12 +20,15 @@ export class UpdateprofileComponent {
 
   private modalService = inject(NgbModal);
 	closeResult = '';
-
+  ngbModalOptions: NgbModalOptions = {
+    backdrop : 'static',
+    keyboard : false
+};
   open(content: any) {
 
     this.user=sessionStorage.getItem('user');
     this.user=JSON.parse(this.user)
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+    this.modalService.open(content, this.ngbModalOptions).result.then((result) => {
       if (result === 'Save click') {
         this.saveUserInfo();
         this.userUpdated.emit(this.user)
@@ -55,7 +58,7 @@ export class UpdateprofileComponent {
 
 
         saveUserInfo() {
-         this.http.post("http://localhost:8081/user/update",this.user).subscribe(
+         this.http.post("http://localhost:8081/user/updateuser",this.user).subscribe(
           (response:any)=>{
             console.log(response);
 

@@ -147,6 +147,15 @@ get pincode():any{
 
     if (this.signin.valid)
     {
+      const address={
+        street:this.myForm.value.companytype,
+        city: this.myForm.value.city,
+        state: this.myForm.value.state,
+        landMark: this.myForm.value.landmark,
+        country: this.myForm.value.country,
+        pincode: this.myForm.value.pincode,
+
+       }
 
       const registeringData = {
         firstname: this.myForm.value.firstname,
@@ -159,16 +168,12 @@ get pincode():any{
         password: this.myForm.value.password,
         companyname:this.myForm.value.companyname,
        companytype:this.myForm.value.companytype,
-       street:this.myForm.value.companytype,
-       city: this.myForm.value.city,
-       state: this.myForm.value.state,
-       landmark: this.myForm.value.landmark,
-       country: this.myForm.value.country,
-       pincode: this.myForm.value.pincode,
+       address:address
+
+      }
 
 
 
-      };
 
       console.log(registeringData);
 
