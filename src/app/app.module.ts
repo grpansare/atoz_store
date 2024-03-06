@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -82,11 +82,13 @@ import { OrderlistComponent } from './DelieveryHomepage/DelieveryHomepage/orderl
 import { VendorhomepageComponent } from './VendorHomepage/vendorhomepage.component';
 import { VendorprofileComponent } from './VendorHomepage/vendorprofile/vendorprofile.component';
 import { OrderhistoryComponent } from './Order_History/orderhistory.component';
-
+import { AdminloginComponent } from './Admin/adminlogin.component';
+import { DashboardComponent } from './Admin/dashboard.component';
 
 
 
 @NgModule({
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     AppComponent,
 
@@ -135,7 +137,9 @@ import { OrderhistoryComponent } from './Order_History/orderhistory.component';
     DelieveryboydetailsComponent,
     OrderlistComponent,
     VendorprofileComponent,
-    OrderhistoryComponent
+    OrderhistoryComponent,
+    AdminloginComponent,
+    DashboardComponent
 
   ],
   imports: [
@@ -206,7 +210,7 @@ MdbValidationModule,
 MdbValidationModule,
 HttpClientModule,
 FormsModule,
-
+MatSidenavModule
 
 
 

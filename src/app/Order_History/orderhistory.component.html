@@ -1,5 +1,4 @@
-
-
+ 
 <div class="mx-auto my-4 max-w-4xl md:my-6">
     <h1 class="text-4xl font-bold" align="center">Order Details</h1>
     <div class="mt-1.5 font-semibold text-sm h-5 font-medium text-gray-600">
@@ -16,21 +15,13 @@
   <div class="mt-3 h5">
      Hello <u>{{userinfo.firstname}} {{userinfo.lastname}}</u> , Check the status of recent and old orders &amp; discover more products
   </div>
-  <div class="mt-8 flex flex-col overflow-hidden rounded-lg border border-gray-300 md:flex-row" *ngFor="let order of orderss">
-    <!-- <div class="overflow-hidden rounded-xl border border-gray-100 shadow"> -->
+  <div class="mt-8 flex flex-col bg-gray-100 overflow-hidden rounded-lg border border-gray-300 border-4 md:flex-row" *ngFor="let order of orderss">
       <div class="grid grid-cols-1 md:grid-cols-2">
-        <div class="px-5 py-6 md:border-r md:border-r-gray-200 md:px-8">
+        <div class="px-5 py-6 md:border-r md:border-r-red-200 md:px-8">
           <div class="flow-root">
             <ul class="-my-7 divide-y divide-gray-200">
-              <li class="flex items-stretch justify-between space-x-5 py-7" *ngFor="let orderprod of order">
+              <li class="flex items-stretch justify-between space-x-5 py-7" *ngFor="let orderprod of order.productsList">
                 <div class="flex flex-1 items-stretch">
-                  <!-- <div class="flex-shrink-0">
-                    <img
-                      class="h-20 w-20 rounded-lg border border-gray-200 object-contain"
-                      src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/54a510de-a406-41b2-8d62-7f8c587c9a7e/air-force-1-07-lv8-shoes-9KwrSk.png"
-                      alt="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/54a510de-a406-41b2-8d62-7f8c587c9a7e/air-force-1-07-lv8-shoes-9KwrSk.png"
-                    />
-                  </div> -->
                   <div class="ml-5 flex flex-col justify-between">
                     <div class="flex-1">
                       <p class="text-sm font-bold text-gray-900">
@@ -58,12 +49,12 @@
               </li>
              
             </ul>
-            <hr class="mt-6 border-gray-200" />
+            <hr class="mt-6 border-black-200" />
             <ul class="mt-6 space-y-3">
                 
               <li class="flex items-center justify-between">
-                <p class="text-sm text-uppercase font-semibold">Total</p>
-                <p class="text-sm font-bold ">₹1,14,399</p>
+                <p class="text-sm text-uppercase text-gray-500 font-semibold" style="letter-spacing: 5px; text-decoration-line: underline; text-decoration-color: aliceblue; text-decoration-style: solid;">Total</p>
+                <p class="text-sm font-bold" style="color: blueviolet;">{{order.amount|currency:'INR'}}</p> 
               </li>
             </ul>
           </div>
@@ -75,14 +66,14 @@
                 <h2 class="text-base font-bold text-black">
                   Contact Information
                 </h2>
-                <p class="fontmedium mt-3 text-xs text-gray-700">
-                  Order Number: {{order.orderid}}
+                <p class="font-medium mt-3 text-xs text-warning">
+                  Order Number: <u> {{order.orderid}} </u>
                 </p>
-                <p class="text-xs font-medium text-gray-700">
-                  Order Date: {{order.date}}
+                <p class="text-xl font-medium text-gray-700">
+                  Order Date: <span class="text-primary">{{order.date}}</span>
                 </p>
-                <p class="text-xs font-medium text-gray-700">
-                    Order Time: {{order.time}}
+                <p class="text-xl font-medium text-gray-700">
+                    Order Time: <span class="text-primary">{{order.time}}</span> 
                   </p>
                 
               </div>
@@ -90,22 +81,25 @@
                 <h2 class="mb-2 text-base font-bold text-black">
                   Shipping Information
                 </h2>
-                <p class="mt-3 text-xs font-medium text-gray-700">{{order.street}} , {{order.landmark}} </p>
+                <p class="mt-3 text-xs font-medium text-gray-700">{{order.address.street}} , {{order.address.landMark}} </p>
                 <p class="text-xs font-medium text-gray-700">
-                    {{order.city}} - {{order.pincode}}
+                    {{order.address.city}} - {{order.address.pincode}}
                 </p>
-                <p class="text-xs font-medium text-gray-700">{{order.state}}</p>
-                <p class="text-xs font-medium text-gray-700">{{order.country}}</p>
+                <p class="text-xs font-medium text-gray-700">{{order.address.state}}</p>
+                <p class="text-xs font-medium text-gray-700">{{order.address.country}}</p>
               </div>
               <div class="py-6">
                 <h2 class="text-base font-bold text-black">
                   Payment Information
                 </h2>
                 <p class="mt-3 text-xs font-medium text-gray-700">
-                  PymentId = <span> {{order.payment_id}}</span> 
+                  PaymentId = <span> {{order.payment_id}}</span> 
                 </p>
                 <p class="mt-3 text-xs font-medium text-gray-700">
-                    Pyment signature = <span> {{order.payment_signature}}</span> 
+                    Payment signature = <span> {{order.payment_signature}}</span> 
+                  </p>
+                  <p class="mt-3 text-sm font-medium text-gray-700">
+                    Payment Status = <span class="bg-success text-white"> Successful </span> 
                   </p>
               </div>
             </div>
@@ -115,3 +109,6 @@
     </div>
   </div>
   
+
+
+   

@@ -27,10 +27,13 @@ import { DelieveryhomepageComponent } from './DelieveryHomepage/DelieveryHomepag
 import { VendorprofileComponent } from './VendorHomepage/vendorprofile/vendorprofile.component';
 import { VendordetailsComponent } from './VendorHomepage/vendordetails/vendordetails.component';
 import { OrderhistoryComponent } from './Order_History/orderhistory.component';
+import { AdminloginComponent } from './Admin/adminlogin.component';
+import { DashboardComponent } from './Admin/dashboard.component';
 
 const routes: Routes = [
   { path: '', component: WelcomepageComponent },
-
+  {path:'adminlogin', component:AdminloginComponent},
+  {path:'dashboard',component:DashboardComponent},
   { path: 'signin', component: SigninComponent },
   { path: 'forgotpassword', component: ChangePasswordComponent},
   { path: 'login', component: LoginComponent },

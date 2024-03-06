@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartServiceService } from '../Services/cart-service.service';
@@ -157,7 +157,8 @@ export class ProductsummaryComponent implements OnInit {
     this.router.navigateByUrl('/home/profile');
   }
 */
-  
+ 
+/*
 processResponse(resp: any) {
   console.log(resp)
 
@@ -185,6 +186,7 @@ console.log(date + " == " + time);
 
   this.http.post(url + queryParams, {}).subscribe(
     (response: any) => {
+      console.log("response"+response);
       Swal.fire({
         icon: 'success',
         title: 'Order Successful',
@@ -198,8 +200,56 @@ console.log(date + " == " + time);
     }
 );
 
-  }
+}*/
   
+  processResponse(resp: any) {
+    console.log(resp);
+
+    const currentDate = new Date();
+    const date = currentDate.toLocaleDateString(undefined, { year: 'numeric', month: '2-digit', day: '2-digit' });
+    const time = currentDate.toLocaleTimeString(undefined, { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
 
+    const details = {
+      razorpay_order_id: resp.razorpay_order_id,
+      razorpay_payment_id: resp.razorpay_payment_id,
+      razorpay_signature: resp.razorpay_signature,
+      date: date,
+      time: time
+    };
+
+    const queryParams = new HttpParams()
+      .set('razorpay_order_id', details.razorpay_order_id)
+      .set('razorpay_payment_id', details.razorpay_payment_id)
+      .set('razorpay_signature', details.razorpay_signature)
+      .set('date', details.date)
+      .set('time', details.time);
+
+    const url = `${this.baseUrl}/order/generateOrder/${this.userinfo?.username}/${this.sum}`;
+
+    this.http.post(url, {}, { params: queryParams }).subscribe(
+      (response: any) => {
+        console.log("response", response);
+        Swal.fire({
+          icon: 'success',
+          title: 'Order Successful',
+          text: response.message,
+        });
+        this.router.navigateByUrl('/home/orderHistory');
+      },
+      (error) => {
+        console.log("error", error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Order Failed',
+          text: 'Failed to place order. Please try again later.',
+        });
+      }
+    );
+  }
+
+
+  
 }
+
+
