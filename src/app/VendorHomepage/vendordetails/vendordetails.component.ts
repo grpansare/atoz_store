@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-vendordetails',
@@ -8,17 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./vendordetails.component.css']
 })
 export class VendordetailsComponent {
-  showdropdown:boolean=false;
-  product:any={
-    productname:"iPhone",
-    price:40000,
-    category:"electronics",
-    description:"Iphone 14 pro max is a fastest model"
-  };
-  products:any=[];
-  http: any;
-  constructor(private router:Router){
-    this.products=[
+  showdropdown: boolean = false;
+  vendor:any="";
+  products: any[] = [];
+  product: any = {};
+
+  constructor(private router: Router, private http: HttpClient) {
+    this.products = [
       {
         productname:"iPhone",
         price:40000,
@@ -84,5 +82,17 @@ this.product=this.products[0];
 
       }
     )
+  }
+  openConfirmationDialog(productid:any): void {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+
+       this.deleteProduct(productid)
+      } else {
+
+      }
+    });
   }
 }
