@@ -124,7 +124,7 @@
     .main{
       display: flex;
       flex-direction: row;
-      background-image: url("/assets/vendortheme2.jpg");
+      background-image: url("/assets/vendortheme2.jpg"); 
       /* background-color: white; */
 
 

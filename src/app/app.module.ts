@@ -67,7 +67,6 @@ import { AddproductComponent } from './addproduct/addproduct.component';
 import { AddimageComponent } from './addimage/addimage.component';
 import { ProductdialogComponent } from './homepage/productdialog/productdialog.component';
 
-
 import { VendorsiteregistrationComponent } from './VendorSiteRegistration/vendorsiteregistration.component';
 import { DelieverypartnerregistrationComponent } from './DelieveryPartnerRegistration/delieverypartnerregistration.component';
 import { TestimonialsComponent } from './Testimonials/testimonials.component';
@@ -131,7 +130,6 @@ import { MatTableModule } from '@angular/material/table';
    AddproductComponent,
    AddimageComponent,
    ProductdialogComponent,
-
    VendorhomepageComponent,
    VendorsiteregistrationComponent,
    DelieverypartnerregistrationComponent,
