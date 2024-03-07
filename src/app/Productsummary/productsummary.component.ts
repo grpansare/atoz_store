@@ -1,9 +1,13 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
+
+
 import { CartServiceService } from '../Services/cart-service.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+
 declare var Razorpay: any;
 
 
@@ -15,31 +19,24 @@ declare var Razorpay: any;
 export class ProductsummaryComponent implements OnInit {
 
   products: any[] = [];
+  userId:string='';
   userinfo: any = {};
   payment:any = {};
   sum: number = 0;
 
-  private baseUrl: any = "http://localhost:8081";
+  
+   baseUrl: any = "http://localhost:8081";
   addressForm!: FormGroup;
+  selectedAddressOption:any="";
 
-  constructor(private http: HttpClient,private router: Router, private cartService: CartServiceService, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient,private router: Router, private cartService: CartServiceService, private route: ActivatedRoute) {
 
-  ngOnInit(): void {
     const userData = sessionStorage.getItem('user');
     if (userData) {
       this.userinfo = JSON.parse(userData);
     } else {
       this.userinfo = { address: {} };
     }
-
-    console.log("user info : ", this.userinfo);
-
-    this.products = this.cartService.getCartProducts();
-
-    this.products.forEach((element: { price: number; }) => {
-      this.sum = this.sum + element.price;
-      console.log("total :" + this.sum);
-    });
 
     // Initialize addressForm here after userinfo is populated
     this.addressForm = new FormGroup({
@@ -50,13 +47,35 @@ export class ProductsummaryComponent implements OnInit {
       country: new FormControl(this.userinfo.address?.country || '', Validators.required),
       pincode: new FormControl(this.userinfo.address?.pincode || '', Validators.required)
     });
+
+   }
+
+   ngOnInit(): void {
+    
+    this.http.get(`${this.baseUrl}/user/getuser/${this.userinfo.username}`).subscribe(
+      (response: any) => {
+        if (response != null) {
+          this.userinfo = response;
+          console.log("user info : ", this.userinfo);
+  
+          this.getCartProducts();
+  
+         
+        } else {
+          this.userinfo = null;
+        }
+      },
+      (error) => {
+        console.error("Error fetching user data:", error);
+      }
+    );
   }
 
-  total = () => {
-    this.products.forEach((element: { price: number; }) => {
-      this.sum = this.sum + element.price;
-    });
-  }
+  // total = () => {
+  //   this.products.forEach((element: { price: number; }) => {
+  //     this.sum = this.sum + element.price;
+  //   });
+  // }
 
   get street(): any {
     return this.addressForm.get('street');
@@ -82,6 +101,20 @@ export class ProductsummaryComponent implements OnInit {
     return this.addressForm.get('pincode');
   }
 
+  getCartProducts() {
+    this.http.get<any[]>(`${this.baseUrl}/cart/getcartproducts/${this.userinfo?.username}`).subscribe(
+      response => {
+        console.log(response);
+        this.products = response;
+        console.log(this.products);
+        this.calculateprice();
+      },
+      error => {
+        console.error("Error fetching cart products:", error);
+      }
+    );
+  }
+
   addAddress() {
     if (this.addressForm.invalid) {
       Swal.fire({
@@ -89,7 +122,7 @@ export class ProductsummaryComponent implements OnInit {
         title: 'Error in Address',
         text: 'Please make sure to fill in all required address fields correctly.',
       });
-      
+
       return;
     }
 
@@ -120,6 +153,7 @@ export class ProductsummaryComponent implements OnInit {
   openTransactionModal(response: any) {
     console.log(response.key);
     console.log(response.orderId);
+
     var options = {
       order_id: response.orderId,
       key: response.key,
@@ -139,16 +173,17 @@ export class ProductsummaryComponent implements OnInit {
       notes: {
         address: "E-Commerce Purchase Order"
       },
+
       theme: {
-        color: "#F37254"
+        color: "#000000"
       }
     };
     console.log(options);
-    this.payment=options;
+    // this.payment=options;
     //sessionStorage.setItem('options',JSON.stringify(options));
     var razorpayObject = new Razorpay(options);
     razorpayObject.open();
-   
+
   }
 /*
   processResponse(resp:any){
@@ -157,12 +192,11 @@ export class ProductsummaryComponent implements OnInit {
     this.router.navigateByUrl('/home/profile');
   }
 */
- 
 /*
 processResponse(resp: any) {
   console.log(resp)
 
- 
+
   // Extract date and time separately
   const currentDate = new Date();
 const date = currentDate.toISOString().split('T')[0];
@@ -170,8 +204,8 @@ const timeOptions = { hour12: false, hour: '2-digit', minute: '2-digit', second:
 const time = currentDate.toLocaleTimeString(undefined, { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' }); // Get local time in 24-hour format without milliseconds
 console.log(date + " == " + time);
 
-  
-  
+
+
     const details ={
       razorpay_order_id: resp.razorpay_order_id,
       razorpay_payment_id: resp.razorpay_payment_id,
@@ -179,29 +213,33 @@ console.log(date + " == " + time);
       date: date,
       time: time
     }
-  
+
     const url = `${this.baseUrl}/order/generateOrder/${this.userinfo?.username}/${this.sum}`;
   // Include query parameters in the URL
   const queryParams = `?razorpay_order_id=${details.razorpay_order_id}&razorpay_payment_id=${details.razorpay_payment_id}&razorpay_signature=${details.razorpay_signature}&date=${details.date}&time=${details.time}`;
 
   this.http.post(url + queryParams, {}).subscribe(
     (response: any) => {
-      console.log("response"+response);
-      Swal.fire({
-        icon: 'success',
-        title: 'Order Successful',
-        text: response.message,
-      });
-      this.router.navigateByUrl('/home/orderHistory');
-        
+        console.log("Response:", response); // Log the entire response to inspect it
+         if(response){
+        // Assuming response is a string containing the success message
+        Swal.fire({
+            icon: 'success',
+            title: 'Order Successful',
+            text: "Order has been placed successfully!", // Use the response directly
+        });
+
+        // Optionally, navigate to the order history page
+        this.router.navigateByUrl('/home/orderHistory');
+      }
     },
     (error) => {
-        console.log(error);
+        console.log("Error:", error); // Log any errors
+        // Handle errors if needed
     }
 );
+  }*/
 
-}*/
-  
   processResponse(resp: any) {
     console.log(resp);
 
@@ -236,6 +274,7 @@ console.log(date + " == " + time);
           text: response.message,
         });
         this.router.navigateByUrl('/home/orderHistory');
+        this.makeCartEmpty();
       },
       (error) => {
         console.log("error", error);
@@ -248,8 +287,63 @@ console.log(date + " == " + time);
     );
   }
 
+  makeCartEmpty() {
+    const formdata = new FormData();
+    formdata.append("username", this.userinfo.username);
 
-  
+    // Iterate over each product in the products array
+    this.products.forEach(product => {
+        // Append the cartproductid for each product to the formdata
+        formdata.append("cartproductid", product.cartproductId.toString());
+
+        // Send a POST request to delete the current product from the cart
+        this.http.post(`${this.baseUrl}/cart/deleteFromCart`, formdata).subscribe(
+            response => {
+                console.log(response);
+                // Subtract the price of the removed product from the total sum
+            },
+            error => {
+                console.log(error);
+            }
+        );
+
+        // Clear the formdata for the next iteration
+        formdata.delete("cartproductid");
+    });
 }
 
 
+
+
+
+  calculateprice(){
+    this.sum=0;
+    this.products.forEach((element:any) => {
+      console.log(element)
+      if(element.offer!=='null' && element.offer!==null){
+
+      this.sum=this.sum+this.calculateDiscountedPrice(element)*element.quantity;
+      }
+      else{
+      this.sum=this.sum+element.price*element.quantity
+      }
+      console.log("total :"+this.sum)
+    });
+  }
+  gotoCategory(){
+    this.router.navigateByUrl("home")
+  }
+
+  calculateDiscountedPrice(element:any):number{
+    const discountPercentage = parseFloat(element.offer.replace('%', ''));
+
+
+
+    const finalPrice = element.price - (element.price * discountPercentage / 100);
+
+    return finalPrice;
+  }
+
+
+
+}

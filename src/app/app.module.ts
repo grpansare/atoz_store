@@ -67,6 +67,7 @@ import { AddproductComponent } from './addproduct/addproduct.component';
 import { AddimageComponent } from './addimage/addimage.component';
 import { ProductdialogComponent } from './homepage/productdialog/productdialog.component';
 
+
 import { VendorsiteregistrationComponent } from './VendorSiteRegistration/vendorsiteregistration.component';
 import { DelieverypartnerregistrationComponent } from './DelieveryPartnerRegistration/delieverypartnerregistration.component';
 import { TestimonialsComponent } from './Testimonials/testimonials.component';
@@ -82,8 +83,16 @@ import { OrderlistComponent } from './DelieveryHomepage/DelieveryHomepage/orderl
 import { VendorhomepageComponent } from './VendorHomepage/vendorhomepage.component';
 import { VendorprofileComponent } from './VendorHomepage/vendorprofile/vendorprofile.component';
 import { OrderhistoryComponent } from './Order_History/orderhistory.component';
-import { AdminloginComponent } from './Admin/adminlogin.component';
-import { DashboardComponent } from './Admin/dashboard.component';
+import { DelieveryprofileComponent } from './DelieveryHomepage/DelieveryHomepage/delieveryprofile/delieveryprofile.component';
+import { UpdatedelieveryprofileComponent } from './DelieveryHomepage/DelieveryHomepage/updatedelieveryprofile/updatedelieveryprofile.component';
+import { VendorforgetpasswordComponent } from './VendorForgetPassword/vendorforgetpassword.component';
+import { DelieveryforgetpasswordComponent } from './DelieveryForgetPassword/delieveryforgetpassword.component';
+import { ConfirmationDialogComponent } from './VendorHomepage/vendordetails/confirmation-dialog/confirmation-dialog.component';
+import { AdminloginComponent } from './Admin/Admin_Login/adminlogin.component';
+import { DashboardComponent } from './Admin/Dashboard/dashboard.component';
+import { CustomertableComponent } from './Admin/Dashboard/customerTable/customertable.component';
+import { MatTableModule } from '@angular/material/table';
+
 
 
 
@@ -122,6 +131,7 @@ import { DashboardComponent } from './Admin/dashboard.component';
    AddproductComponent,
    AddimageComponent,
    ProductdialogComponent,
+
    VendorhomepageComponent,
    VendorsiteregistrationComponent,
    DelieverypartnerregistrationComponent,
@@ -135,11 +145,20 @@ import { DashboardComponent } from './Admin/dashboard.component';
    UpdatevendorprofileComponent,
     DelieveryhomepageComponent,
     DelieveryboydetailsComponent,
+    DelieveryforgetpasswordComponent,
+    DelieveryprofileComponent,
+    UpdatedelieveryprofileComponent,
     OrderlistComponent,
     VendorprofileComponent,
     OrderhistoryComponent,
-    AdminloginComponent,
-    DashboardComponent
+    VendorforgetpasswordComponent,
+
+    OrderhistoryComponent,
+      ConfirmationDialogComponent,
+      AdminloginComponent,
+      DashboardComponent,
+      CustomertableComponent,
+      
 
   ],
   imports: [
@@ -210,7 +229,13 @@ MdbValidationModule,
 MdbValidationModule,
 HttpClientModule,
 FormsModule,
-MatSidenavModule
+MatSidenavModule,
+MatIconModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatTableModule
 
 
 

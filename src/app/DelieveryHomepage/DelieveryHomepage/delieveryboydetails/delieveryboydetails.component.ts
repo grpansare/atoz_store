@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,106 +9,120 @@ import { Router } from '@angular/router';
 })
 export class DelieveryboydetailsComponent {
   showdropdown:boolean=false;
-  order:any={
-    availability:"available",
-    username:"Shardul",
-    email:"shardul@gmail.com",
-    orderid:1,
-    contactno:9887909009,
-    street:"Baner",
-    state:"Maharahtra",
-
-    city:"Pune",
-    country:"India",
-    pincode:411058,
-    landmark:"banergaon",
-    productname:"Shirts",
-    price:2000,
-
-  };
+  baseUrl="http://localhost:8081/delivery"
+  orderitem:any={};
   orders:any=[];
-  constructor(private router:Router){
-    this.orders=[
-      {
-        availability:"available",
-    username:"Shardul",
-    email:"shardul@gmail.com",
-    orderid:1,
-    contactno:9887909009,
-    street:"Baner",
-    state:"Maharahtra",
+  constructor(private router:Router,private http:HttpClient){
+    // this.orders=[
+    //   {
+    //     availability:"available",
+    // username:"Shardul",
+    // email:"shardul@gmail.com",
+    // orderid:1,
+    // contactno:9887909009,
+    // street:"Baner",
+    // state:"Maharahtra",
 
-    city:"Pune",
-    country:"India",
-    pincode:411058,
-    landmark:"banergaon",
-    productname:"Shirts",
-    price:2000,
-      },
-      {
-        availability:" not available",
-    username:"Soham",
-    email:"soham@gmail.com",
-    orderid:1,
-    contactno:9887909009,
-    street:"Baner",
-    state:"Maharahtra",
+    // city:"Pune",
+    // country:"India",
+    // pincode:411058,
+    // landmark:"banergaon",
+    // productname:"Shirts",
+    // color:"orange",
+    // quantity:"3",
+    // size:"64GB",
 
-    city:"Pune",
-    country:"India",
-    pincode:411058,
-    landmark:"banergaon",
-    productname:"Pants",
-    price:1000,
-      },
-      {
-        availability:"available",
-    username:"Ajay",
-    email:"ajay@gmail.com",
-    orderid:1,
-    contactno:9887909009,
-    street:"Baner",
-    state:"Maharahtra",
+    // price:2000,
+    //   },
+    //   {
+    //     availability:" not available",
+    // username:"Soham",
+    // email:"soham@gmail.com",
+    // orderid:1,
+    // contactno:9887909009,
+    // street:"Baner",
+    // state:"Maharahtra",
 
-    city:"Pune",
-    country:"India",
-    pincode:411058,
-    landmark:"banergaon",
-    productname:"Laptop",
-    price:42000,
-      },
-      {
-        availability:"available",
-    username:"Shreya",
-    email:"shreya@gmail.com",
-    orderid:1,
-    contactno:9887909009,
-    street:"Baner",
-    state:"Maharahtra",
+    // city:"Pune",
+    // country:"India",
+    // pincode:411058,
+    // landmark:"banergaon",
+    // productname:"Pants",
+    // color:"red",
+    // quantity:"5",
+    // size:"64GB",
 
-    city:"Pune",
-    country:"India",
-    pincode:411058,
-    landmark:"banergaon",
-    productname:"Lipstick",
-    price:500,
-      },
-     
-    ]
+    // price:1000,
+    //   },
+    //   {
+    //     availability:"available",
+    // username:"Ajay",
+    // email:"ajay@gmail.com",
+    // orderid:1,
+    // contactno:9887909009,
+    // street:"Wakad",
+    // state:"Maharahtra",
+
+    // city:"Pune",
+    // country:"India",
+    // pincode:411058,
+    // landmark:"Ravet",
+    // productname:"Laptop",
+    // color:"black",
+    // quantity:"1",
+    // size:"64GB",
+
+    // price:42000,
+    //   },
+    //   {
+    //     availability:"available",
+    // username:"Shreya",
+    // email:"shreya@gmail.com",
+    // orderid:1,
+    // contactno:9887909009,
+    // street:"Bhavdhan",
+    // state:"Maharahtra",
+
+    // city:"Pune",
+    // country:"India",
+    // pincode:411058,
+    // landmark:"Chinchowk",
+    // productname:"Lipstick",
+    // color:"pink",
+    // quantity:"1",
+    // size:"64GB",
+
+    // price:500,
+    //   },
+
+    // ]
   }
+
+  ngOnInit(): void {
+    // Fetch delivery boy details from API
+    this.http.get<any[]>(this.baseUrl+'/getAllOrders').subscribe(
+      (response: any[]) => {
+
+        this.orders = response;
+        this.orderitem=this.orders[0];
+      },
+      (error: any) => {
+        console.log("Error fetching delivery boy details:", error);
+      }
+    );
+  }
+
   changeDropDown(){
    this.showdropdown=!this.showdropdown;
-   
-  } 
+
+  }
   showprodinfo(order:any){
-    this.order=order;
+    this.orderitem=order;
   }
 
-  
+
 }
-function info(order: any, any: any) {
-  throw new Error('Function not implemented.');
-}
+
 
 
 

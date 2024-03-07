@@ -3,6 +3,7 @@ import { ThemeService } from '../theme.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-homepage',
@@ -46,6 +47,7 @@ export class HomepageComponent {
     if(searchpro==''){
       this.suggestions=[];
         this.router.navigateByUrl('home')
+        this.showSuggestions=false;
 
     }
     else{
@@ -95,6 +97,34 @@ export class HomepageComponent {
   }
    goToHome(){
     this.router.navigateByUrl('home')
+   }
+   logout(){
+    this.LogoutConfirmation();
+  }
+  LogoutConfirmation(): void {
+    this.openLogoutConfirmation().then((confirmed) => {
+       if (confirmed) {
+         sessionStorage.removeItem("username");
+         sessionStorage.removeItem("user");
+           this.router.navigateByUrl('/');
+       }
+
+     });
+
+       }
+
+
+   openLogoutConfirmation(): Promise<boolean> {
+     return Swal.fire({
+       title: 'Logout Confirmation',
+       text: 'Are you sure you want to logout?',
+       icon: 'question',
+       showCancelButton: true,
+       confirmButtonText: 'Logout',
+       cancelButtonText: 'Cancel',
+     }).then((result) => {
+       return result.isConfirmed;
+     });
    }
 
 }

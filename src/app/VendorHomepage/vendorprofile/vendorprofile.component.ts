@@ -8,11 +8,11 @@ import { Component } from '@angular/core';
 })
 export class VendorprofileComponent {
   userid:any="";
-  userinfo:any={};
+  vendorinfo:any={};
 constructor(private http:HttpClient){
   console.log(this.userid)
   this.getUser();
-  console.log(this.userinfo)
+  console.log(this.vendorinfo)
 
 }
 ngOnInit(): void {
@@ -24,11 +24,11 @@ getUser(){
   this.userid=sessionStorage.getItem('username');
 
 
-  this.http.get(`http://localhost:8081/user/getuser/${this.userid}`).subscribe(
+  this.http.get(`http://localhost:8081/vendor/getuser/${this.userid}`).subscribe(
     (response:any)=>{
 
       console.log(response)
-      this.userinfo=response;
+      this.vendorinfo=response;
     },
   (error:any)=>{
     console.log(error)
@@ -36,7 +36,7 @@ getUser(){
   )
 }
 updateVendor(user: any) {
-  this.userinfo = user;
-  sessionStorage.setItem('user', JSON.stringify(this.userinfo));
+  this.vendorinfo = user;
+  sessionStorage.setItem('vendor', JSON.stringify(this.vendorinfo));
 }
 }

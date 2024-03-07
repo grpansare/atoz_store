@@ -2,7 +2,7 @@
 
 
 import { HttpClient } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Router ,ActivatedRoute} from '@angular/router';
 import {
   MatDialog,
@@ -23,6 +23,7 @@ export class ProductsComponent {
   @Input() products:any=[
 
   ];
+  @ViewChild('productsContainer') productsContainer!: ElementRef;
 
 
 
@@ -44,7 +45,7 @@ export class ProductsComponent {
 
 
   //private baseUrl:any = 'http://localhost:8081/product/getProductByCategory';
-  
+
 
    baseurl="http://localhost:8081"
    constructor(private http:HttpClient,private router:Router,private route: ActivatedRoute,public dialog: MatDialog){
@@ -87,11 +88,9 @@ export class ProductsComponent {
       )
 */
 
-   private scrollToTop(): void {
-    // Using JavaScript to scroll to the top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
+scrollToTop(): void {
+  this.productsContainer.nativeElement.scrollTop = 0;
+}
 
 
   openDialog(product: any) {

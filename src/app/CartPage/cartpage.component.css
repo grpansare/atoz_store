@@ -1,4 +1,6 @@
-
+.box{
+margin: 1rem 4rem;
+}
 
 .back{
   background-color: #fff;
@@ -45,10 +47,7 @@ body {
     font-family: 'Calibri', sans-serif !important;
 }
 
-.mt-100{
-   margin-top:100px;
 
-}
 
 
 .card {

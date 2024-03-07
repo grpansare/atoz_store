@@ -1,12 +1,12 @@
 <div  class="register-box mx-auto mt-3 ">
     <div class="row d-flex justify-content-center  ">
       <div class="col-12 col-md-6 col-lg-6 mx-auto p-5 border f1">
-        <h2 class="mb-5 text-center">Vendor's Registration</h2>
+        <h2 class="mb-5 text-center text-white " style="font-family: monospace; letter-spacing: 2px; font-weight: 500;">Vendor's Registration</h2>
 
         <form  id="signin" (ngSubmit)="handleSubmit()" (ngReset)="handleReset()" [formGroup]="signin">
           <div class="row  ">
             <h2>Personal Information</h2>
-
+            <input hidden matInput placeholder="" value="Denied" formControlName="status" id="status" type="text">
             <div class="col-6">
 
               <mat-form-field class="full-width">
@@ -296,6 +296,15 @@
             </div>
           </div>
           </div>
+          <div class="d-flex align-items-center text-white flex-col gap-2 mt-5">
+            <span>
+             <p>  Are you a Customer?  <a routerLink="/signin" class=" btn btn-primary btn-sm text-capitalize" id="forgotpassword">Register Here</a></p>
+          </span>
+          <span>Or</span>
+          <span>
+            <p>Are You a Delivery Partner ? <a routerLink="/delieverysignup" class=" btn btn-primary btn-sm text-capitalize" id="new-user">Register here</a></p>
+          </span>
+            </div>
 
         </form>
       </div>

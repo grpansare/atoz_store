@@ -24,7 +24,7 @@ export class VendorsiteregistrationComponent {
   }
 
   signin=new FormGroup({
-
+    status:new FormControl("Denied",),
     firstname:new FormControl("",[Validators.required,Validators.pattern(/^[A-Z][a-z]*$/)]),
     lastname:new FormControl("",[Validators.required,Validators.pattern(/^[A-Z][a-z]*$/)]),
     gender:new FormControl("",[Validators.required]),
@@ -57,6 +57,10 @@ export class VendorsiteregistrationComponent {
     const confirmPassword = control.value;
 
      return password === confirmPassword ? null : { 'passwordMismatch': true };
+  }
+
+  get status():any{
+    return this.signin.get('status');
   }
 
   get firstname():any{
@@ -147,8 +151,18 @@ get pincode():any{
 
     if (this.signin.valid)
     {
+      const address={
+        street:this.myForm.value.companytype,
+        city: this.myForm.value.city,
+        state: this.myForm.value.state,
+        landMark: this.myForm.value.landmark,
+        country: this.myForm.value.country,
+        pincode: this.myForm.value.pincode,
+
+       }
 
       const registeringData = {
+        status:this.myForm.value.status,
         firstname: this.myForm.value.firstname,
         lastname: this.myForm.value.lastname,
         gender: this.myForm.value.gender,
@@ -159,16 +173,12 @@ get pincode():any{
         password: this.myForm.value.password,
         companyname:this.myForm.value.companyname,
        companytype:this.myForm.value.companytype,
-       street:this.myForm.value.companytype,
-       city: this.myForm.value.city,
-       state: this.myForm.value.state,
-       landmark: this.myForm.value.landmark,
-       country: this.myForm.value.country,
-       pincode: this.myForm.value.pincode,
+       address:address
+
+      }
 
 
 
-      };
 
       console.log(registeringData);
 

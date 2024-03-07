@@ -11,6 +11,8 @@ export class OrderhistoryComponent implements OnInit {
 
   orderss: any[] = [];
   userinfo: any = {};
+  products:any[]=[];
+  totalPrice:any="";
 
   private baseUrl: any = "http://localhost:8081";
 
@@ -23,16 +25,29 @@ export class OrderhistoryComponent implements OnInit {
     }
 
     // Initialize a demo order object with placeholder values
-    this.http.get(`${this.baseUrl}/order/getOrdersByUsername/${this.userinfo?.username}`).subscribe(
-      (response) => {
+    this.http.get<any[]>(`${this.baseUrl}/order/getOrdersByUsername/${this.userinfo?.username}`).subscribe(
+      (response:any) => {
         console.log("response", response);
-        this.orderss = response as any[];
+        if (Array.isArray(response)) { // Check if response is an array
+          this.orderss = response;
+              this.calculateTotalPrice();
+        } else {
+          console.error("Response is not an array:", response);
+        }
       },
-      (error) => {
+      (error:any) => {
         console.log(error);
       }
     );
 
+  }
+  calculateTotalPrice(): void {
+    this.totalPrice = 0; // Reset total price
+    this.orderss.forEach(order => {
+      order.productsList.forEach((product:any) => {
+        this.totalPrice += product.price; // Assuming there's a price property in the product object
+      });
+    });
   }
 
 }

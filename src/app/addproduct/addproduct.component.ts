@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 export class AddproductComponent {
 
   private baseUrl:any = 'http://localhost:8081/product/newproduct';
-  vendorid:any="grpansare234";
+  vendor:any="";
   //dynamically add fields this is correct logic code
   selectedFile!: any;
   imagepreview: any = "";
@@ -34,6 +34,8 @@ export class AddproductComponent {
       ]),
       selectedFile: ['']
     });
+    this.vendor=sessionStorage.getItem('user');
+    this.vendor=JSON.parse(this.vendor);
   }
 
   colors(): FormArray {
@@ -87,7 +89,7 @@ sendData() {
     formDataToSend.append('image', this.selectedFile);
 
 
-    formDataToSend.append('vendorid',this.vendorid)
+    formDataToSend.append('vendorid',this.vendor.username)
     alert(formDataToSend)
     console.log(formDataToSend);
 

@@ -1,4 +1,4 @@
-<div class="mx-auto flex max-w-3xl flex-col space-y-4 p-7 px-6 sm:p-10 sm:px-2 back" >
+<div class="mx-auto box flex max-w-3xl flex-col space-y-4 p-7 px-6 sm:p-10 sm:px-2 back" >
   <h2 class="text-3xl font-bold header">Your Cart</h2>
   <p class="mt-3 text-sm font-medium text-gray-700 description">
     Your Shopping Cart lives to serve. Give it purpose — fill it with groceries, clothing, household supplies, electronics, and more.
@@ -29,10 +29,12 @@
 
               </p>
               </ng-container>
+              <ng-container *ngIf="product.size !== 'Standard' && product.size !== 'standard'">
               <p class="text-sm color">
                 Size:   {{product.size|titlecase}}
 
               </p>
+              </ng-container>
               <br>
               <!-- <select id="quantity" [(ngModel)]="product.quantity" class="text-sm text-[your-color-class]" class="border-dark">
                 <option *ngFor="let quantityOption of quantity" [value]="quantityOption">{{ quantityOption }}</option>

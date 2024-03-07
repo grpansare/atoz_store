@@ -46,7 +46,7 @@ export class LoginComponent {
 this.http.post("http://localhost:8081/user/loginuser",this.login.value).subscribe(
   (response:any) =>{
     if(response!=null){
-      
+
       sessionStorage.setItem('username',response.username)
       const user=JSON.stringify(response);
       sessionStorage.setItem('user',user);
@@ -108,14 +108,15 @@ showUserlogin(){
 }
 
 handleVendorLogin(){
+  console.log(this.login.value)
   this.http.post("http://localhost:8081/vendor/vendorlogin",this.login.value).subscribe(
   (response:any) =>{
     console.log(response);
 
     if(response!=null){
       sessionStorage.setItem('username',response.username)
-      const user=JSON.stringify(response);
-      sessionStorage.setItem('user',user);
+      const vendor=JSON.stringify(response);
+      sessionStorage.setItem('vendor',vendor);
       // console.log(  localStorage.getItem('user'))
 
 
@@ -134,7 +135,52 @@ handleVendorLogin(){
     Swal.fire({
       icon: 'error',
       title: 'Wrong Credentials',
-      text: 'Please check your username and password.',
+      text: 'Please check your username and password. or You have not Access.',
+    });
+  }
+},
+error => {
+
+  // console.error('Login failed', error);
+
+  Swal.fire({
+    icon: 'error',
+    title: 'Login Failed',
+    text: 'Invalid username or password. Please try again.',
+  });
+
+}
+);
+}
+handleDeliveryLogin(){
+  console.log(this.login.value)
+  this.http.post("http://localhost:8081/delivery/deliverylogin",this.login.value).subscribe(
+  (response:any) =>{
+    console.log(response);
+
+    if(response!=null){
+      sessionStorage.setItem('username',response.username)
+      const deliveryPartner=JSON.stringify(response);
+      sessionStorage.setItem('deliveryPartner',deliveryPartner);
+      // console.log(  localStorage.getItem('user'))
+
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Login Successful!',
+      text: 'Welcome back!',
+    });
+
+    this.router.navigateByUrl("/delieveryhome");
+  }
+  else{
+    // alert("Wrong Credentials")
+    // console.log('Wrong User', response);
+
+    Swal.fire({
+      icon: 'error',
+      title: 'Wrong Credentials',
+      text: 'Please check your username and password. or You have not Access.',
     });
   }
 },

@@ -27,24 +27,28 @@ import { DelieveryhomepageComponent } from './DelieveryHomepage/DelieveryHomepag
 import { VendorprofileComponent } from './VendorHomepage/vendorprofile/vendorprofile.component';
 import { VendordetailsComponent } from './VendorHomepage/vendordetails/vendordetails.component';
 import { OrderhistoryComponent } from './Order_History/orderhistory.component';
-import { AdminloginComponent } from './Admin/adminlogin.component';
-import { DashboardComponent } from './Admin/dashboard.component';
+import { DelieveryprofileComponent } from './DelieveryHomepage/DelieveryHomepage/delieveryprofile/delieveryprofile.component';
+import { VendorforgetpasswordComponent } from './VendorForgetPassword/vendorforgetpassword.component';
+import { DelieveryforgetpasswordComponent } from './DelieveryForgetPassword/delieveryforgetpassword.component';
+import { AdminloginComponent } from './Admin/Admin_Login/adminlogin.component';
+import { DashboardComponent } from './Admin/Dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', component: WelcomepageComponent },
-  {path:'adminlogin', component:AdminloginComponent},
+  {path:'adminlogin', component: AdminloginComponent},
   {path:'dashboard',component:DashboardComponent},
   { path: 'signin', component: SigninComponent },
   { path: 'forgotpassword', component: ChangePasswordComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'vendors', component: VendorsiteregistrationComponent },
-  { path: 'delievery', component: DelieverypartnerregistrationComponent },
+  { path: 'vendorsignup', component: VendorsiteregistrationComponent },
+  { path: 'delieverysignup', component: DelieverypartnerregistrationComponent },
+  { path: 'vendorforgotpassword', component: VendorforgetpasswordComponent},
+   { path: 'delieveryforgotpassword', component: DelieveryforgetpasswordComponent},
 
 
 
-  { path: 'addproduct', component: AddproductComponent},
-  { path: 'addimage', component: AddimageComponent},
   
+
 
   {path:"home",component:HomepageComponent,
   children:[
@@ -62,17 +66,23 @@ const routes: Routes = [
   {path:"vendor",component:VendorhomepageComponent,
   children:[
     {path:"",component:VendordetailsComponent},
+    { path: 'addproduct', component: AddproductComponent},
+  { path: 'addimage', component: AddimageComponent},
 
     {path:"vendorprofile",component:VendorprofileComponent},
 
+    { path: 'addproduct', component: AddproductComponent}
+
   ]
 },
-{ path: 'vendor/addproduct', component: AddproductComponent},
 
 
 {path:"delieveryhome",component:DelieveryhomepageComponent,
   children:[
     {path:"",component:DelieveryboydetailsComponent},
+    {path:"delieveryprofile",component:DelieveryprofileComponent},
+
+
 
   ]
 },
