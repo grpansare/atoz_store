@@ -93,14 +93,16 @@ The backend of AtoZStore is built using Spring Boot, following a layered archite
 4. **Payment Integration**:
     - Razorpay is integrated for secure and efficient payment handling.
 
+
 **Key Features**:
-    - Layered Architecture: Ensures separation of concerns between controllers, services, and DAOs.
-    - Annotations: Used extensively for configuration and dependency injection.
-    - Pom.xml: Manages dependencies and project configurations.
+  - Layered Architecture: Ensures separation of concerns between controllers, services, and DAOs.
+  - Annotations: Used extensively for configuration and dependency injection.
+  - Pom.xml: Manages dependencies and project configurations.
+
 
 **Database**:
-    - MySQL is used for data storage and management.
-    - JPA is utilized for ORM (Object-Relational Mapping).
+  - MySQL is used for data storage and management.
+  - JPA is utilized for ORM (Object-Relational Mapping).
 
 **Technologies and Tools**:
   - Spring Boot
