@@ -9,23 +9,23 @@ As a team leader, I took charge of all major roles, including frontend and backe
 ## Features
 
 1. **Multi-Role Functionality**:
-  - Customer: Browse products, add to cart, checkout, and track orders.
-  - Vendor: Manage product listings, inventory, and orders.
-  - Delivery Partner: Access delivery schedules and update delivery statuses.
-  - Admin: Manage platform operations, users, and reports.
+    - Customer: Browse products, add to cart, checkout, and track orders.
+    - Vendor: Manage product listings, inventory, and orders.
+    - Delivery Partner: Access delivery schedules and update delivery statuses.
+    - Admin: Manage platform operations, users, and reports.
 
 2. **Core Functionalities**:
-  - User account creation with secure authentication.
-  - Dynamic product search with category filters for enhanced usability.
-  - Shopping cart and streamlined checkout experience.
-  - Razorpay Payment integration for secure and seamless payments.
-  - Real-time order tracking and management for all user roles.
+    - User account creation with secure authentication.
+    - Dynamic product search with category filters for enhanced usability.
+    - Shopping cart and streamlined checkout experience.
+    - Razorpay Payment integration for secure and seamless payments.
+    - Real-time order tracking and management for all user roles.
 
 3. **Project Highlights**: 
-  - Team Effort: Successfully led a four-member team, ensuring effective collaboration and timely delivery.
-  - Comprehensive Role Handling: Managed frontend and backend design and development while adopting a client’s perspective to ensure usability and satisfaction.
-  - Responsive Design: Fully optimized for various devices, providing a consistent and smooth user experience.
-  - Efficient Architecture: Designed with an MVC pattern and layered architecture for a robust and scalable system.
+    - Team Effort: Successfully led a four-member team, ensuring effective collaboration and timely delivery.
+    - Comprehensive Role Handling: Managed frontend and backend design and development while adopting a client’s perspective to ensure usability and satisfaction.
+    - Responsive Design: Fully optimized for various devices, providing a consistent and smooth user experience.
+    - Efficient Architecture: Designed with an MVC pattern and layered architecture for a robust and scalable system.
 
 ---
 
