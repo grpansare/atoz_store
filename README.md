@@ -2,7 +2,7 @@
 
 ## Overview
 
-**AtoZStore** is a comprehensive e-commerce platform that delivers a seamless shopping experience across diverse product categories. This repository contains the frontend built with **Angular**, offering a responsive and user-friendly interface for customers, vendors, delivery partners, and administrators. The application communicates with a Spring Boot backend running on port `8080` and integrates **Razorpay** for secure payment processing.
+**AtoZStore** is a comprehensive e-commerce platform that delivers a seamless shopping experience across diverse product categories. This repository contains the frontend built with **Angular**, offering a responsive and user-friendly interface for customers, vendors, delivery partners, and administrator. The application communicates with a Spring Boot backend running on port `8081` and integrates **Razorpay** for secure payment processing.
 
 ---
 
@@ -37,6 +37,7 @@
 - **Bootstrap**: For responsive and mobile-friendly design.
 - **RxJS**: For managing asynchronous operations and state.
 - **Razorpay**: For payment processing.
+- **Spring Boot**: Backend server running on port 8081.
 
 ---
 
@@ -49,7 +50,7 @@ Before starting, ensure you have the following installed:
 - [Node.js](https://nodejs.org/) (which includes npm)
 - [Angular CLI](https://angular.io/cli)
 
-Additionally, ensure the backend (Spring Boot) is running on port `8080`.
+Additionally, ensure the backend (Spring Boot) is running on port `8081`.
 
 ### Steps to Run the Angular Frontend
 
@@ -78,7 +79,7 @@ Additionally, ensure the backend (Spring Boot) is running on port `8080`.
    http://localhost:4200
    ```
 
-The Angular frontend will be running and communicating with the backend on port `8080`.
+The Angular frontend will be running and communicating with the backend on port `8081`.
 
 ---
 
@@ -127,7 +128,7 @@ atozstore-frontend/
 
 ## Backend Communication
 
-The Angular frontend communicates with the Spring Boot backend running on port `8080` using Angular's `HttpClientModule`. All HTTP requests (GET, POST) for user authentication, product data, order processing, and payment handling are directed to the backend URL `http://localhost:8080`.
+The Angular frontend communicates with the Spring Boot backend running on port `8081` using Angular's `HttpClientModule`. All HTTP requests (GET, POST) for user authentication, product data, order processing, and payment handling are directed to the backend URL `http://localhost:8081`.
 
 **Example API Endpoints**
 
@@ -137,7 +138,7 @@ The Angular frontend communicates with the Spring Boot backend running on port `
 
 **CORS Configuration (Backend)**
 
-Ensure that CORS is enabled in the Spring Boot backend to allow communication between the frontend (port `4200`) and backend (port `8080`).
+Ensure that CORS is enabled in the Spring Boot backend to allow communication between the frontend (port `4200`) and backend (port `8081`).
 
 ---
 
