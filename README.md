@@ -36,28 +36,29 @@ The frontend of AtoZStore is developed using Angular, ensuring a dynamic and int
 ## Key Features
 
 1. **Components**:
-  - Modularized components for better maintainability and reusability like WelcomePage, Home, Login, Logout, Products, OrderHistory, Payment, etc.
-  - Parent-child component relationships are effectively used for dynamic data sharing and UI updates.
+    - Modularized components for better maintainability and reusability like WelcomePage, Home, Login, Logout, Products, OrderHistory, Payment, etc.
+    - Parent-child component relationships are effectively used for dynamic data sharing and UI updates.
 
 2. **Pipes**:
-  - Custom pipes for data transformation and enhanced UI functionality.
+    - Custom pipes for data transformation and enhanced UI functionality.
 
 3. **Routing**:
-  - Implemented using Angular's RouterModule for seamless navigation between different pages.
-  - Lazy-loading modules for performance optimization.
+    - Implemented using Angular's RouterModule for seamless navigation between different pages.
+    - Lazy-loading modules for performance optimization.
     
 4. **Services**:
-  - Angular services, along with Axios, are used to facilitate communication between the frontend and backend APIs.
-  - Handle business logic and data management efficiently.
+    - Angular services, along with Axios, are used to facilitate communication between the frontend and backend APIs.
+    - Handle business logic and data management efficiently.
     
 5. **Responsive Design**:
-  - Built with responsive layouts for compatibility with various devices.
-  - Used inbuilt and external modules to enhance structural layout, aesthetics, and user interactivity.
+    - Built with responsive layouts for compatibility with various devices.
+    - Used inbuilt and external modules to enhance structural layout, aesthetics, and user interactivity.
+      
 6. **Assets Directory**:
-  - Contains all images and static assets used in the application.
+    - Contains all images and static assets used in the application.
 
 7. **Module.ts**:
-  - Serves as the metadata hub for the frontend application, where all components, modules, and services are registered.
+    - Serves as the metadata hub for the frontend application, where all components, modules, and services are registered.
 
 **Technologies and Tools**:
   - Angular
@@ -77,29 +78,29 @@ The backend of AtoZStore is built using Spring Boot, following a layered archite
 ## Architecture and Flow:
 
 1. **Request Flow**:
-  - The frontend sends a request to the Controller.
-  - The controller assigns incoming data to a class object.
-  - The object is passed to the Service layer, where core business logic is executed.
-  - The DAO layer (Data Access Object) interacts with the database using JPA to perform transactions and retrieve results.
-  - Results are sent back through the Service layer to the Controller, which formats the response for the frontend.
+    - The frontend sends a request to the Controller.
+    - The controller assigns incoming data to a class object.
+    - The object is passed to the Service layer, where core business logic is executed.
+    - The DAO layer (Data Access Object) interacts with the database using JPA to perform transactions and retrieve results.
+    - Results are sent back through the Service layer to the Controller, which formats the response for the frontend.
 
 2. **Resources Directory**:
-  - Contains all images and configuration file, such as application.properties, for user and application settings
+    - Contains all images and configuration file, such as application.properties, for user and application settings
 
 3. **Email Feature**:
-  - Implemented using the Java Email Library for sending automated emails.
+    - Implemented using the Java Email Library for sending automated emails.
     
 4. **Payment Integration**:
-  - Razorpay is integrated for secure and efficient payment handling.
+    - Razorpay is integrated for secure and efficient payment handling.
 
 **Key Features**:
-  - Layered Architecture: Ensures separation of concerns between controllers, services, and DAOs.
-  - Annotations: Used extensively for configuration and dependency injection.
-  - Pom.xml: Manages dependencies and project configurations.
+    - Layered Architecture: Ensures separation of concerns between controllers, services, and DAOs.
+    - Annotations: Used extensively for configuration and dependency injection.
+    - Pom.xml: Manages dependencies and project configurations.
 
 **Database**:
-  - MySQL is used for data storage and management.
-  - JPA is utilized for ORM (Object-Relational Mapping).
+    - MySQL is used for data storage and management.
+    - JPA is utilized for ORM (Object-Relational Mapping).
 
 **Technologies and Tools**:
   - Spring Boot
