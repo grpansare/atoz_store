@@ -2,9 +2,9 @@
 
 ## Overview
 
-**AtoZStore** AtoZStore is a comprehensive, fully responsive, and user-friendly e-commerce platform developed by a team of four members in just two weeks. Designed to deliver a seamless shopping experience across diverse product categories, the platform leverages modern technologies like Angular, Spring Boot, MySQL, and Razorpay for payment integration.
+**AtoZStore** is a comprehensive, fully responsive, and user-friendly e-commerce platform developed by a team of four members in just two weeks. Designed to deliver a seamless shopping experience across diverse product categories, the platform leverages modern technologies like Angular, Spring Boot, MySQL, and Razorpay for payment integration.
 
-As the team leader, I took charge of all major roles, including frontend and backend development, ensuring a client-centric approach while maintaining a balance between design and functionality. The application follows the MVC design pattern and a layered architecture comprising controllers, services, DAO, and beans at the backend to ensure modularity, scalability, and maintainability.
+As a team leader, I took charge of all major roles, including frontend and backend development, ensuring a client-centric approach while maintaining a balance between design and functionality. The application follows the MVC design pattern and a layered architecture comprising controllers, services, DAO, and beans at the backend to ensure modularity, scalability, and maintainability.
 
 ## Features
 
