@@ -180,6 +180,7 @@ atozstore-frontend/
 |   │   │   ├── order.service.ts           # Service for order management
 |   │   │   └── payment.service.ts         # Service for Razorpay integration
 |   │   ├── models/                        # TypeScript models (e.g., User, Product)
+|   │   ├── app-rounting.module.ts         # Rounting Navigation between Pages
 |   │   └── app.module.ts                  # Root module for the Angular app
 |   ├── assets/                            # Static files like images and JSON files
 |   ├── environments/                      # Environment configurations (e.g., dev, prod)
