@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   isMobile= true;
   isCollapsed = true;
 
-  baseUrl: any = "http://localhost:8081";
+  baseUrl: any = "https://atozstore1-latest-2.onrender.com";
 
   isVendor:boolean=false;
   isDelivery:boolean=false;

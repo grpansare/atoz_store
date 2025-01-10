@@ -15,7 +15,7 @@ export class HomepageComponent {
    showdropdown:boolean=false;
    suggestionArr:string[]=[ "boat airdopes","shirts","saree","jackets","hoodies","laptop","bed","phone"]
    suggestions:string[]=[];
-   baseurl="http://localhost:8081";
+   baseurl="https://atozstore1-latest-2.onrender.com";
    searchResults:any[]=[];
    showSuggestions: boolean = false;
    noProductFound:boolean=false;

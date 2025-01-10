@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   styleUrl: './change-password.component.css'
 })
 export class ChangePasswordComponent {
-  private baseUrl:any = 'http://localhost:8081/user';
+  private baseUrl:any = 'https://atozstore1-latest-2.onrender.com/user';
   header:String="Reset Password";
   description:String="Lost your password? Please enter your username and email address. You will receive a link to create a new password via email.";
 

@@ -32,7 +32,7 @@ export class OfferedProductsComponent {
 
 
 
-   baseurl="http://localhost:8081"
+   baseurl="https://atozstore1-latest-2.onrender.com"
    constructor(private http:HttpClient,private router:Router,private route: ActivatedRoute,public dialog: MatDialog){
 this.getOfferedProducts()
 

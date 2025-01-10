@@ -63,7 +63,7 @@ export class VendordetailsComponent {
 
   // You need to provide a URL for the HTTP request
   fetchData() {
-    this.http.get(`http://localhost:8081/vendor/getProducts/${this.vendor.username}`).subscribe
+    this.http.get(`https://atozstore1-latest-2.onrender.com/vendor/getProducts/${this.vendor.username}`).subscribe
     ((data: any) => {
 this.products=data;
 console.log(this.products)
@@ -71,7 +71,7 @@ this.product=this.products[0];
     });
   }
   deleteProduct(productid:any){
-    this.http.delete(`http://localhost:8081/product/deleteProductById/${productid}`).subscribe(
+    this.http.delete(`https://atozstore1-latest-2.onrender.com/product/deleteProductById/${productid}`).subscribe(
       (response:any)=>{
             this.fetchData()
       },

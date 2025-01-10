@@ -58,7 +58,7 @@ export class UpdateprofileComponent {
 
 
         saveUserInfo() {
-         this.http.post("http://localhost:8081/user/updateuser",this.user).subscribe(
+         this.http.post("https://atozstore1-latest-2.onrender.com/user/updateuser",this.user).subscribe(
           (response:any)=>{
             console.log(response);
 

@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class VendorsiteregistrationComponent {
 
-  private baseUrl:any = "http://localhost:8081";
+  private baseUrl:any = "https://atozstore1-latest-2.onrender.com";
 
   isSubmited:boolean=false;
 

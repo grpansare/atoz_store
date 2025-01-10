@@ -37,7 +37,7 @@ export class AddimageComponent {
     formData.append('image',this.selectedFile);
 
 
-    this.http.post(`http://localhost:8081/uploadImage/${this.productinfo.productid}`, formData).subscribe(
+    this.http.post(`https://atozstore1-latest-2.onrender.com/uploadImage/${this.productinfo.productid}`, formData).subscribe(
       (response) => {
         console.log('Image uploaded successfully!', response);
         alert("product added successfully")
