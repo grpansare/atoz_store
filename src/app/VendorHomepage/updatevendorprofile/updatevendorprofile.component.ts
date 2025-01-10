@@ -59,7 +59,7 @@ export class UpdatevendorprofileComponent {
 
 
          saveUserInfo() {
-          this.http.post("https://atozstore2.netlify.app/vendor/update",this.vendor).subscribe(
+          this.http.post("https://atozstore1-latest-2.onrender.com/vendor/update",this.vendor).subscribe(
            (response:any)=>{
              console.log(response);
 

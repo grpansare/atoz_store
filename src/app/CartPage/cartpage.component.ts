@@ -20,7 +20,7 @@ export class CartpageComponent {
 
 
 
-  baseurl="https://atozstore2.netlify.app"
+  baseurl="https://atozstore1-latest-2.onrender.com"
   constructor(private http:HttpClient,private router:Router,private cartService: CartServiceService){
   this.user=sessionStorage.getItem('user');
   this.user=JSON.parse(this.user);

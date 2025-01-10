@@ -15,7 +15,7 @@ export class HomepageComponent {
    showdropdown:boolean=false;
    suggestionArr:string[]=[ "boat airdopes","shirts","saree","jackets","hoodies","laptop","bed","phone"]
    suggestions:string[]=[];
-   baseurl="https://atozstore2.netlify.app";
+   baseurl="https://atozstore1-latest-2.onrender.com";
    searchResults:any[]=[];
    showSuggestions: boolean = false;
    noProductFound:boolean=false;

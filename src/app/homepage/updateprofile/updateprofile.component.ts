@@ -67,7 +67,7 @@ gender!:any;
 
 
         saveUserInfo() {
-         this.http.post("https://atozstore2.netlify.app/user/updateuser",this.user).subscribe(
+         this.http.post("https://atozstore1-latest-2.onrender.com/user/updateuser",this.user).subscribe(
           (response:any)=>{
             console.log(response);
 

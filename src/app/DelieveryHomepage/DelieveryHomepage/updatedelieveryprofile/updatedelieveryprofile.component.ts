@@ -61,7 +61,7 @@ export class UpdatedelieveryprofileComponent {
 
 
          saveUserInfo() {
-          this.http.post("https://atozstore2.netlify.app/delivery/update",this.deliveryPartner).subscribe(
+          this.http.post("https://atozstore1-latest-2.onrender.com/delivery/update",this.deliveryPartner).subscribe(
            (response:any)=>{
              console.log(response);
 

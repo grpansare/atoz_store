@@ -11,7 +11,7 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 })
 export class CustomertableComponent implements AfterViewInit {
 
-  baseUrl: any = "https://atozstore2.netlify.app/";
+  baseUrl: any = "https://atozstore1-latest-2.onrender.com/";
 
   displayedColumns: string[] = [ 'fullname', 'email', 'contactno', 'age', 'username', 'gender', 'address', 'city', 'country'];
   //dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);

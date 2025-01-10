@@ -14,7 +14,7 @@ export class OrderhistoryComponent implements OnInit {
   products:any[]=[];
   totalPrice:any="";
 
-  private baseUrl: any = "https://atozstore2.netlify.app";
+  private baseUrl: any = "https://atozstore1-latest-2.onrender.com";
 
   constructor(private http: HttpClient,private router: Router) { }
 

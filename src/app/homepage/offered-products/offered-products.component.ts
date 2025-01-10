@@ -16,7 +16,7 @@ export class OfferedProductsComponent {
   selectedSize: string | null = null;
   selectedColor!: String;
 
-  baseurl = "https://atozstore2.netlify.app";
+  baseurl = "https://atozstore1-latest-2.onrender.com";
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute, public dialog: MatDialog) {
     this.getOfferedProducts();

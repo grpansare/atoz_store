@@ -42,7 +42,7 @@ export class VendordetailsComponent {
   // You need to provide a URL for the HTTP request
   fetchData() {
     if(this.vendor!=null){
-    this.http.get(`https://atozstore2.netlify.app/vendor/getProducts/${this.vendor.username}`).subscribe
+    this.http.get(`https://atozstore1-latest-2.onrender.com/vendor/getProducts/${this.vendor.username}`).subscribe
     ((data: any) => {
 this.products=data;
 console.log(this.products)
@@ -55,7 +55,7 @@ if(this.products.length==0){
   }
 }
   deleteProduct(productid:any){
-    this.http.delete(`https://atozstore2.netlify.app/product/deleteProductById/${productid}`).subscribe(
+    this.http.delete(`https://atozstore1-latest-2.onrender.com/product/deleteProductById/${productid}`).subscribe(
       (response:any)=>{
             this.fetchData()
       },

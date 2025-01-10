@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrl: './filters.component.css'
 })
 export class FiltersComponent {
-  backendUrl = 'https://atozstore2.netlify.app';
+  backendUrl = 'https://atozstore1-latest-2.onrender.com';
   products: any[] = [];
   category: string = '';
   genFinal = ["Men", "Women","Kids",""];
@@ -30,7 +30,7 @@ prodArr:any[]=[];
   constructor(private http: HttpClient,private router:Router) {
       this.show();
   }
-  private baseUrl:any = 'https://atozstore2.netlify.app';
+  private baseUrl:any = 'https://atozstore1-latest-2.onrender.com';
 
   show(){
     this.http.get(this.baseUrl).subscribe(

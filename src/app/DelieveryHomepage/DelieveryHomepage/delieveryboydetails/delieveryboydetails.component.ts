@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class DelieveryboydetailsComponent {
   showdropdown:boolean=false;
-  baseUrl="https://atozstore2.netlify.app/delivery"
+  baseUrl="https://atozstore1-latest-2.onrender.com/delivery"
   orderitem:any={};
   orders:any=[];
   constructor(private router:Router,private http:HttpClient){

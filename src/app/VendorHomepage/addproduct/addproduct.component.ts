@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class AddproductComponent {
 
-  private baseUrl:any = 'https://atozstore2.netlify.app/product/newproduct';
+  private baseUrl:any = 'https://atozstore1-latest-2.onrender.com/product/newproduct';
   vendor:any="";
   //dynamically add fields this is correct logic code
   selectedFile!: any;
@@ -93,7 +93,7 @@ sendData() {
     alert(formDataToSend)
     console.log(formDataToSend);
 
-    this.http.post('https://atozstore2.netlify.app/product/newproduct', formDataToSend).subscribe(
+    this.http.post('https://atozstore1-latest-2.onrender.com/product/newproduct', formDataToSend).subscribe(
       (response) => {
         console.log('Request successful!', response);
         Swal.fire({
