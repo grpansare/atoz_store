@@ -22,7 +22,7 @@ export class ProductsummaryComponent implements OnInit {
   sum: number = 0;
 
   
-   baseUrl: any = "http://localhost:8081";
+   baseUrl: any = "https://atozstore2.netlify.app";
   addressForm!: FormGroup;
   selectedAddressOption:any="";
 

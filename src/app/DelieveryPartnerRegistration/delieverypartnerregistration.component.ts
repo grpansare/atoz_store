@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class DelieverypartnerregistrationComponent {
 
-  private baseUrl:any = "http://localhost:8081/delivery";
+  private baseUrl:any = "https://atozstore2.netlify.app/delivery";
 
   isSubmited:boolean=false;
 

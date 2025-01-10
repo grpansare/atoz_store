@@ -24,7 +24,7 @@ getUser(){
   this.userid=sessionStorage.getItem('username');
 
 
-  this.http.get(`http://localhost:8081/vendor/getuser/${this.userid}`).subscribe(
+  this.http.get(`https://atozstore2.netlify.app/vendor/getuser/${this.userid}`).subscribe(
     (response:any)=>{
 
       console.log(response)

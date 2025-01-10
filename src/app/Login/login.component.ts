@@ -44,7 +44,7 @@ export class LoginComponent {
 
 
 
-this.http.post("http://localhost:8081/user/loginuser",this.login.value).subscribe(
+this.http.post("https://atozstore2.netlify.app/user/loginuser",this.login.value).subscribe(
   (response:any) =>{
     if(response!=null){
 
@@ -112,7 +112,7 @@ showUserlogin(){
 
 handleVendorLogin(){
   console.log(this.login.value)
-  this.http.post("http://localhost:8081/vendor/vendorlogin",this.login.value).subscribe(
+  this.http.post("https://atozstore2.netlify.app/vendor/vendorlogin",this.login.value).subscribe(
   (response:any) =>{
     console.log(response);
 
@@ -158,7 +158,7 @@ error => {
 }
 handleDeliveryLogin(){
   console.log(this.login.value)
-  this.http.post("http://localhost:8081/delivery/deliverylogin",this.login.value).subscribe(
+  this.http.post("https://atozstore2.netlify.app/delivery/deliverylogin",this.login.value).subscribe(
   (response:any) =>{
     console.log(response);
 

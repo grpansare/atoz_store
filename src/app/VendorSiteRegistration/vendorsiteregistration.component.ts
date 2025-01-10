@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class VendorsiteregistrationComponent {
 
-  private baseUrl:any = "http://localhost:8081";
+  private baseUrl:any = "https://atozstore2.netlify.app";
 
   isSubmited:boolean=false;
 

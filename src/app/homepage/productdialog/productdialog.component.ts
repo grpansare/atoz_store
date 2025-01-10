@@ -21,7 +21,7 @@ export class ProductdialogComponent implements OnInit{
   user:any={};
   addingToCart:boolean=false;
   selectedSize: string=this.data.sizes[0];
-  baseurl="http://localhost:8081";
+  baseurl="https://atozstore2.netlify.app";
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   isPresentInCart:boolean=false;

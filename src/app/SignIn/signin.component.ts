@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class SigninComponent {
 
-  private baseUrl:any = "http://localhost:8081/user"; 
+  private baseUrl:any = "https://atozstore2.netlify.app/user"; 
 
   isSubmited:boolean=false;
   

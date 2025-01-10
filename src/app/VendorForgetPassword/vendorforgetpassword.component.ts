@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class VendorforgetpasswordComponent {
 
-  private baseUrl:any = 'http://localhost:8081/vendor';
+  private baseUrl:any = 'https://atozstore2.netlify.app/vendor';
   header:String=" Reset Password";
 
 

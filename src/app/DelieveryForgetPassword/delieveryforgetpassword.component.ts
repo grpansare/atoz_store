@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 export class DelieveryforgetpasswordComponent {
 
 
-  private baseUrl:any = 'http://localhost:8081/delivery';
+  private baseUrl:any = 'https://atozstore2.netlify.app/delivery';
   header:String=" Reset Password";
 
 

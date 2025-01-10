@@ -11,7 +11,7 @@ import { LoginService } from '../../Services/login.service';
 })
 export class AdminloginComponent {
 
-  private baseUrl:any = "http://localhost:8081";
+  private baseUrl:any = "https://atozstore2.netlify.app";
   username: string = '';
   password: string = '';
 

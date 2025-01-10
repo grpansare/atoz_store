@@ -14,7 +14,7 @@ export class UpdateProductModalComponent {
   imagePath: any = "";
   productForm: FormGroup;
   product: any | null = null;
-  baseurl="http://localhost:8081/product"
+  baseurl="https://atozstore2.netlify.app/product"
 
   constructor(
     private fb: FormBuilder,
