@@ -108,7 +108,7 @@ showUserlogin(){
 }
 
 handleVendorLogin(){
-  console.log(this.login.value)
+  console.log("1",this.login.value)
   this.http.post("https://atozstore1-latest-2.onrender.com/vendor/vendorlogin",this.login.value).subscribe(
   (response:any) =>{
     console.log(response);
