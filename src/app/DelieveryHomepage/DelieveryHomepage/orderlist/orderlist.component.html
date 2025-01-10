@@ -3,7 +3,7 @@
 
   <div class=" py-5 h-100">
 
-    <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="row d-flex justify-content-center align-items-center ">
       <h1>Delievery Home Page</h1>
 
       <div class="col-lg-10 col-xl-8">
@@ -33,7 +33,18 @@
                     <p class="text-muted mb-0 small">Qty:{{product.quantity}}</p>
                   </div>
                   <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small">{{product.price|currency:"INR"}}</p>
+                    <div class="price" *ngIf="product.offer!=='null'  else nodiscount">
+                      <div class="d-flex align-items-center  gap-2 border-black" >
+                        <h2>  ₹{{ product.price | calculatepricepipe:product.offer  }}</h2>
+                     <h5 class="d-flex align-items-center gap-2" > <span class="text-decoration-line-through">₹{{ product.price  }}</span></h5>
+                      </div>
+
+
+                     </div>
+                  <ng-template #nodiscount>
+                  <h2>₹{{ product.price   }}</h2>
+
+                  </ng-template>
                   </div>
                 </div>
                 <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
@@ -47,23 +58,33 @@
 
             <div class="d-flex justify-content-between pt-2">
               <p class="fw-bold mb-0">Order Details</p>
-              <p class="text-muted mb-0"><span class="fw-bold me-4">Total</span> {{totalPrice}}</p>
+              <p class="text-muted mb-0"><span class="fw-bold me-4">Total</span> ₹ {{totalPrice}}</p>
             </div>
 
             <div class="d-flex justify-content-between pt-2">
               <p class="text-muted mb-0">Order ID : {{order.orderid}}</p>
-              <p class="text-muted mb-0"><span class="fw-bold me-4">Discount</span> $19.00</p>
+              <p class="text-muted mb-0"><span class="fw-bold me-4">Discount</span>₹ {{discount}}</p>
             </div>
 
             <div class="d-flex justify-content-between">
-              <p class="text-muted mb-0">Availability :{{order.availability}}</p>
+              <p class="text-muted mb-0">
+                <span *ngIf="order.availability else notAvailable">Availabile</span>
+                <ng-template  #notAvailable>Not Availabile</ng-template>
+
+              </p>
               <p class="text-muted mb-0"><span class="fw-bold me-4">GST 18%</span> 123</p>
             </div>
 
-            <div class="d-flex justify-content-between mb-5">
+            <div class="d-flex justify-content-between ">
               <p class="text-muted mb-0">Username : {{order.username}}</p>
 
               <p class="text-muted mb-0"><span class="fw-bold me-4">Delivery Charges</span> Free</p>
+
+            </div>
+            <div class="d-flex flex-col mb-5">
+              <p class="text-muted mb-0">contact : {{order.contactno}}</p>
+
+              <p class="text-muted mb-0"><span >Email</span> {{order.email}}</p>
 
             </div>
 

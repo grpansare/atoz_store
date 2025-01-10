@@ -25,7 +25,7 @@ getUser(){
   this.userid=sessionStorage.getItem('username');
 
 
-  this.http.get(`https://atozstore1-latest-2.onrender.com/delivery/getuser/${this.userid}`).subscribe(
+  this.http.get(`http://localhost:8081/delivery/getuser/${this.userid}`).subscribe(
     (response:any)=>{
 
       console.log(response)

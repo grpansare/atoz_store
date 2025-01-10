@@ -3,7 +3,7 @@
 
       <section>
           <div class="grid ">
-            <div class="relative flex items-end px-4 pb-10 pt-60 sm:px-6 sm:pb-16 md:justify-center lg:px-8 lg:pb-24">
+            <div class="relative shadow-lg flex items-end px-4 pb-32 pt-60 sm:px-6 sm:pb-16 md:justify-center lg:px-8 lg:pb-24" style="height:  632px; overflow: hidden; border-radius: 5px;">
               <div class="absolute overflow-hidden rounded-md  inset-0 ">
                 <img
                   class="h-full  w-full rounded-md object-fill"
@@ -70,13 +70,16 @@
           <mat-card-title class="logintitle">
             <p>Welcome to AtoZStore</p>
             <i>Ship Smarter Today</i>
+
           </mat-card-title>
       </mat-card-header>
+      <div class="button-container ml-4 d-flex gap-4">
+        <button mat-button color="primary" (click)="showVender()">Vendor</button>
+        <button mat-button color="primary" (click)="showDelivery()">Delivery</button>
+    </div>
       <mat-card-content>
-        <div class="button-container">
-          <button mat-button color="primary" (click)="showVender()">Vendor</button>
-          <button mat-button color="primary" (click)="showDelivery()">Delivery</button>
-      </div>
+         <h2 class="text-muted text-center mb-4 ">Customer Login</h2>
+
           <form (ngSubmit)="handleSubmit()" [formGroup]="login">
               <mat-form-field >
                   <mat-label>User Name</mat-label>
@@ -94,8 +97,6 @@
           </span>
           <span>
               <a routerLink="/signin" class="new-user" id="new-user">New User? Register Here</a>
-              <br/>
-              <a routerLink="/adminlogin" class="new-user" id="new-user">Admin Login</a>
           </span>
           </form>
       </mat-card-content>
@@ -110,82 +111,78 @@
 
 <div class="body" *ngIf="showvenderlogin">
   <div class="lll">
-      <section>
-          <div class="grid ">
-            <div class="relative flex items-end px-4 pb-10 pt-60 sm:px-6 sm:pb-16 md:justify-center lg:px-8 lg:pb-24">
-              <div class="absolute overflow-hidden rounded-md  inset-0 ">
-                <img
-                  class="h-full  w-full rounded-md object-fill"
-                  src="https://miro.medium.com/v2/resize:fit:1018/1*iAu65xDmvpVdBJgps6EDEw.png"
-                  alt=""
-                />
-              </div>
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+    <section>
+      <div class="grid">
+        <div class="relative shadow-lg flex items-end px-4 pb-32 pt-60 sm:px-6 sm:pb-16 md:justify-center lg:px-8 lg:pb-24" style="height:  632px; overflow: hidden; border-radius: 5px;">
 
-              <div class="relative">
-                  <div class="w-full max-w-xl xl:mx-auto xl:w-full xl:max-w-xl xl:pr-24">
-                    <h3 class="text-4xl font-bold text-white  ">Why Choose Us?</h3>
-                    <ul class="mt-10 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
-                      <li class="flex items-center space-x-3">
-                        <div class="inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500">
-                          <i class="fas fa-check"></i>
-
-                        </div>
-                        <span class="text-lg font-medium text-gray-100">
-                          High-Quality Products
-                        </span>
-                      </li>
-                      <li class="flex items-center space-x-3">
-                        <div class="inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500">
-                          <i class="fas fa-check"></i>
-
-                        </div>
-                        <span class="text-lg font-medium text-gray-100">
-                          Fast Shipping
-                        </span>
-                      </li>
-                      <li class="flex items-center space-x-3">
-                        <div class="inline-flex text-white h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500">
-                          <i class="fas fa-check"></i>
-
-                        </div>
-                        <span class="text-lg font-medium text-gray-100">
-                          Easy Returns
-                        </span>
-                      </li>
-                      <li class="flex items-center space-x-3">
-                        <div class="inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500">
-                          <i class="fas fa-check"></i>
-
-                        </div>
-                        <span class="text-lg font-medium text-gray-100">
-                          24/7 Customer Support
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-            </div>
-
+          <div class="absolute overflow-hidden rounded-md inset-0">
+            <img class="h-full w-full rounded-md object-fill" src="https://miro.medium.com/v2/resize:fit:1018/1*iAu65xDmvpVdBJgps6EDEw.png" alt="">
           </div>
-        </section>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
 
+          <div class="relative">
+            <div class="w-full max-w-xl xl:mx-auto xl:w-full xl:max-w-xl xl:pr-24">
+              <h3 class="text-4xl font-bold text-white">Why Choose Us? (For Vendors)</h3>
+              <ul class="mt-10 grid grid-cols-8 gap-x-8 gap-y-4 sm:grid-cols-2">
+                <li class="flex items-center space-x-3">
+                  <div class="inline-flex text-white h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500">
+                    <i class="fas fa-check"></i>
+                  </div>
+                  <span class="text-lg font-medium text-gray-50">
+                    Access to a Wide Range of Customers
+                  </span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <div class="inline-flex text-white h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500">
+                    <i class="fas fa-check"></i>
+                  </div>
+                  <span class="text-lg font-medium text-gray-100">
+                    Quick Payment Processing
+                  </span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <div class="inline-flex text-white h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500">
+                    <i class="fas fa-check"></i>
+                  </div>
+                  <span class="text-lg font-medium text-gray-100">
+                    Transparent Transaction Records
+                  </span>
+                </li>
+                <li class="flex items-center space-x-3">
+                  <div class="inline-flex text-white h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500">
+                    <i class="fas fa-check"></i>
+                  </div>
+                  <span class="text-lg font-medium text-gray-100">
+                    Dedicated Vendor Support
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-     </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
 <div class="login-container shadow">
   <mat-card class="h-full">
       <mat-card-header>
           <mat-card-title class="logintitle">
             <p>Welcome to AtoZStore</p>
-            <i>Ship Smarter Today</i>
+            <i style="margin-left: 4rem;">Elevate Your Sales Potential</i>
+
           </mat-card-title>
+
       </mat-card-header>
+      <div class="button-container ml-5">
+        <button mat-button color="primary" (click)="showUserlogin()">Customer</button>
+        <button mat-button color="primary" (click)="showDelivery()">Delivery</button>
+    </div>
       <mat-card-content>
-        <div class="button-container">
-          <button mat-button color="primary" (click)="showUserlogin()">Customer</button>
-          <button mat-button color="primary" (click)="showDelivery()">Delivery</button>
-      </div>
+
+      <h2 class="text-muted text-center mb-4">Vendor Login</h2>
           <form (ngSubmit)="handleVendorLogin()" [formGroup]="login">
               <mat-form-field >
                   <mat-label>User Name</mat-label>
@@ -202,9 +199,7 @@
               <a routerLink="/vendorforgotpassword" class="forgot-password" id="forgotpassword">Forgot Password</a>
           </span>
           <span>
-              <a routerLink="/vendorsignup" class="new-user" id="new-user">New Vender? Register Here</a>
-              <br/>
-              <a routerLink="/adminlogin" class="new-user" id="new-user">Admin Login</a>
+              <a routerLink="/vendorregister" class="new-user" id="new-user">New Vender? Register Here</a>
           </span>
           </form>
       </mat-card-content>
@@ -222,58 +217,54 @@
   <div class="lll">
       <section>
           <div class="grid ">
-            <div class="relative flex items-end px-4 pb-10 pt-60 sm:px-6 sm:pb-16 md:justify-center lg:px-8 lg:pb-24">
-              <div class="absolute overflow-hidden rounded-md  inset-0 ">
+            <div class="relative shadow-lg flex items-end px-4 pb-32 pt-60 sm:px-6 sm:pb-16 md:justify-center lg:px-8 lg:pb-24" style="height:  632px; overflow: hidden; border-radius: 5px;">
+              <div class="absolute overflow-hidden rounded-md inset-0" >
                 <img
                   class="h-full  w-full rounded-md object-fill"
-                  src="../../assets/login.jpg"
+                  src="../../assets/login.jpeg"
                   alt=""
                 />
               </div>
               <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
               <div class="relative">
-                  <div class="w-full max-w-xl xl:mx-auto xl:w-full xl:max-w-xl xl:pr-24">
-                    <h3 class="text-4xl font-bold text-gray-100">Why Choose Us?</h3>
-                    <ul class="mt-10 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
-                      <li class="flex items-center space-x-3">
-                        <div class="inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500">
-                          <i class="fas fa-check"></i>
-
-                        </div>
-                        <span class="text-lg font-medium text-gray-100">
-                          High-Quality Products
-                        </span>
-                      </li>
-                      <li class="flex items-center space-x-3">
-                        <div class="inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500">
-                          <i class="fas fa-check"></i>
-
-                        </div>
-                        <span class="text-lg font-medium text-gray-100">
-                          Fast Shipping
-                        </span>
-                      </li>
-                      <li class="flex items-center space-x-3">
-                        <div class="inline-flex text-white h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500">
-                          <i class="fas fa-check"></i>
-
-                        </div>
-                        <span class="text-lg font-medium text-gray-100">
-                          Easy Returns
-                        </span>
-                      </li>
-                      <li class="flex items-center space-x-3">
-                        <div class="inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500">
-                          <i class="fas fa-check"></i>
-
-                        </div>
-                        <span class="text-lg font-medium text-gray-100">
-                          24/7 Customer Support
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
+                <div class="w-full max-w-xl xl:mx-auto xl:w-full xl:max-w-xl xl:pr-24">
+                  <h3 class="text-4xl font-bold text-white">Why Choose Us?</h3>
+                  <ul class="mt-10 grid grid-cols-4 gap-x-8 gap-y-4 sm:grid-cols-2">
+                    <li class="flex items-center space-x-3">
+                      <div class="inline-flex text-white h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500">
+                        <i class="fas fa-check"></i>
+                      </div>
+                      <span class="text-lg font-medium text-gray-100">
+                        Flexible Work Hours
+                      </span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                      <div class="inline-flex text-white h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500">
+                        <i class="fas fa-check"></i>
+                      </div>
+                      <span class="text-lg font-medium text-gray-100">
+                        Competitive Earnings
+                      </span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                      <div class="inline-flex text-white h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500">
+                        <i class="fas fa-check"></i>
+                      </div>
+                      <span class="text-lg font-medium text-gray-100">
+                        User-Friendly Delivery App
+                      </span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                      <div class="inline-flex text-white h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-500">
+                        <i class="fas fa-check"></i>
+                      </div>
+                      <span class="text-lg font-medium text-gray-100">
+                        Timely Support and Assistance
+                      </span>
+                    </li>
+                  </ul>
                 </div>
+              </div>
 
             </div>
 
@@ -287,14 +278,16 @@
       <mat-card-header>
           <mat-card-title class="logintitle">
             <p>Welcome to AtoZStore</p>
-            <i>Ship Smarter Today</i>
+            <i style="  position: relative; right: 20px;">Deliver with Confidence</i>
           </mat-card-title>
       </mat-card-header>
+      <div class="button-container">
+        <button mat-button color="primary" (click)="showUserlogin()">Customer</button>
+        <button mat-button color="primary" (click)="showVender()">Vendor</button>
+    </div>
       <mat-card-content>
-        <div class="button-container">
-          <button mat-button color="primary" (click)="showUserlogin()">Customer</button>
-          <button mat-button color="primary" (click)="showVender()">Vendor</button>
-      </div>
+
+      <h2 class="text-muted text-center mb-4">Delivery Partner Login</h2>
           <form (ngSubmit)="handleDeliveryLogin()" [formGroup]="login">
               <mat-form-field >
                   <mat-label>User Name</mat-label>
@@ -312,9 +305,6 @@
           </span>
           <span>
               <a routerLink="/delieverysignup" class="new-user" id="new-user">New Delivery Partner? Register Here</a>
-              <br/>
-              <a routerLink="/adminlogin" class="new-user" id="new-user">Admin Login</a>
-
           </span>
           </form>
       </mat-card-content>

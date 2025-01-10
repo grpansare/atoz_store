@@ -23,6 +23,7 @@ export class VendorhomepageComponent {
        if (confirmed) {
          sessionStorage.removeItem("username");
          sessionStorage.removeItem("vendor");
+         sessionStorage.removeItem("token");
            this.router.navigateByUrl('/');
        }
 

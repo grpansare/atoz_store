@@ -99,7 +99,7 @@ padding: 0.3rem 0.9rem;
   z-index: 999;
 }
 .navbar{
-  background-color:#00193a;
+  background-color:#800080;
 
   display: flex;
   align-items: center;
@@ -116,7 +116,7 @@ margin-right: 500px;
   .main{
     display: flex;
     flex-direction: row;
-    background-image: url("/assets/vendortheme2.jpg"); 
+    background-image: url("/assets/vendortheme2.jpg");
     /* background-color: white; */
 
   }

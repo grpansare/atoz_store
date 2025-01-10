@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { LoginService } from '../Services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent {
   showDeliverylogin:boolean=false;
 
 
-  constructor(private http: HttpClient,private router: Router) {
+  constructor(private http: HttpClient,private router: Router,private loginService:LoginService) {
 
   }
 
@@ -43,14 +44,16 @@ export class LoginComponent {
 
 
 
-this.http.post("https://atozstore1-latest-2.onrender.com/user/loginuser",this.login.value).subscribe(
+this.http.post("http://localhost:8081/user/loginuser",this.login.value).subscribe(
   (response:any) =>{
     if(response!=null){
 
       sessionStorage.setItem('username',response.username)
       const user=JSON.stringify(response);
       sessionStorage.setItem('user',user);
-      // console.log(  localStorage.getItem('user'))
+      this.loginService.loginuser(response.token);
+
+
 
 
     Swal.fire({
@@ -108,8 +111,8 @@ showUserlogin(){
 }
 
 handleVendorLogin(){
-  console.log("1",this.login.value)
-  this.http.post("https://atozstore1-latest-2.onrender.com/vendor/vendorlogin",this.login.value).subscribe(
+  console.log(this.login.value)
+  this.http.post("http://localhost:8081/vendor/vendorlogin",this.login.value).subscribe(
   (response:any) =>{
     console.log(response);
 
@@ -117,6 +120,7 @@ handleVendorLogin(){
       sessionStorage.setItem('username',response.username)
       const vendor=JSON.stringify(response);
       sessionStorage.setItem('vendor',vendor);
+      this.loginService.loginuser(response.token);
       // console.log(  localStorage.getItem('user'))
 
 
@@ -154,7 +158,7 @@ error => {
 }
 handleDeliveryLogin(){
   console.log(this.login.value)
-  this.http.post("https://atozstore1-latest-2.onrender.com/delivery/deliverylogin",this.login.value).subscribe(
+  this.http.post("http://localhost:8081/delivery/deliverylogin",this.login.value).subscribe(
   (response:any) =>{
     console.log(response);
 
@@ -162,6 +166,7 @@ handleDeliveryLogin(){
       sessionStorage.setItem('username',response.username)
       const deliveryPartner=JSON.stringify(response);
       sessionStorage.setItem('deliveryPartner',deliveryPartner);
+      this.loginService.loginuser(response.token);
       // console.log(  localStorage.getItem('user'))
 
 

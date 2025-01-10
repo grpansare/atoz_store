@@ -8,7 +8,7 @@
 }
 .logo{
   display: flex;
- gap: 1rem;
+ gap: 2px;
   align-items: center;
   letter-spacing: 2px;
 }
@@ -30,9 +30,9 @@ background-color:rgb(6, 143, 174);
 
 
 img{
-  height: 600px;
-  width: 100%;
-  margin: 0px;
+  height: 400px;
+   width: 90%;
+    margin: 1rem auto;
   padding: 0px;
 }
 
@@ -151,13 +151,4 @@ background-color: #ceb5b7;
 .lastdiv{
   background-color: #010124;
   color:white;
-}
-
-
-@media (max-width: 576px) { /* For small screens */
-  #carouselexample .carousel-inner img {
-    max-height: 300px; /* Adjust the height as needed */
-    object-fit: fill; /* Ensures the image doesn't stretch */
-    obj
-  }
 }

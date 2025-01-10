@@ -22,6 +22,7 @@ export class DelieveryhomepageComponent {
        if (confirmed) {
          sessionStorage.removeItem("username");
          sessionStorage.removeItem("deliveryPartner");
+         sessionStorage.removeItem("token");
            this.router.navigateByUrl('/');
        }
 

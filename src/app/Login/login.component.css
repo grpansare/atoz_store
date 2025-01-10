@@ -5,17 +5,19 @@
   align-items: center;
   height: 100%;
   width: 50%;
+
 }
 
 mat-card {
 
   width: 100%;
-  height: 530px;
+  height: 630px;
+  padding: 1rem;
 
 }
 .logintitle{
   position: relative;
-  top: 2rem;
+  top: 0.5rem;
   left: 2rem;
 }
 .logintitle p{
@@ -36,7 +38,7 @@ mat-card-header {
 
 mat-card-content {
   /* margin-top: 0.1rem; */
-  padding:3rem 4rem;
+  padding:1rem 4rem;
 }
 
 mat-form-field {
@@ -63,12 +65,13 @@ button {
   justify-content: center;
   align-items: center;
  margin-left: 15%;
- margin-top: 5rem;
+ margin-top: 4rem;
  margin-bottom: 4rem;
  border-radius: 12px;
 }
 .lll{
 width: 50%;
+
 }
 @media screen and (max-width:485px) {
   .body{

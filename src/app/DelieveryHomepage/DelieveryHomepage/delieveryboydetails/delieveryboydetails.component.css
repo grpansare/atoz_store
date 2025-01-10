@@ -2,10 +2,18 @@
   display: flex;
     flex-direction: row;
     width: 100vw;
-    border: 1px solid black;
+
 
 }
-
+.orders{
+  height: 90vh;
+  overflow: scroll;
+  border-right: 1px solid black;
+}
+.orders::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
 .info-box {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -13,6 +21,7 @@
   margin-bottom: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
+  background-color:white;
 
     width: 350px;
     display: flex;
@@ -25,7 +34,7 @@
 }
 
 .info-box:hover {
-  background-color: #f0f0f0;
+  background-color: #abe7f0;
 }
 
 .sub-info-box {

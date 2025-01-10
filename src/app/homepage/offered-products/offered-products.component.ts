@@ -7,60 +7,23 @@ import { ProductdialogComponent } from '../productdialog/productdialog.component
 @Component({
   selector: 'app-offered-products',
   templateUrl: './offered-products.component.html',
-  styleUrl: './offered-products.component.css'
+  styleUrls: ['./offered-products.component.css']
 })
 export class OfferedProductsComponent {
-   products:any=[
+  products: any[] = [];
 
-  ];
-
-
-
-
-   pageSize = 6;
-  currentPage = 1;
-  user:any={};
+  user: any = {};
   selectedSize: string | null = null;
-  selectedColor!:String;
+  selectedColor!: String;
 
+  baseurl = "http://localhost:8081";
 
-
-
-
-
-
-
-
-
-   baseurl="https://atozstore1-latest-2.onrender.com"
-   constructor(private http:HttpClient,private router:Router,private route: ActivatedRoute,public dialog: MatDialog){
-this.getOfferedProducts()
-
-   }
-
-
-   get displayedProducts(): any[] {
-    const startIndex = (this.currentPage - 1) * this.pageSize;
-    const endIndex = startIndex + this.pageSize;
-    return this.products.slice(startIndex, endIndex);
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute, public dialog: MatDialog) {
+    this.getOfferedProducts();
   }
 
-  onPageChange(page: number): void {
-    this.currentPage = page;
-    this.scrollToTop();
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: { page: this.currentPage },
-      queryParamsHandling: 'merge',
-    });
+  ngOnInit(): void {
   }
-
-   private scrollToTop(): void {
-    // Using JavaScript to scroll to the top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-
 
   openDialog(product: any) {
     const dialogRef = this.dialog.open(ProductdialogComponent, {
@@ -72,14 +35,30 @@ this.getOfferedProducts()
       console.log('The dialog was closed');
     });
   }
-  getOfferedProducts(){
-    this.http.get(this.baseurl+"/product/getOfferedProducts").subscribe(
-      success=>{
-        this.products=success;
+
+  getOfferedProducts() {
+    this.http.get(this.baseurl + "/product/getOfferedProducts").subscribe(
+      (success: any) => {
+
+
+        // Splitting products into arrays of 3 products each
+        this.products = this.chunkArray(success, 3);
+        console.log(this.products);
+
       },
-      error=>{
-        console.log(error)
-      }
-    )
-  }
-  }
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  // Function to chunk array into arrays of specific size
+  chunkArray(array: any[], size: number): any[] {
+    const chunkedArray = [];
+
+    for (let i = 0; i < array.length; i += size) {
+      chunkedArray.push(array.slice(i, i + size));
+    }
+    return chunkedArray;
+  }
+}

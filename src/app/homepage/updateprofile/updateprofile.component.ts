@@ -11,13 +11,23 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 })
 export class UpdateprofileComponent {
   @Output() userUpdated = new EventEmitter<any>();
- user!:any;
+@Input() user!:any;
+gender!:any;
+
 
   constructor(private http:HttpClient,private router:Router){
 
 
   }
+  ngOnInit(): void { // Initialize user properties, including gender
+    if (!this.user) {
+      this.user =
+        // Initialize user object with default values if it's not provided by the parent component
+        this.gender= this.user.gendor // Initialize gender property with an empty string
+        // Add other properties as needed
 
+    }
+  }
   private modalService = inject(NgbModal);
 	closeResult = '';
   ngbModalOptions: NgbModalOptions = {
@@ -26,8 +36,7 @@ export class UpdateprofileComponent {
 };
   open(content: any) {
 
-    this.user=sessionStorage.getItem('user');
-    this.user=JSON.parse(this.user)
+
     this.modalService.open(content, this.ngbModalOptions).result.then((result) => {
       if (result === 'Save click') {
         this.saveUserInfo();
@@ -58,7 +67,7 @@ export class UpdateprofileComponent {
 
 
         saveUserInfo() {
-         this.http.post("https://atozstore1-latest-2.onrender.com/user/updateuser",this.user).subscribe(
+         this.http.post("http://localhost:8081/user/updateuser",this.user).subscribe(
           (response:any)=>{
             console.log(response);
 

@@ -18,7 +18,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCardActions, MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './Navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -60,10 +60,10 @@ import { CartpageComponent } from './CartPage/cartpage.component';
 import { LogoutComponent } from './Logout/logout.component';
 import { ProductsummaryComponent } from './Productsummary/productsummary.component';
 import { UpdateprofileComponent } from './homepage/updateprofile/updateprofile.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
-import { AddproductComponent } from './addproduct/addproduct.component';
+import { AddproductComponent } from './VendorHomepage/addproduct/addproduct.component';
 import { AddimageComponent } from './addimage/addimage.component';
 import { ProductdialogComponent } from './homepage/productdialog/productdialog.component';
 
@@ -87,10 +87,12 @@ import { UpdatedelieveryprofileComponent } from './DelieveryHomepage/DelieveryHo
 import { VendorforgetpasswordComponent } from './VendorForgetPassword/vendorforgetpassword.component';
 import { DelieveryforgetpasswordComponent } from './DelieveryForgetPassword/delieveryforgetpassword.component';
 import { ConfirmationDialogComponent } from './VendorHomepage/vendordetails/confirmation-dialog/confirmation-dialog.component';
+import { UpdateProductModalComponent } from './VendorHomepage/update-product-modal/update-product-modal.component';
+import { MatTableModule } from '@angular/material/table';
 import { AdminloginComponent } from './Admin/Admin_Login/adminlogin.component';
 import { DashboardComponent } from './Admin/Dashboard/dashboard.component';
 import { CustomertableComponent } from './Admin/Dashboard/customerTable/customertable.component';
-import { MatTableModule } from '@angular/material/table';
+import { AuthInterceptor } from './Services/auth-interceptor.interceptor';
 
 
 
@@ -99,8 +101,9 @@ import { MatTableModule } from '@angular/material/table';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     AppComponent,
-
     WelcomepageComponent,
+    AdminloginComponent,
+    DashboardComponent,
     SigninComponent,
     LoginComponent,
     NavbarComponent,
@@ -109,38 +112,28 @@ import { MatTableModule } from '@angular/material/table';
     FiltersComponent,
     ProductcategoryComponent,
     ProductsComponent,
-
     ProfileComponent,
-
-    HomepageComponent,
-   CategoriesComponent,
-   ProductsComponent,
-   ProfileComponent,
-   ProductcategoryComponent,
-   FiltersComponent,
-
-   ThemeToggleComponent,
-   ChangePasswordComponent,
-   NotfoundComponent,
-   CartpageComponent,
-   LogoutComponent,
-   ProductsummaryComponent,
-   UpdateprofileComponent,
-   PaginatorComponent,
-   AddproductComponent,
-   AddimageComponent,
-   ProductdialogComponent,
-   VendorhomepageComponent,
-   VendorsiteregistrationComponent,
-   DelieverypartnerregistrationComponent,
-   TestimonialsComponent,
-   ProductinfoComponent,
-   OfferedProductsComponent,
-   CalculatepricepipePipe,
-   SearchproductComponent,
-   UpdatevendorprofileComponent,
-   VendordetailsComponent,
-   UpdatevendorprofileComponent,
+    ThemeToggleComponent,
+    ChangePasswordComponent,
+    NotfoundComponent,
+    CartpageComponent,
+    LogoutComponent,
+    ProductsummaryComponent,
+    UpdateprofileComponent,
+    PaginatorComponent,
+    AddproductComponent,
+    AddimageComponent,
+    ProductdialogComponent,
+    VendorhomepageComponent,
+    VendorsiteregistrationComponent,
+    DelieverypartnerregistrationComponent,
+    TestimonialsComponent,
+    ProductinfoComponent,
+    OfferedProductsComponent,
+    CalculatepricepipePipe,
+    SearchproductComponent,
+    UpdatevendorprofileComponent,
+    VendordetailsComponent,
     DelieveryhomepageComponent,
     DelieveryboydetailsComponent,
     DelieveryforgetpasswordComponent,
@@ -150,15 +143,12 @@ import { MatTableModule } from '@angular/material/table';
     VendorprofileComponent,
     OrderhistoryComponent,
     VendorforgetpasswordComponent,
+    ConfirmationDialogComponent,
+    UpdateProductModalComponent,
+    CustomertableComponent
 
-    OrderhistoryComponent,
-      ConfirmationDialogComponent,
-      AdminloginComponent,
-      DashboardComponent,
-      CustomertableComponent,
-      
-
-  ],
+  ]
+  ,
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -200,7 +190,9 @@ import { MatTableModule } from '@angular/material/table';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
+    MatPaginator,
     FlexLayoutModule,
+    MatPaginatorModule,
 
 
 
@@ -238,7 +230,7 @@ MatIconModule,
 
 
   ],
-  providers: [ThemeService],
+  providers: [ThemeService,[{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}]],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

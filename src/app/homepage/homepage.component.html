@@ -83,7 +83,7 @@
 
       </div>
     </mat-toolbar-row>
-    <mat-toolbar-row class="my-2" fxLayout="row" fxLayoutAlign="center center "fxHide.gt-sm >
+    <mat-toolbar-row class="m-2" fxLayout="row" fxLayoutAlign="center center "fxHide.gt-sm >
       <form class="d-flex input-group w-auto" [formGroup]="searchForm" >
         <div class="searchbox">
 
@@ -116,7 +116,7 @@
       <mat-nav-list>
 
         <a routerLink="cart"  mat-list-item (click)="sidenav.toggle()">
-          <div class="  text-black text-2xl">
+          <div class="  text-black text-sm">
             Cart
           <i class="fa-solid fa-cart-shopping"></i>
         </div>
@@ -127,24 +127,24 @@
 
       <a  routerLink="profile" class="  text-black text-2xl"  mat-list-item (click)="sidenav.toggle()">
 
-        <div class="  text-black text-2xl">
+        <div class="  text-black text-sm">
           View Profile
         <i class="fa-solid fa-user"></i>
       </div>
       </a>
-      
+
       <a  routerLink="orderHistory" class="  text-black text-2xl"  mat-list-item (click)="sidenav.toggle()">
 
-        <div class="  text-black text-2xl">
-          Order History 
+        <div class="  text-black text-sm">
+          Order History
           <i class="fa-solid fas fa-history"></i>
       </div>
       </a>
-      
+
 
 
       <a routerLink="logout" class="  text-black text-2xl" (click)="sidenav.toggle()"  mat-list-item>
-        <div class="  text-black text-2xl">
+        <div class="  text-black text-sm">
           Logout
         <i class="fa-solid fa-sign-out"></i>
       </div>

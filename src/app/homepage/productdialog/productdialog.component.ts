@@ -21,7 +21,7 @@ export class ProductdialogComponent implements OnInit{
   user:any={};
   addingToCart:boolean=false;
   selectedSize: string=this.data.sizes[0];
-  baseurl="https://atozstore1-latest-2.onrender.com";
+  baseurl="http://localhost:8081";
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   isPresentInCart:boolean=false;
@@ -33,27 +33,27 @@ export class ProductdialogComponent implements OnInit{
     private router:Router
   ) { console.log(data); }
 
-    
+
 
 
 ngOnInit(): void {
-  this.CheckInCart()
+  // this.CheckInCart()
 }
-  CheckInCart(){
-    this.user=sessionStorage.getItem('user');
-    const userinfo=JSON.parse(this.user);
-    this.http.post(this.baseurl+`/cart/checkInCart/${userinfo.username}`,this.data.productid).subscribe(
-      response=>{
-      if(response==true){
-        this.isPresentInCart=true;
-      }
+  // CheckInCart(){
+  //   this.user=sessionStorage.getItem('user');
+  //   const userinfo=JSON.parse(this.user);
+  //   this.http.post(this.baseurl+`/cart/checkInCart/${userinfo.username}`,this.data.productid).subscribe(
+  //     response=>{
+  //     if(response==true){
+  //       this.isPresentInCart=true;
+  //     }
 
-      },
-      error=>{
-        console.log(error)
-      }
-    )
-  }
+  //     },
+  //     error=>{
+  //       console.log(error)
+  //     }
+  //   )
+  // }
 
   addToCart(product:any){
     this.user=sessionStorage.getItem('user');
@@ -81,7 +81,7 @@ ngOnInit(): void {
 
   }
 
-console.log("before backend"+cartproduct)
+
 this.http.post<any[]>(this.baseurl+`/cart/addToCart/${userinfo.username}`,cartproduct).subscribe(
   response=>{
      console.log(response)

@@ -1,4 +1,4 @@
-<ng-template #content let-modal>
+<ng-template #content let-modal  class="">
 	<div class="modal-header">
 		<h4 class="modal-title" id="modal-basic-title">Profile update</h4>
 		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
@@ -39,6 +39,14 @@
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
+          <!-- <mat-form-field class="w-full">
+            <mat-label>Gender</mat-label>
+            <mat-select placeholder="Select Category"  id="gender" [(ngModel)]="gender" >
+              <mat-option value="Male">Male</mat-option>
+              <mat-option value="Female">Female</mat-option>
+
+            </mat-select>
+          </mat-form-field> -->
 
 
 
@@ -52,7 +60,9 @@
 
 		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
 	</div>
-</ng-template>
+
+  </ng-template>
+
 
 <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Update</button>
 

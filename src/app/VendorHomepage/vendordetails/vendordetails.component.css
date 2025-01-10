@@ -113,6 +113,31 @@
   .products {
     height: 100vh;
     overflow-y: scroll; /* Show scrollbar only when needed */
+    border-right: 1px solid rgb(4, 95, 115);
+  }
+  .noProducts-container{
+    height: 80vh;
+    width: 70vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 26px;
+    padding: 2rem;
+    margin: 3rem auto;
+    border-radius: 2rem;
+    background-color: white;
+
+
+  }
+   .text{
+    font-family: sans-serif;
+    font-weight: 500;
+    color: rgb(82, 80, 80);
+  }
+  .seconddiv img{
+    height: 400px;
+    width: 400px;
   }
 
   /* Hide scrollbar */
@@ -124,7 +149,7 @@
     .main{
       display: flex;
       flex-direction: row;
-      background-image: url("/assets/vendortheme2.jpg"); 
+      /* background-image: url("/assets/vendortheme2.jpg"); */
       /* background-color: white; */
 
 

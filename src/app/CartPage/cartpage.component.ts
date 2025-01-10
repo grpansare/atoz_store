@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { CartServiceService } from '../Services/cart-service.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class CartpageComponent {
 
 
 
-  baseurl="https://atozstore1-latest-2.onrender.com"
+  baseurl="http://localhost:8081"
   constructor(private http:HttpClient,private router:Router,private cartService: CartServiceService){
   this.user=sessionStorage.getItem('user');
   this.user=JSON.parse(this.user);
@@ -58,7 +59,7 @@ error=>{
 removeFromCart(product:any){
 
   const formdata=new FormData();
-  formdata.append("username",this.user.username);
+
   formdata.append("cartproductid",product.cartproductId);
   this.http.post(`${this.baseurl}/cart/deleteFromCart`, formdata).subscribe(
     response=>{

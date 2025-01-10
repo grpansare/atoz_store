@@ -15,7 +15,7 @@ export class HomepageComponent {
    showdropdown:boolean=false;
    suggestionArr:string[]=[ "boat airdopes","shirts","saree","jackets","hoodies","laptop","bed","phone"]
    suggestions:string[]=[];
-   baseurl="https://atozstore1-latest-2.onrender.com";
+   baseurl="http://localhost:8081";
    searchResults:any[]=[];
    showSuggestions: boolean = false;
    noProductFound:boolean=false;
@@ -106,6 +106,7 @@ export class HomepageComponent {
        if (confirmed) {
          sessionStorage.removeItem("username");
          sessionStorage.removeItem("user");
+         sessionStorage.removeItem('token');
            this.router.navigateByUrl('/');
        }
 

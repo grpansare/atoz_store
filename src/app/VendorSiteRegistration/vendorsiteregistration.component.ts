@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class VendorsiteregistrationComponent {
 
-  private baseUrl:any = "https://atozstore1-latest-2.onrender.com";
+  private baseUrl:any = "http://localhost:8081";
 
   isSubmited:boolean=false;
 
@@ -185,7 +185,7 @@ get pincode():any{
       this.http.post(this.baseUrl + "/vendor/vendorRegister", registeringData).subscribe(
         (response: any) => {
           // Handle success response
-          alert("Registered successfully!");
+
           console.log(response);
 
           Swal.fire({

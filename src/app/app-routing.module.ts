@@ -16,7 +16,7 @@ import { ChangePasswordComponent } from './ForgotPassword/change-password.compon
 import { CartpageComponent } from './CartPage/cartpage.component';
 import { LogoutComponent } from './Logout/logout.component';
 import { ProductsummaryComponent } from './Productsummary/productsummary.component';
-import { AddproductComponent } from './addproduct/addproduct.component';
+import { AddproductComponent } from './VendorHomepage/addproduct/addproduct.component';
 import { AddimageComponent } from './addimage/addimage.component';
 import { VendorsiteregistrationComponent } from './VendorSiteRegistration/vendorsiteregistration.component';
 import { DelieverypartnerregistrationComponent } from './DelieveryPartnerRegistration/delieverypartnerregistration.component';
@@ -32,6 +32,7 @@ import { VendorforgetpasswordComponent } from './VendorForgetPassword/vendorforg
 import { DelieveryforgetpasswordComponent } from './DelieveryForgetPassword/delieveryforgetpassword.component';
 import { AdminloginComponent } from './Admin/Admin_Login/adminlogin.component';
 import { DashboardComponent } from './Admin/Dashboard/dashboard.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', component: WelcomepageComponent },
@@ -40,17 +41,18 @@ const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'forgotpassword', component: ChangePasswordComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'vendorsignup', component: VendorsiteregistrationComponent },
+  { path: 'vedorsignup', component: VendorsiteregistrationComponent },
   { path: 'delieverysignup', component: DelieverypartnerregistrationComponent },
   { path: 'vendorforgotpassword', component: VendorforgetpasswordComponent},
    { path: 'delieveryforgotpassword', component: DelieveryforgetpasswordComponent},
 
 
 
-  
+
 
 
   {path:"home",component:HomepageComponent,
+  canActivate:[AuthGuard],
   children:[
     {path:"",component:CategoriesComponent},
     {path:"profile",component:ProfileComponent},
@@ -64,6 +66,7 @@ const routes: Routes = [
   ]
   },
   {path:"vendor",component:VendorhomepageComponent,
+  canActivate:[AuthGuard],
   children:[
     {path:"",component:VendordetailsComponent},
     { path: 'addproduct', component: AddproductComponent},
@@ -78,6 +81,7 @@ const routes: Routes = [
 
 
 {path:"delieveryhome",component:DelieveryhomepageComponent,
+canActivate:[AuthGuard],
   children:[
     {path:"",component:DelieveryboydetailsComponent},
     {path:"delieveryprofile",component:DelieveryprofileComponent},

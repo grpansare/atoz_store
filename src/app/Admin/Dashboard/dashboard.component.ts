@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   isMobile= true;
   isCollapsed = true;
 
-  baseUrl: any = "https://atozstore1-latest-2.onrender.com";
+  baseUrl: any = "http://localhost:8081";
 
   isVendor:boolean=false;
   isDelivery:boolean=false;
@@ -40,7 +40,7 @@ export class DashboardComponent implements OnInit {
     this.http.get<any[]>(`${this.baseUrl}/delivery/getDeliveryPartners`).subscribe(
       response=>{
         console.log(response);
-        this.deliveryPartners=response;   
+        this.deliveryPartners=response;
       },
       error=>{
         console.log(error);
@@ -58,16 +58,17 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  
+
   logoutAdmin(){
     this.toggleMenu();
     this.LogoutConfirmation();
   }
- 
+
   LogoutConfirmation(): void {
     this.openLogoutConfirmation().then((confirmed) => {
        if (confirmed) {
            this.router.navigateByUrl('/');
+           sessionStorage.removeItem('token')
        }
 
      });
@@ -92,7 +93,7 @@ export class DashboardComponent implements OnInit {
     // Navigate to the route where vendors table is displayed
     //this.router.navigate(['/vendors']);
     //this.isCollapsed = !this.isCollapsed;
-    
+
     this.isVendor = true;
     this.isDelivery = false;
     this.isCustomer=false;
@@ -101,7 +102,7 @@ export class DashboardComponent implements OnInit {
     this.http.get<any[]>(`${this.baseUrl}/vendor/getVendors`).subscribe(
       response=>{
         console.log(response);
-        this.vendors=response;    
+        this.vendors=response;
       },
       error=>{
         console.log(error);
@@ -114,7 +115,7 @@ export class DashboardComponent implements OnInit {
     console.log("event"+event.value)
     console.log(this.vendorStatus)
     //console.log("event target"+event.target.value)
-    
+
     const vendorObj={
       username:username,
       status:this.vendorStatus
@@ -129,20 +130,20 @@ export class DashboardComponent implements OnInit {
               title: 'Access Grant!',
               text: 'Vendor Access has been Accepted.',
             });
-   
+
           }
           else{
             Swal.fire({
               icon: 'error',
               title: 'Access Denied',
               text: 'Vendor Access has been Rejected.',
-            });  
+            });
           }
           this.showVendors();
       },
       error=>{
         console.log(error);
-            
+
         Swal.fire({
           icon: 'error',
           title: 'Action Failed',
@@ -164,7 +165,7 @@ export class DashboardComponent implements OnInit {
     this.http.get<any[]>(`${this.baseUrl}/delivery/getDeliveryPartners`).subscribe(
       response=>{
         console.log(response);
-        this.deliveryPartners=response;   
+        this.deliveryPartners=response;
       },
       error=>{
         console.log(error);
@@ -189,7 +190,7 @@ export class DashboardComponent implements OnInit {
                 title: 'Access Grant!',
                 text: 'Delivery Partner Access has been Accepted.',
               });
-          
+
             }
             else{
               Swal.fire({
@@ -197,13 +198,13 @@ export class DashboardComponent implements OnInit {
                 title: 'Access Denied',
                 text: 'Delivery Partner Access has been Rejected.',
               });
-          
+
             }
             this.showDeliveryPartners();
         },
         error=>{
           console.log(error);
-              
+
           Swal.fire({
             icon: 'error',
             title: 'Action Failed',
@@ -214,11 +215,12 @@ export class DashboardComponent implements OnInit {
   }
 
   showCustomers(){
+
     this.isVendor = false;
     this.isDelivery = false;
     this.isCustomer=true;
-    this.toggleMenu();
+    // this.toggleMenu();
   }
 
-  
+
 }

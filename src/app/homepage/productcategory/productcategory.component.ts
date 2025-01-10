@@ -14,7 +14,7 @@ export class ProductcategoryComponent {
   constructor(private route: ActivatedRoute,private http:HttpClient,private router:Router) {
 
   }
- baseUrl:any="https://atozstore1-latest-2.onrender.com/product";
+ baseUrl:any="http://localhost:8081/product";
   ngOnInit(): void {
 
     this.route.paramMap.subscribe((params) => {
@@ -34,7 +34,7 @@ handleClick(){
 }
 getProducts(){
 
-  this.http.get<any[]>(`https://atozstore1-latest-2.onrender.com/product/getProductByCategory/${this.category}`).subscribe(
+  this.http.get<any[]>(`http://localhost:8081/product/getProductByCategory/${this.category}`).subscribe(
     response=>{
       console.log(response)
   this.products=response;
@@ -51,7 +51,7 @@ handlePriceFilter(eventData: { min: any, max: any }) {
   const formdata=new FormData();
   formdata.append('min',min)
   formdata.append('max',max)
-  this.http.post(`https://atozstore1-latest-2.onrender.com/product/byPriceRange/${this.category}`,formdata).subscribe(
+  this.http.post(`http://localhost:8081/product/byPriceRange/${this.category}`,formdata).subscribe(
     success=>{
       this.products=success;
     },

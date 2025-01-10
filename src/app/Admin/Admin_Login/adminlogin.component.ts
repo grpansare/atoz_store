@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { LoginService } from '../../Services/login.service';
 
 @Component({
   selector: 'app-adminlogin',
@@ -10,19 +11,20 @@ import Swal from 'sweetalert2';
 })
 export class AdminloginComponent {
 
-  private baseUrl:any = "https://atozstore1-latest-2.onrender.com";
+  private baseUrl:any = "http://localhost:8081";
   username: string = '';
   password: string = '';
 
-  constructor(private http: HttpClient,private router: Router) {
+  constructor(private http: HttpClient,private router: Router,private loginservice:LoginService) {
 
   }
-  
+
   authenticateAdmin() {
     this.http.post<any>(`${this.baseUrl}/admin/adminAuthentication`, { username: this.username, password: this.password })
       .subscribe(
         (response) => {
-          if (response && response.success) {
+          if (response ) {
+            this.loginservice.loginuser(response.token);
             Swal.fire({
               icon: 'success',
               title: 'Admin Login',
@@ -47,7 +49,7 @@ export class AdminloginComponent {
         }
       );
   }
-  
+
 
 
 }

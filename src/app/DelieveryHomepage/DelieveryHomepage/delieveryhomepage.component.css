@@ -1,18 +1,18 @@
 *{
     box-sizing: border-box;
-  
+
   }
   .content{
     background-color: #f4f4f4;
     /* background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%); */
   }
-  
+
   .btn{
     border: 1px solid rgb(253, 249, 249);
   padding: 0.6rem 2rem;
   /* font-size: 1rem; */
   color: rgb(250, 249, 249);
-  
+
   }
   .show{
     display: block;
@@ -28,7 +28,7 @@
     position: relative;
     align-items: center;
     justify-content: space-around;
-  
+
   }
   .searchbox input{
     border: none;
@@ -63,20 +63,20 @@
     color: white;
     margin-left: 0.7rem;
     margin-right: 0.4rem;
-  
+
   }
    .cart:hover{
     background-color: rgb(249, 246, 246);
     border: 1px solid rgb(226, 219, 219);
-  
+
     color: black;
   }
   .dropdown-item{
     font-size: 1.1rem;
-  
+
   }
   .dropdown{
-  
+
   color: rgb(11, 11, 11);
   }
   .font-bold {
@@ -97,12 +97,11 @@
     z-index: 999;
   }
   .navbar{
-    background-color:#00193a;
-  
+    background-color:#008080;
+
     display: flex;
     align-items: center;
   font-size: 1.5rem;
-  
+
   }
-  
-  
+

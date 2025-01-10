@@ -48,4 +48,5 @@
   background-image: url(/assets/bguser.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  backdrop-filter: brightness(20);
 }

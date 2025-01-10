@@ -22,14 +22,17 @@ export class CustomertableComponent implements AfterViewInit {
   constructor(private http: HttpClient) { }
 
   ngAfterViewInit() {
+ 
     this.dataSource.paginator = this.paginator;
     this.getDataFromBackend();
   }
 
   getDataFromBackend() {
+    console.log("in get data")
     this.http.get<PeriodicElement[]>(`${this.baseUrl}/user/getAllCustomers`).subscribe(
       (data) => {
         this.dataSource.data = data;
+        console.log(data)
       },
       (error) => {
         console.log('Error fetching data from backend:', error);

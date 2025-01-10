@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrl: './filters.component.css'
 })
 export class FiltersComponent {
-  backendUrl = 'https://atozstore1-latest-2.onrender.com';
+  backendUrl = 'http://localhost:8881';
   products: any[] = [];
   category: string = '';
   genFinal = ["Men", "Women","Kids",""];
@@ -30,7 +30,7 @@ prodArr:any[]=[];
   constructor(private http: HttpClient,private router:Router) {
       this.show();
   }
-  private baseUrl:any = 'https://atozstore1-latest-2.onrender.com/product';
+  private baseUrl:any = 'http://localhost:8188/product';
 
   show(){
     this.http.get(this.baseUrl).subscribe(

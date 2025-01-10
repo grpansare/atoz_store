@@ -21,7 +21,7 @@
     </div>
   </mat-card-content>
   <mat-card-actions class="btns ">
-    <app-updateprofile (userUpdated)="updateUser($event)"  ></app-updateprofile>
+    <app-updateprofile (userUpdated)="updateUser($event)"  [user]="userinfo"></app-updateprofile>
 
 
 
