@@ -9,11 +9,12 @@
 
 <div class="rounded-lg product pt-3 px-5 overflow-hidden  mr-3" *ngFor="let product of displayedProducts ">
   <div (click)="openDialog(product)" >
-  <img
-    [src]="product.imageFile.filePath"
+    <img
+    [src]="'https://atozstore2.netlify.app/app/src' + product.imageFile.filePath"
     alt="Laptop"
     class="aspect-[16/9] w-full rounded-md md:aspect-auto md:h-[300px] lg:h-[200px]"
   />
+  
   <div class="p-2 mt-2">
     <h3 class="inline-flex  items-center text-md font-semibold">
      {{product.productname |titlecase}}
