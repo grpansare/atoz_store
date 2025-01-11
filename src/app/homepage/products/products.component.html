@@ -10,7 +10,7 @@
 <div class="rounded-lg product pt-3 px-5 overflow-hidden  mr-3" *ngFor="let product of displayedProducts ">
   <div (click)="openDialog(product)" >
     <img
-    [src]="'https://atozstore1-latest-2.onrender.com/uploads' + product.imageFile.filePath"
+    [src]="'https://atozstore1-latest-2.onrender.com/uploads/' + product.imageFile.filePath"
     alt="Laptop"
     class="aspect-[16/9] w-full rounded-md md:aspect-auto md:h-[300px] lg:h-[200px]"
   />
