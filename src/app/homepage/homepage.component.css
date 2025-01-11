@@ -130,5 +130,19 @@ font-size: 1.5rem;
    top: 1rem;
    right: 0;
 
+
+  }
+  .searchbox{
+    display: flex;
+    border: 1px solid white;
+    border-radius: 7px;
+    width: 350px;
+    position: relative;
+    align-items: center;
+    justify-content: space-around;
+  
+    background-color: white;
+    overflow: hidden;
+  
   }
 }
