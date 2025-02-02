@@ -226,11 +226,5 @@ Ensure that CORS is enabled in the Spring Boot backend to allow communication be
 
 ---
 
-## Contact
-
-Maintainer: Manoj Modhale
-
-- GitHub: [https://github.com/ManojModhale](https://github.com/ManojModhale)
-- Email: [manojmodhale2001@gmail.com](mailto:manojmodhale2001@gmail.com)
 
 ---
